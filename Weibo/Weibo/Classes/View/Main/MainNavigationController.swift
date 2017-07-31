@@ -26,10 +26,33 @@ class MainNavigationController: UINavigationController {
         if childViewControllers.count > 0{
          //隐藏底部的tabbar
          viewController.hidesBottomBarWhenPushed=true
+         //判断控制器类型 设置返回键
+        if let vc = viewController as? BaseViewController {
+            var title = "返回"
+            //判断控制器级数
+            if childViewControllers.count == 1 {
+            // titile 显示首页标题
+                title = childViewControllers.first?.title ?? "返回"
+            }
+            //设置自定义返回键
+            vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, target: self, action: #selector(popToParent))
+        }
+
         }
         
         super.pushViewController(viewController, animated: true)
     }
 
-
+    //返回上一级
+    @objc private func popToParent(){
+      popViewController(animated: true)
+    
+    
+    }
+    
+        
+        
+        
+        
+    
 }
