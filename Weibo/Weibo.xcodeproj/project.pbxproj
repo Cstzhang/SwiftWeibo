@@ -170,6 +170,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D11EE901F2F2D4100296E5E /* MainController */ = {
+			isa = PBXGroup;
+			children = (
+				6D5D163D1F2B366000F9C3B0 /* MainViewController.swift */,
+				6D5D16411F2B368A00F9C3B0 /* MainNavigationController.swift */,
+			);
+			name = MainController;
+			sourceTree = "<group>";
+		};
 		6D5D15F91F2B31C300F9C3B0 = {
 			isa = PBXGroup;
 			children = (
@@ -279,8 +288,7 @@
 		6D5D16391F2B34B500F9C3B0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				6D5D163D1F2B366000F9C3B0 /* MainViewController.swift */,
-				6D5D16411F2B368A00F9C3B0 /* MainNavigationController.swift */,
+				6D11EE901F2F2D4100296E5E /* MainController */,
 				6D5D16451F2B36B900F9C3B0 /* BaseViewController.swift */,
 			);
 			path = Main;

@@ -9,6 +9,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    //表格视图 用户没有登录就不创建
+    var tablView :UITableView?
   
     //自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
@@ -32,10 +34,27 @@ class BaseViewController: UIViewController {
 }
 
 
+
+
+
+//导航相关
 extension BaseViewController{
       func setupUI()  {
         view.backgroundColor=UIColor.cz_random()
-        //添加导航条
+        setupTableView()
+        setupNavigationBar()
+        
+    }
+    private func  setupTableView(){
+       tablView = UITableView(frame: view.bounds, style: .plain)
+       view.insertSubview(tablView!, belowSubview: navigationBar)
+    
+    
+    }
+    
+    
+    //设置导航条
+    private func setupNavigationBar(){
         view.addSubview(navigationBar)
         //navigationBar上面添加navItem
         navigationBar.items=[navItem]
@@ -43,8 +62,7 @@ extension BaseViewController{
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         //设置 navBar title 字体颜色
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.darkGray]
-
+    
     }
-
     
 }
