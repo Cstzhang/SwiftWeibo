@@ -16,7 +16,12 @@ class MainViewController: UITabBarController {
         setupComposeButton()
     }
     //私用控件
-   fileprivate  lazy var composeButton : UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+    fileprivate lazy var composeButton : UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+    
+    //撰写微博
+    func composeStatus() -> () {
+        print("撰写微博")
+    }
     
 }
 /* extension类似oc分类，切分代码块
@@ -30,7 +35,7 @@ class MainViewController: UITabBarController {
         let count = CGFloat(childViewControllers.count)
         let w = tabBar.bounds.width / count - 1//向内缩进的宽度减少，让按钮的宽度变大，盖住容错点，防止点击穿透
         composeButton.frame = tabBar.bounds.insetBy(dx: 2*w, dy: 0)
-    
+        composeButton.addTarget(self, action: #selector(composeStatus), for: .touchUpInside)
     
     }
     //设置所有子控制器
