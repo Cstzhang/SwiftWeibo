@@ -12,6 +12,8 @@ import UIKit
 class BaseViewController: UIViewController {
     //表格视图 用户没有登录就不创建
     var tableView : UITableView?
+    //刷新控件
+    var refreshControl:UIRefreshControl?
   
     //自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
@@ -34,6 +36,7 @@ class BaseViewController: UIViewController {
     }
     //加载数据源， 具体实现由子类负责
     func loadData()  {
+        
         
     }
     
@@ -79,6 +82,13 @@ extension BaseViewController{
                                                 0,
                                                 tabBarController?.tabBar.bounds.height ?? 49,
                                                 0)
+        //设置刷新控件
+          //1 实例化控件
+          refreshControl = UIRefreshControl()
+          //2 添加到表格视图
+          tableView?.addSubview(refreshControl!)
+          //3 添加监听方法
+          refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     
     }
     
