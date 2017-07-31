@@ -13,21 +13,32 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChildController()
+        setupComposeButton()
     }
-    
+    //私用控件
+   fileprivate  lazy var composeButton : UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
     
 }
 /* extension类似oc分类，切分代码块
    可以把相近功能的函数放在一个extension中便于维护
    extension扩展只能添加些的计算属性，但不能添加存储属性，也不能像已有属性添加属性观察
  */
-private extension MainViewController {
-
+ extension MainViewController {
+    //设置添加按钮
+   fileprivate func setupComposeButton(){
+        tabBar.addSubview(composeButton)
+        let count = CGFloat(childViewControllers.count)
+        let w = tabBar.bounds.width / count - 1//向内缩进的宽度减少，让按钮的宽度变大，盖住容错点，防止点击穿透
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2*w, dy: 0)
+    
+    
+    }
     //设置所有子控制器
-     func setupChildController(){
+   fileprivate  func setupChildController(){
         let array = [
            ["clsName":"HomeViewController","title":"首页","imageName":"home"],
            ["clsName":"MessageViewController","title":"消息","imageName":"message_center"],
+           ["clsName":"UIViewController","title":"","imageName":""],
            ["clsName":"DiscoverViewController","title":"发现","imageName":"discover"],
            ["clsName":"ProfileViewController","title":"我","imageName":"profile"],
         
@@ -44,7 +55,7 @@ private extension MainViewController {
     //使用字典创建一个子控制器
     // dict: clsName titile imageName
     
-     func controller(dict:[String:String])->UIViewController{
+   fileprivate  func controller(dict:[String:String])->UIViewController{
         //1，取得字典内容
         guard let clsName =   dict["clsName"],
             let title =     dict["title"],
