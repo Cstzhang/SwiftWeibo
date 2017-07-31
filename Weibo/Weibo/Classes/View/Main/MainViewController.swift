@@ -4,7 +4,7 @@
 //
 //  Created by zhangzb on 2017/7/28.
 //  Copyright © 2017年 zhangzb. All rights reserved.
-//
+//  private当前类当前代码块访问 fileprivate当前文件内访问 @objc 允许函数在“运行时”通过OC的消息机制 被调用
 
 import UIKit
 
@@ -19,7 +19,7 @@ class MainViewController: UITabBarController {
     fileprivate lazy var composeButton : UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
     
     //撰写微博
-    func composeStatus() -> () {
+    @objc fileprivate func composeStatus() -> () {
         print("撰写微博")
     }
     
@@ -59,7 +59,7 @@ class MainViewController: UITabBarController {
     
     //使用字典创建一个子控制器
     // dict: clsName titile imageName
-    
+
    fileprivate  func controller(dict:[String:String])->UIViewController{
         //1，取得字典内容
         guard let clsName =   dict["clsName"],
@@ -82,7 +82,7 @@ class MainViewController: UITabBarController {
         vc.tabBarItem.setTitleTextAttributes([NSFontAttributeName:UIFont.systemFont(ofSize: 12)],
                                              for: UIControlState.normal)
         
-        
+        //实例化导航控制器的时候，会调用push方法将rootVC压栈
         let nav = MainNavigationController(rootViewController: vc)
         return nav
         

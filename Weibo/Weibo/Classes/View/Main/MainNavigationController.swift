@@ -9,27 +9,17 @@
 import UIKit
 
 class MainNavigationController: UINavigationController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//       setup
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //重写 pushViewController方法 所有push动作都会调用次方法
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        print(viewController)
+        //判断是不是栈底控制器，根控制器不需要处理
+        if childViewControllers.count > 0{
+         //隐藏底部的tabbar
+         viewController.hidesBottomBarWhenPushed=true
+        }
+        
+        super.pushViewController(viewController, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
