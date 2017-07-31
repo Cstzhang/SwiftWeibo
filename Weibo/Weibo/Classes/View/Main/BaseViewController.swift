@@ -12,7 +12,7 @@ class BaseViewController: UIViewController {
   
     //自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
-    //navItem
+    //navItem 后面设置导航条都要用这个进行设置
     lazy var navItem = UINavigationItem()
     
     override func viewDidLoad() {
@@ -40,7 +40,10 @@ extension BaseViewController{
         view.backgroundColor=UIColor.cz_random()
         //添加导航条
         view.addSubview(navigationBar)
+        //navigationBar上面添加navItem
         navigationBar.items=[navItem]
+        //navigationBar 的渲染颜色
+        navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         
     }
 
