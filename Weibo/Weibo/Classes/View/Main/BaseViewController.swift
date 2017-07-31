@@ -11,7 +11,7 @@ import UIKit
 //OC中不支持多继承，使用协议替代，Swift的写法更类似于多继承
 class BaseViewController: UIViewController {
     //表格视图 用户没有登录就不创建
-    var tablView :UITableView?
+    var tableView : UITableView?
   
     //自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
@@ -54,11 +54,11 @@ extension BaseViewController{
     }
     //创建表格
     private func  setupTableView(){
-       tablView = UITableView(frame: view.bounds, style: .plain)
-       view.insertSubview(tablView!, belowSubview: navigationBar)
+       tableView = UITableView(frame: view.bounds, style: .plain)
+       view.insertSubview(tableView!, belowSubview: navigationBar)
        //设置数据源&代理 子类实现数据源方法
-       tablView?.dataSource = self
-       tablView?.delegate = self as? UITableViewDelegate
+       tableView?.dataSource = self
+       tableView?.delegate = self as? UITableViewDelegate
     }
     
     //设置导航条
