@@ -10,6 +10,8 @@ import UIKit
 
 //OC中不支持多继承，使用协议替代，Swift的写法更类似于多继承
 class BaseViewController: UIViewController {
+    // 用户登录标记
+    var userLogin = true
     //表格视图 用户没有登录就不创建
     var tableView : UITableView?
     //刷新控件
@@ -51,13 +53,16 @@ class BaseViewController: UIViewController {
 // MARK: -导航相关
 extension BaseViewController{
     func setupUI()  {
-        view.backgroundColor=UIColor.cz_random()
+        view.backgroundColor=UIColor.white
         //取消自动缩进 如果隐藏了导航栏，会缩进20px
         automaticallyAdjustsScrollViewInsets = false
-        setupTableView()
+        //登录设置表格，未登录显示访客视图
+        userLogin ? setupTableView() : setupVisitorView()
         setupNavigationBar()
         
+        
     }
+    
     //创建表格
     private func  setupTableView(){
        tableView = UITableView(frame: view.bounds, style: .plain)
@@ -66,7 +71,14 @@ extension BaseViewController{
        tableView?.dataSource = self
        tableView?.delegate = self
         
-        
+    }
+    
+    //未登录视图
+    private func  setupVisitorView(){
+      let visitorView = UIView(frame: view.bounds)
+      visitorView.backgroundColor = UIColor.cz_random()
+      view.insertSubview(visitorView, belowSubview: navigationBar)
+    
     }
     
     //设置导航条
