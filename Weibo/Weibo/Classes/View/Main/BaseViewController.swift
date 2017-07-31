@@ -32,9 +32,6 @@ class BaseViewController: UIViewController {
 }
 
 
-
-
-
 extension BaseViewController{
       func setupUI()  {
         view.backgroundColor=UIColor.cz_random()
@@ -42,12 +39,11 @@ extension BaseViewController{
         view.addSubview(navigationBar)
         //navigationBar上面添加navItem
         navigationBar.items=[navItem]
-        //navigationBar 的渲染颜色
+        //navigationBar 的渲染颜色（系统默认导航栏右侧高亮）
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         //设置 navBar title 字体颜色
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.darkGray]
-        
-        
+
     }
 
     

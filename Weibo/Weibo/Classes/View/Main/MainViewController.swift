@@ -17,6 +17,14 @@ class MainViewController: UITabBarController {
 
     
         }
+    //修改横竖设置 portrait 竖屏 landscape 横屏 在需要横屏的时候单独处理
+    //设置支持的方向后，当前控制器以及子控制器都会遵守这个方向
+    //视频播放 用modal来展示，旋转
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+      return UIInterfaceOrientationMask.portrait
+    
+    }
+    
     //私用控件
     fileprivate lazy var composeButton : UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
     

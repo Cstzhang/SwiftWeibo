@@ -14,8 +14,6 @@ class MainNavigationController: UINavigationController {
         super.viewDidLoad()
         //隐藏默认的NavigationBar
         navigationBar.isHidden=true
-        
-        
     }
     
     
