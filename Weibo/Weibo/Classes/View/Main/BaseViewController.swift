@@ -48,6 +48,8 @@ class BaseViewController: UIViewController {
 extension BaseViewController{
     func setupUI()  {
         view.backgroundColor=UIColor.cz_random()
+        //取消自动缩进 如果隐藏了导航栏，会缩进20px
+        automaticallyAdjustsScrollViewInsets = false
         setupTableView()
         setupNavigationBar()
         
@@ -59,6 +61,8 @@ extension BaseViewController{
        //设置数据源&代理 子类实现数据源方法
        tableView?.dataSource = self
        tableView?.delegate = self as? UITableViewDelegate
+        
+        
     }
     
     //设置导航条
@@ -70,6 +74,11 @@ extension BaseViewController{
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         //设置 navBar title 字体颜色
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.darkGray]
+        //设置内容缩进
+        tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height,
+                                                0,
+                                                tabBarController?.tabBar.bounds.height ?? 49,
+                                                0)
     
     }
     

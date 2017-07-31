@@ -16,7 +16,7 @@ class HomeViewController: BaseViewController {
 
     //加载数据源 假数据
     override func loadData() {
-        for i in 0..<10 {
+        for i in 0..<15 {
             statusList.insert(i.description, at: 0)
         }
     }
@@ -58,6 +58,7 @@ extension HomeViewController{
     //navigationItem重写 设置导航栏按钮
     override func setupUI() {
         super.setupUI()
+        
         //添加左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
         //注册cell
