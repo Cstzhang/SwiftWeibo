@@ -56,8 +56,16 @@ private extension MainViewController {
         //2，创建视图控制器
         let vc = cls.init()
         vc.title = title
+        //3, 设置图标
         vc.tabBarItem.image = UIImage(named: "tabbar_"+imageName)
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_"+imageName+"_selected")?.withRenderingMode(.alwaysOriginal)
+        //4,设置标题样式
+        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.orange],
+                                             for: .highlighted)
+         //系统默认12号字 ，要设置normal 字体大小
+        vc.tabBarItem.setTitleTextAttributes([NSFontAttributeName:UIFont.systemFont(ofSize: 12)],
+                                             for: UIControlState.normal)
+        
         
         let nav = MainNavigationController(rootViewController: vc)
         return nav
