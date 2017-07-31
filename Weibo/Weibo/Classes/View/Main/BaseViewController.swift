@@ -21,6 +21,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        loadData()
     }
     
     //设置导航栏title 重写 title的set方法
@@ -31,6 +32,11 @@ class BaseViewController: UIViewController {
         }
     
     }
+    //加载数据源， 具体实现由子类负责
+    func loadData()  {
+        
+    }
+    
 
 }
 
@@ -40,7 +46,7 @@ class BaseViewController: UIViewController {
 
 //导航相关
 extension BaseViewController{
-      func setupUI()  {
+    func setupUI()  {
         view.backgroundColor=UIColor.cz_random()
         setupTableView()
         setupNavigationBar()
@@ -66,6 +72,7 @@ extension BaseViewController{
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.darkGray]
     
     }
+    
     
 }
 
