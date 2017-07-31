@@ -9,27 +9,40 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+  
+    //自定义导航条
+    lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
+    //navItem
+    lazy var navItem = UINavigationItem()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     view.backgroundColor=UIColor.cz_random()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //设置导航栏title 重写 title的set方法
+    override var title: String? {
+        didSet{
+          navItem.title = title
+        
+        }
+    
     }
-    */
 
+}
+
+
+
+
+
+extension BaseViewController{
+      func setupUI()  {
+        view.backgroundColor=UIColor.cz_random()
+        //添加导航条
+        view.addSubview(navigationBar)
+        navigationBar.items=[navItem]
+        
+    }
+
+    
 }

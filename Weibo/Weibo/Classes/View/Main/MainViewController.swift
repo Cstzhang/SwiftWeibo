@@ -14,7 +14,9 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
         setupChildController()
         setupComposeButton()
-    }
+
+    
+        }
     //私用控件
     fileprivate lazy var composeButton : UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
     
@@ -89,6 +91,7 @@ class MainViewController: UITabBarController {
         
     }
     
+
     
 }
 
