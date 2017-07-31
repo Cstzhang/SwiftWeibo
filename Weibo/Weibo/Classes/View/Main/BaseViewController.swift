@@ -8,6 +8,7 @@
 
 import UIKit
 
+//OC中不支持多继承，使用协议替代，Swift的写法更类似于多继承
 class BaseViewController: UIViewController {
     //表格视图 用户没有登录就不创建
     var tablView :UITableView?
@@ -45,13 +46,14 @@ extension BaseViewController{
         setupNavigationBar()
         
     }
+    //创建表格
     private func  setupTableView(){
        tablView = UITableView(frame: view.bounds, style: .plain)
        view.insertSubview(tablView!, belowSubview: navigationBar)
-    
-    
+       //设置数据源&代理 子类实现数据源方法
+       tablView?.dataSource = self
+       tablView?.delegate = self as? UITableViewDelegate
     }
-    
     
     //设置导航条
     private func setupNavigationBar(){
@@ -65,4 +67,23 @@ extension BaseViewController{
     
     }
     
+}
+
+
+// MARK: -UITableViewDataSource,UITabBarDelegate
+//extension 中不能有属性，extension中不能重写父类方法，重写父类方法是子类的职责，extension是对类的扩展
+extension BaseViewController:UITableViewDataSource,UITabBarDelegate{
+    //基类只是准备方法，子类负责具体实现(保障没有语法错误)
+    //子类的数据源方法不需要super
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+
+
+
+
 }
