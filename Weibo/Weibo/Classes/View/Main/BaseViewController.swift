@@ -44,6 +44,9 @@ extension BaseViewController{
         navigationBar.items=[navItem]
         //navigationBar 的渲染颜色
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
+        //设置 navBar title 字体颜色
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.darkGray]
+        
         
     }
 

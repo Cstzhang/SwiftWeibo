@@ -15,8 +15,10 @@ class HomeViewController: BaseViewController {
         
     }
 
-    func showFriends()  {
+    @objc fileprivate  func showFriends()  {
         print("查看好友")
+        let vc = DemoViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 

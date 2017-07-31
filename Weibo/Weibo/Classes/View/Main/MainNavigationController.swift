@@ -35,7 +35,8 @@ class MainNavigationController: UINavigationController {
                 title = childViewControllers.first?.title ?? "返回"
             }
             //设置自定义返回键
-            vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, target: self, action: #selector(popToParent))
+            vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, target: self, action: #selector(popToParent),isBack:true)
+          
         }
 
         }

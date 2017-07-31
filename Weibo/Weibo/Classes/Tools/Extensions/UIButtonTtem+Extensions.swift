@@ -17,12 +17,23 @@ extension UIBarButtonItem{
     ///   - fontSize: fontSize 默认16
     ///   - target: target
     ///   - action: action
-    convenience init(title:String,fontSize:CGFloat = 16,target:AnyObject?,action:Selector){
-        let btn:UIButton = UIButton.cz_textButton(title, fontSize: fontSize, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
-    //添加点击事件
-    btn.addTarget(target, action: action, for: .touchUpInside)
+    ///   - isBack: isBack 是否是返回按钮 是的话加上箭头 默认 false
+    convenience  init(title:String,fontSize:CGFloat = 16,target:AnyObject?,action:Selector,isBack:Bool = false){
         
-      //实例化 UIBarButtonItem
+        let btn:UIButton = UIButton.cz_textButton(title, fontSize: fontSize, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
+    //返回图标
+        if isBack {
+          let imageName = "navigationbar_back_withtext"
+          btn.setImage(UIImage.init(named: imageName), for: .normal)
+          btn.setImage(UIImage.init(named: imageName+"_highlighted"), for: .highlighted)
+          btn.sizeToFit()
+        }
+        
+        
+    //添加点击事件
+        btn.addTarget(target, action: action, for: .touchUpInside)
+        
+    //实例化 UIBarButtonItem
         self.init(customView:btn)
     }
     
