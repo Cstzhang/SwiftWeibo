@@ -14,6 +14,8 @@ class BaseViewController: UIViewController {
     var tableView : UITableView?
     //刷新控件
     var refreshControl:UIRefreshControl?
+    // 上拉刷新标志
+    var isPullup = false
   
     //自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
@@ -36,8 +38,8 @@ class BaseViewController: UIViewController {
     }
     //加载数据源， 具体实现由子类负责
     func loadData()  {
-        
-        
+        //如果子类不识闲任何方法，默认关闭刷新控件
+        refreshControl?.endRefreshing()
     }
     
 
@@ -46,8 +48,7 @@ class BaseViewController: UIViewController {
 
 
 
-
-//导航相关
+// MARK: -导航相关
 extension BaseViewController{
     func setupUI()  {
         view.backgroundColor=UIColor.cz_random()
@@ -63,7 +64,7 @@ extension BaseViewController{
        view.insertSubview(tableView!, belowSubview: navigationBar)
        //设置数据源&代理 子类实现数据源方法
        tableView?.dataSource = self
-       tableView?.delegate = self as? UITableViewDelegate
+       tableView?.delegate = self
         
         
     }
@@ -98,7 +99,7 @@ extension BaseViewController{
 
 // MARK: -UITableViewDataSource,UITabBarDelegate
 //extension 中不能有属性，extension中不能重写父类方法，重写父类方法是子类的职责，extension是对类的扩展
-extension BaseViewController:UITableViewDataSource,UITabBarDelegate{
+extension BaseViewController:UITableViewDataSource,UITableViewDelegate{
     //基类只是准备方法，子类负责具体实现(保障没有语法错误)
     //子类的数据源方法不需要super
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,7 +110,26 @@ extension BaseViewController:UITableViewDataSource,UITabBarDelegate{
         return UITableViewCell()
     }
 
-
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+        let row = indexPath.row
+        let section = tableView.numberOfSections-1
+        //没有数据的话直接返回
+        if row < 0 || section < 0 {
+            return
+        }
+        //最后一行
+        let count  = tableView.numberOfRows(inSection: section)
+        //是最后一行，且没有在进行刷新
+        if row == (count - 1) && !isPullup{
+            print("上拉刷新")
+            isPullup = true
+            //开始刷新
+            loadData()
+        }
+        
+        
+    
+    }
 
 
 }

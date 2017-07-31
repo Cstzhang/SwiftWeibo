@@ -18,11 +18,19 @@ class HomeViewController: BaseViewController {
     override func loadData() {
        // 模拟延时加载数据
         print("加载数据")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1.5) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
             for i in 0..<15 {
-                self.statusList.insert(i.description, at: 0)
+                if self.isPullup{
+                //上拉
+                   self.statusList.append("上拉 \(i)")
+                }else{
+                //下拉
+                 self.statusList.insert(i.description, at: 0)
+                }
+               
             }
             print("刷新表格")
+            self.isPullup = false
             //结束刷新
             self.refreshControl?.endRefreshing()
             //刷新表格数据
