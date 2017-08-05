@@ -10,20 +10,20 @@ import UIKit
 
 //OC中不支持多继承，使用协议替代，Swift的写法更类似于多继承
 class BaseViewController: UIViewController {
+    // MARK: -设置属性
     // 用户登录标记
-    var userLogin = true
+    var userLogin = false
     //表格视图 用户没有登录就不创建
     var tableView : UITableView?
     //刷新控件
     var refreshControl:UIRefreshControl?
     // 上拉刷新标志
     var isPullup = false
-  
     //自定义导航条
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
     //navItem 后面设置导航条都要用这个进行设置
     lazy var navItem = UINavigationItem()
-    
+    // MARK: -加载
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -43,6 +43,7 @@ class BaseViewController: UIViewController {
         //如果子类不识闲任何方法，默认关闭刷新控件
         refreshControl?.endRefreshing()
     }
+    
     
 
 }
@@ -75,10 +76,10 @@ extension BaseViewController{
     
     //未登录视图
     private func  setupVisitorView(){
-      let visitorView = UIView(frame: view.bounds)
-      visitorView.backgroundColor = UIColor.cz_random()
+      let visitorView = VisitorView(frame: view.bounds)
       view.insertSubview(visitorView, belowSubview: navigationBar)
-    
+      
+        
     }
     
     //设置导航条
@@ -110,7 +111,7 @@ extension BaseViewController{
 
 
 // MARK: -UITableViewDataSource,UITabBarDelegate
-//extension 中不能有属性，extension中不能重写父类方法，重写父类方法是子类的职责，extension是对类的扩展
+//extension 中不能有属性，extension中不能重写父类本类方法-不是扩展的方法（父类extension可以），重写父类方法是子类的职责，extension是对类的扩展
 extension BaseViewController:UITableViewDataSource,UITableViewDelegate{
     //基类只是准备方法，子类负责具体实现(保障没有语法错误)
     //子类的数据源方法不需要super

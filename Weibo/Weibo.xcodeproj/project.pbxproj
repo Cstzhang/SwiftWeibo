@@ -13,6 +13,9 @@
 		6D11EE8D1F2F216600296E5E /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11EE8C1F2F216600296E5E /* DemoViewController.swift */; };
 		6D11EE8E1F2F216600296E5E /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11EE8C1F2F216600296E5E /* DemoViewController.swift */; };
 		6D11EE8F1F2F216600296E5E /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11EE8C1F2F216600296E5E /* DemoViewController.swift */; };
+		6D2044FE1F2F791E00195C6D /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2044FD1F2F791E00195C6D /* VisitorView.swift */; };
+		6D2044FF1F2F791E00195C6D /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2044FD1F2F791E00195C6D /* VisitorView.swift */; };
+		6D2045001F2F791E00195C6D /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2044FD1F2F791E00195C6D /* VisitorView.swift */; };
 		6D5D16061F2B31C300F9C3B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D16051F2B31C300F9C3B0 /* AppDelegate.swift */; };
 		6D5D160D1F2B31C300F9C3B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D5D160C1F2B31C300F9C3B0 /* Assets.xcassets */; };
 		6D5D161B1F2B31C300F9C3B0 /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D161A1F2B31C300F9C3B0 /* WeiboTests.swift */; };
@@ -99,6 +102,7 @@
 /* Begin PBXFileReference section */
 		6D11EE881F2F0D7300296E5E /* UIButtonTtem+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButtonTtem+Extensions.swift"; sourceTree = "<group>"; };
 		6D11EE8C1F2F216600296E5E /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		6D2044FD1F2F791E00195C6D /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		6D5D16021F2B31C300F9C3B0 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5D16051F2B31C300F9C3B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D5D160C1F2B31C300F9C3B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -177,6 +181,14 @@
 				6D5D16411F2B368A00F9C3B0 /* MainNavigationController.swift */,
 			);
 			name = MainController;
+			sourceTree = "<group>";
+		};
+		6D2044FC1F2F78E900195C6D /* VisitorView */ = {
+			isa = PBXGroup;
+			children = (
+				6D2044FD1F2F791E00195C6D /* VisitorView.swift */,
+			);
+			path = VisitorView;
 			sourceTree = "<group>";
 		};
 		6D5D15F91F2B31C300F9C3B0 = {
@@ -289,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				6D11EE901F2F2D4100296E5E /* MainController */,
+				6D2044FC1F2F78E900195C6D /* VisitorView */,
 				6D5D16451F2B36B900F9C3B0 /* BaseViewController.swift */,
 			);
 			path = Main;
@@ -509,6 +522,7 @@
 				6DFF30091F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
 				6D5D16061F2B31C300F9C3B0 /* AppDelegate.swift in Sources */,
 				6DFF2FF41F2DCBB300D51720 /* NSObject+CZRuntime.m in Sources */,
+				6D2044FE1F2F791E00195C6D /* VisitorView.swift in Sources */,
 				6D5D164E1F2B371200F9C3B0 /* MessageViewController.swift in Sources */,
 				6D5D16561F2B372200F9C3B0 /* ProfileViewController.swift in Sources */,
 				6D11EE891F2F0D7300296E5E /* UIButtonTtem+Extensions.swift in Sources */,
@@ -539,6 +553,7 @@
 				6DFF300A1F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
 				6D5D161B1F2B31C300F9C3B0 /* WeiboTests.swift in Sources */,
 				6DFF2FF51F2DCBB300D51720 /* NSObject+CZRuntime.m in Sources */,
+				6D2044FF1F2F791E00195C6D /* VisitorView.swift in Sources */,
 				6D5D164F1F2B371200F9C3B0 /* MessageViewController.swift in Sources */,
 				6D5D16571F2B372200F9C3B0 /* ProfileViewController.swift in Sources */,
 				6D11EE8A1F2F0D7300296E5E /* UIButtonTtem+Extensions.swift in Sources */,
@@ -569,6 +584,7 @@
 				6DFF300B1F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
 				6D5D16261F2B31C300F9C3B0 /* WeiboUITests.swift in Sources */,
 				6DFF2FF61F2DCBB300D51720 /* NSObject+CZRuntime.m in Sources */,
+				6D2045001F2F791E00195C6D /* VisitorView.swift in Sources */,
 				6D5D16501F2B371200F9C3B0 /* MessageViewController.swift in Sources */,
 				6D5D16581F2B372200F9C3B0 /* ProfileViewController.swift in Sources */,
 				6D11EE8B1F2F0D7300296E5E /* UIButtonTtem+Extensions.swift in Sources */,
