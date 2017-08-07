@@ -57,14 +57,32 @@ class MainViewController: UITabBarController {
     }
     //设置所有子控制器
    fileprivate  func setupChildController(){
-        let array = [
-           ["clsName":"HomeViewController","title":"首页","imageName":"home"],
-           ["clsName":"MessageViewController","title":"消息","imageName":"message_center"],
-           ["clsName":"UIViewController","title":"","imageName":""],
-           ["clsName":"DiscoverViewController","title":"发现","imageName":"discover"],
-           ["clsName":"ProfileViewController","title":"我","imageName":"profile"],
+    let array: [[String: AnyObject]] = [
+           ["clsName":"HomeViewController" as AnyObject,
+            "title":"首页" as AnyObject,
+            "imageName":"home" as AnyObject,
+            "visitorInfo":["imageName":"visitordiscover_feed_image_house", "message":"关注一些人，回这里看看有什么惊喜"] as AnyObject
+            ],
+           ["clsName":"MessageViewController" as AnyObject,
+            "title":"消息" as AnyObject,
+            "imageName":"message_center" as AnyObject,
+            "visitorInfo":["imageName":"visitordiscover_image_message", "message":"登陆后，别人评论你的微博，发给你的消息，都会在这里收到通知"] as AnyObject],
+           
+           ["clsName":"UIViewController" as AnyObject],
+           
+           ["clsName":"DiscoverViewController" as AnyObject,
+            "title":"发现" as AnyObject,
+            "imageName":"discover" as AnyObject,
+            "visitorInfo":["imageName":"visitordiscover_image_message", "message":"登陆后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"] as AnyObject],
+           
+           ["clsName":"ProfileViewController" as AnyObject,
+            "title":"我" as AnyObject,
+            "imageName":"profile" as AnyObject,
+            "visitorInfo":["imageName":"visitordiscover_image_profile", "message":"登陆后，你的微博、相册、个人资料都会显示在这里，展示给别人"] as AnyObject],
         
         ]
+   
+       (array as NSArray).write(toFile: "/users/zhangzb/Desktop/demo.plist", atomically: true)
         var arrarM = [UIViewController]()
         for dict in array {
             //把生成的控制器加入数组
@@ -77,21 +95,24 @@ class MainViewController: UITabBarController {
     //使用字典创建一个子控制器
     // dict: clsName titile imageName
 
-   fileprivate  func controller(dict:[String:String])->UIViewController{
+   fileprivate  func controller(dict:[String:AnyObject])->UIViewController{
         //1，取得字典内容
-        guard let clsName =   dict["clsName"],
-            let title =     dict["title"],
-            let imageName =  dict["imageName"],
-            let cls = NSClassFromString(Bundle.main.namespace+"."+clsName) as? UIViewController.Type
+        guard let clsName =   dict["clsName"] as AnyObject?,
+            let title =     dict["title"] as AnyObject?,
+            let imageName =  dict["imageName"] as AnyObject?,
+            let cls = NSClassFromString(Bundle.main.namespace+"."+(clsName as! String)) as? BaseViewController.Type,
+            let visitorDict = dict["visitorInfo"] as? [String:String]
             else{
                 return UIViewController()
         }
         //2，创建视图控制器
         let vc = cls.init()
-        vc.title = title
+        vc.title = title as? String
+        //访客视图的数组赋值
+        vc.visitorInfo = visitorDict
         //3, 设置图标
-        vc.tabBarItem.image = UIImage(named: "tabbar_"+imageName)
-        vc.tabBarItem.selectedImage = UIImage(named: "tabbar_"+imageName+"_selected")?.withRenderingMode(.alwaysOriginal)
+        vc.tabBarItem.image = UIImage(named: "tabbar_"+(imageName as! String))
+        vc.tabBarItem.selectedImage = UIImage(named: "tabbar_"+(imageName as! String)+"_selected")?.withRenderingMode(.alwaysOriginal)
         //4,设置标题样式
         vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.orange],
                                              for: .highlighted)

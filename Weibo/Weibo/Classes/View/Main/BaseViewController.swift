@@ -11,6 +11,8 @@ import UIKit
 //OC中不支持多继承，使用协议替代，Swift的写法更类似于多继承
 class BaseViewController: UIViewController {
     // MARK: -设置属性
+    //访客视图字典
+    var visitorInfo : [String :String]?
     // 用户登录标记
     var userLogin = false
     //表格视图 用户没有登录就不创建
@@ -60,8 +62,6 @@ extension BaseViewController{
         //登录设置表格，未登录显示访客视图
         userLogin ? setupTableView() : setupVisitorView()
         setupNavigationBar()
-        
-        
     }
     
     //创建表格
@@ -79,7 +79,8 @@ extension BaseViewController{
       print("访客视图")
       let visitorView = VisitorView(frame: view.bounds)
       view.insertSubview(visitorView, belowSubview: navigationBar)
-      
+      //访客视图数据
+      visitorView.visitorInfo = visitorInfo
         
     }
     
