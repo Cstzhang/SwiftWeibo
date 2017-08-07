@@ -61,7 +61,7 @@ class MainViewController: UITabBarController {
            ["clsName":"HomeViewController" as AnyObject,
             "title":"首页" as AnyObject,
             "imageName":"home" as AnyObject,
-            "visitorInfo":["imageName":"visitordiscover_feed_image_house", "message":"关注一些人，回这里看看有什么惊喜"] as AnyObject
+            "visitorInfo":["imageName":"", "message":"关注一些人，回这里看看有什么惊喜"] as AnyObject
             ],
            ["clsName":"MessageViewController" as AnyObject,
             "title":"消息" as AnyObject,

@@ -18,10 +18,14 @@ class VisitorView: UIView {
                     return
             }
             tipLabel.text = message
+            //设置视图，首页不需要设置，直接返回
             if imageName == "" {
                 return
             }
             iconView.image = UIImage(named: imageName)
+            //其他控制器的视图不显示小房子
+            houseIconView.isHidden = true
+            maskIconView.isHidden = true
         }
     
     }
@@ -74,6 +78,8 @@ extension VisitorView{
         addSubview(tipLabel)
         addSubview(registerButton)
         addSubview(loginButton)
+        //文本居中对齐
+        tipLabel.textAlignment = .center
         
         //取消 autoresizing
         for v in subviews {
