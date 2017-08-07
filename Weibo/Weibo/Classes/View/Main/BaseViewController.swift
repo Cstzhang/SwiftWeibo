@@ -76,6 +76,7 @@ extension BaseViewController{
     
     //未登录视图
     private func  setupVisitorView(){
+      print("访客视图")
       let visitorView = VisitorView(frame: view.bounds)
       view.insertSubview(visitorView, belowSubview: navigationBar)
       

@@ -10,7 +10,23 @@ import UIKit
 
 //访客视图
 class VisitorView: UIView {
-
+    //访客视图信息字典
+    var visitorInfo : [String : String]?{
+        didSet{
+            guard let imageName = visitorInfo?["imageName"],
+                let message = visitorInfo?["message"] else {
+                    return
+            }
+            tipLabel.text = message
+            if imageName == "" {
+                return
+            }
+            iconView.image = UIImage(named: imageName)
+        }
+    
+    }
+    
+    // MARK: -构造函数
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -21,8 +37,11 @@ class VisitorView: UIView {
     }
 
    // MARK: - 私有控件
+
     //圈视图
     fileprivate lazy var iconView:UIImageView = UIImageView(image: UIImage.init(named: "visitordiscover_feed_image_smallicon"))
+    //背景图
+    fileprivate lazy var maskIconView :UIImageView = UIImageView(image: UIImage.init(named: "visitordiscover_feed_mask_smallicon"))
     //房子
     fileprivate lazy var houseIconView:UIImageView = UIImageView(image: UIImage.init(named: "visitordiscover_feed_image_house"))
     //提示语
@@ -48,12 +67,14 @@ class VisitorView: UIView {
 
 extension VisitorView{
     func setupUI()  {
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
         addSubview(iconView)
+        addSubview(maskIconView)
         addSubview(houseIconView)
         addSubview(tipLabel)
         addSubview(registerButton)
         addSubview(loginButton)
+        
         //取消 autoresizing
         for v in subviews {
             v.translatesAutoresizingMaskIntoConstraints = false
@@ -158,12 +179,24 @@ extension VisitorView{
                                          multiplier: 1.0,
                                          constant: 0))
         
+        //遮罩视图  views是定义VEL中控件名称和实际名称的映射关系
+        //metrics 定义VFL中（）指定的常数映射关系
         
+        let viewDict = ["maskIconView":maskIconView,
+                        "loginButton": loginButton] as [String : Any]
+//        let metrics = ["spacing": 20]
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|-0-[maskIconView]-0-|",
+            options: [],
+            metrics: nil,
+            views: viewDict))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-0-[maskIconView]-20-[loginButton]",
+            options: [],
+            metrics: nil,
+            views: viewDict))
         
-        
-        
-        
-        
+    
         
     }
     
