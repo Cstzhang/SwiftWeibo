@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     func loadAppInfo() -> () {
         DispatchQueue.global().async {
+          
             //1.url
             let url = Bundle.main.url(forResource: "MainVC.json", withExtension: nil)
             //2.读取json文件中的内容

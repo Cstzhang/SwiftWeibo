@@ -57,21 +57,19 @@ class MainViewController: UITabBarController {
     }
     //设置所有子控制器
    fileprivate  func setupChildController(){
+    //0.获取沙盒的路径
+    let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    let jsonPath = (docDir as NSString).appendingPathComponent("MainVC.json")
+    var data  = NSData(contentsOfFile: jsonPath)
+    if data == nil{
+        //从Bundle 加载data
+        let path =  Bundle.main.path(forResource: "MainVC.json", ofType: nil)
+        data  = NSData(contentsOfFile: path!)
+    }
     //从bundle 中加载 json  1 路径 2 加载data 3 反序列化
-    //1.获取JSON文件路径
-    guard let jsonPath = Bundle.main.path(forResource: "MainVC.json", ofType: nil) else {
-        print("没有获取到对应的文件路径")
-        return
-    }
-    //2.读取json文件中的内容
-    guard let jsonData = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)) else {
-        print("没有获取到json文件中数据")
-        return
-    }
     //3.将Data转成数组
-    guard  let anyObject = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+    guard  let anyObject = try? JSONSerialization.jsonObject(with: data! as Data, options: .mutableContainers)
         else {
-            
         return
     }
     guard let array = anyObject as? [[String : AnyObject]] else{
