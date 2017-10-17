@@ -12,7 +12,7 @@ import UIKit
 class BaseViewController: UIViewController {
     // MARK: -设置属性
     //访客视图字典
-    var visitorInfo : [String :String]?
+    var visitorInfoDic : [String :String]?
     // 用户登录标记
     var userLogin = false
     //表格视图 用户没有登录就不创建
@@ -25,13 +25,13 @@ class BaseViewController: UIViewController {
     lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
     //navItem 后面设置导航条都要用这个进行设置
     lazy var navItem = UINavigationItem()
+    
     // MARK: -加载
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         loadData()
     }
-    
     //设置导航栏title 重写 title的set方法
     override var title: String? {
         didSet{
@@ -80,7 +80,7 @@ extension BaseViewController{
       let visitorView = VisitorView(frame: view.bounds)
       view.insertSubview(visitorView, belowSubview: navigationBar)
       //访客视图数据
-      visitorView.visitorInfo = visitorInfo
+      visitorView.visitorInfo = visitorInfoDic
         
     }
     

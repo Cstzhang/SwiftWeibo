@@ -109,7 +109,7 @@ class MainViewController: UITabBarController {
         let vc = cls.init()
         vc.title = title as? String
         //访客视图的数组赋值
-        vc.visitorInfo = visitorDict
+        vc.visitorInfoDic = visitorDict
         //3, 设置图标
         vc.tabBarItem.image = UIImage(named: "tabbar_"+(imageName as! String))
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_"+(imageName as! String)+"_selected")?.withRenderingMode(.alwaysOriginal)

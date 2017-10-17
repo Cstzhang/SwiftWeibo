@@ -20,6 +20,7 @@ class VisitorView: UIView {
             tipLabel.text = message
             //设置视图，首页不需要设置，直接返回
             if imageName == "" {
+                startAnimatio()
                 return
             }
             iconView.image = UIImage(named: imageName)
@@ -40,6 +41,25 @@ class VisitorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    //旋转图标动画
+    private func startAnimatio(){
+        //旋转
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        animation.toValue = 2 * Double.pi
+        animation.repeatCount = MAXFLOAT
+        animation.duration = 15
+        //动画完成不删除，如果iconView被释放，动画也被销毁
+        animation.isRemovedOnCompletion = false
+        //动画添加到图层
+        iconView.layer.add(animation, forKey: nil)
+        
+        
+        
+        
+    }
+    
+    
+    
    // MARK: - 私有控件
 
     //圈视图
