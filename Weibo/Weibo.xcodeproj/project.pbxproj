@@ -120,6 +120,7 @@
 		6D5D164D1F2B371200F9C3B0 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		6D5D16511F2B371A00F9C3B0 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6DB163671F95DFF80038C6D1 /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		6DFF2FD51F2DCBB300D51720 /* CZAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAdditions.h; sourceTree = "<group>"; };
 		6DFF2FD61F2DCBB300D51720 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		6DFF2FD71F2DCBB300D51720 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		6D11EE901F2F2D4100296E5E /* MainController */ = {
 			isa = PBXGroup;
 			children = (
+				6DB163671F95DFF80038C6D1 /* main.json */,
 				6D5D163D1F2B366000F9C3B0 /* MainViewController.swift */,
 				6D5D16411F2B368A00F9C3B0 /* MainNavigationController.swift */,
 			);

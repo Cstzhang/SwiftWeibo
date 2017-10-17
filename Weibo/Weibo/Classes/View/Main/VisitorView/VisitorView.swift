@@ -52,10 +52,7 @@ class VisitorView: UIView {
         animation.isRemovedOnCompletion = false
         //动画添加到图层
         iconView.layer.add(animation, forKey: nil)
-        
-        
-        
-        
+     
     }
     
     

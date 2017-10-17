@@ -82,14 +82,17 @@ class MainViewController: UITabBarController {
         
         ]
    
-       (array as NSArray).write(toFile: "/users/zhangzb/Desktop/demo.plist", atomically: true)
+       (array as NSArray).write(toFile: "/Users/zhangzb/Desktop/demo.plist", atomically: true)
+       //数组序列化 数组-》 json
+       let data = try!JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
+       ( data as NSData).write(toFile: "/Users/zhangzb/tmp/demo.json", atomically: true)
         var arrarM = [UIViewController]()
         for dict in array {
             //把生成的控制器加入数组
             arrarM.append(controller(dict: dict))
         }
         viewControllers = arrarM
-        
+    
     }
     
     //使用字典创建一个子控制器
