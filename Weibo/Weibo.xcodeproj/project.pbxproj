@@ -16,6 +16,7 @@
 		6D2044FE1F2F791E00195C6D /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2044FD1F2F791E00195C6D /* VisitorView.swift */; };
 		6D2044FF1F2F791E00195C6D /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2044FD1F2F791E00195C6D /* VisitorView.swift */; };
 		6D2045001F2F791E00195C6D /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2044FD1F2F791E00195C6D /* VisitorView.swift */; };
+		6D3EC42E1F95E8EF00101115 /* MainVC.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D3EC42D1F95E87700101115 /* MainVC.json */; };
 		6D5D16061F2B31C300F9C3B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D16051F2B31C300F9C3B0 /* AppDelegate.swift */; };
 		6D5D160D1F2B31C300F9C3B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D5D160C1F2B31C300F9C3B0 /* Assets.xcassets */; };
 		6D5D161B1F2B31C300F9C3B0 /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D161A1F2B31C300F9C3B0 /* WeiboTests.swift */; };
@@ -103,6 +104,7 @@
 		6D11EE881F2F0D7300296E5E /* UIButtonTtem+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButtonTtem+Extensions.swift"; sourceTree = "<group>"; };
 		6D11EE8C1F2F216600296E5E /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		6D2044FD1F2F791E00195C6D /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		6D3EC42D1F95E87700101115 /* MainVC.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MainVC.json; sourceTree = "<group>"; };
 		6D5D16021F2B31C300F9C3B0 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5D16051F2B31C300F9C3B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D5D160C1F2B31C300F9C3B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,7 +122,6 @@
 		6D5D164D1F2B371200F9C3B0 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		6D5D16511F2B371A00F9C3B0 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		6DB163671F95DFF80038C6D1 /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		6DFF2FD51F2DCBB300D51720 /* CZAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAdditions.h; sourceTree = "<group>"; };
 		6DFF2FD61F2DCBB300D51720 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		6DFF2FD71F2DCBB300D51720 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
@@ -178,7 +179,7 @@
 		6D11EE901F2F2D4100296E5E /* MainController */ = {
 			isa = PBXGroup;
 			children = (
-				6DB163671F95DFF80038C6D1 /* main.json */,
+				6D3EC42D1F95E87700101115 /* MainVC.json */,
 				6D5D163D1F2B366000F9C3B0 /* MainViewController.swift */,
 				6D5D16411F2B368A00F9C3B0 /* MainNavigationController.swift */,
 			);
@@ -484,6 +485,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D3EC42E1F95E8EF00101115 /* MainVC.json in Resources */,
 				6D5D160D1F2B31C300F9C3B0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

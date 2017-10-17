@@ -14,7 +14,7 @@ class BaseViewController: UIViewController {
     //访客视图字典
     var visitorInfoDic : [String :String]?
     // 用户登录标记
-    var userLogin = true
+    var userLogin = false
     //表格视图 用户没有登录就不创建
     var tableView : UITableView?
     //刷新控件

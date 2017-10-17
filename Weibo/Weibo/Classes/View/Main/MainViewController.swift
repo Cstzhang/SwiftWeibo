@@ -57,40 +57,33 @@ class MainViewController: UITabBarController {
     }
     //设置所有子控制器
    fileprivate  func setupChildController(){
-    let array: [[String: AnyObject]] = [
-           ["clsName":"HomeViewController" as AnyObject,
-            "title":"首页" as AnyObject,
-            "imageName":"home" as AnyObject,
-            "visitorInfo":["imageName":"", "message":"关注一些人，回这里看看有什么惊喜"] as AnyObject
-            ],
-           ["clsName":"MessageViewController" as AnyObject,
-            "title":"消息" as AnyObject,
-            "imageName":"message_center" as AnyObject,
-            "visitorInfo":["imageName":"visitordiscover_image_message", "message":"登陆后，别人评论你的微博，发给你的消息，都会在这里收到通知"] as AnyObject],
-           
-           ["clsName":"UIViewController" as AnyObject],
-           
-           ["clsName":"DiscoverViewController" as AnyObject,
-            "title":"发现" as AnyObject,
-            "imageName":"discover" as AnyObject,
-            "visitorInfo":["imageName":"visitordiscover_image_message", "message":"登陆后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"] as AnyObject],
-           
-           ["clsName":"ProfileViewController" as AnyObject,
-            "title":"我" as AnyObject,
-            "imageName":"profile" as AnyObject,
-            "visitorInfo":["imageName":"visitordiscover_image_profile", "message":"登陆后，你的微博、相册、个人资料都会显示在这里，展示给别人"] as AnyObject],
-        
-        ]
-   
-       (array as NSArray).write(toFile: "/Users/zhangzb/Desktop/demo.plist", atomically: true)
-       //数组序列化 数组-》 json
-       let data = try!JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
-       ( data as NSData).write(toFile: "/Users/zhangzb/tmp/demo.json", atomically: true)
+    //从bundle 中加载 json  1 路径 2 加载data 3 反序列化
+    //1.获取JSON文件路径
+    guard let jsonPath = Bundle.main.path(forResource: "MainVC.json", ofType: nil) else {
+        print("没有获取到对应的文件路径")
+        return
+    }
+    //2.读取json文件中的内容
+    guard let jsonData = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)) else {
+        print("没有获取到json文件中数据")
+        return
+    }
+    //3.将Data转成数组
+    guard  let anyObject = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
+        else {
+            
+        return
+    }
+    guard let array = anyObject as? [[String : AnyObject]] else{
+        return
+    }
+    //遍历数组，循环创建控制器数组
         var arrarM = [UIViewController]()
         for dict in array {
             //把生成的控制器加入数组
             arrarM.append(controller(dict: dict))
         }
+       //设置控制器子控制器
         viewControllers = arrarM
     
     }
