@@ -50,12 +50,29 @@ class BaseViewController: UIViewController {
 
 }
 
+extension BaseViewController{
+    @objc fileprivate func login(){
+        print("login")
+        
+    }
+    
+    @objc fileprivate func register(){
+        print("register")
+        
+        
+    }
+    
+    
+}
+
+
+
 
 
 
 // MARK: -导航相关
 extension BaseViewController{
-    func setupUI()  {
+    func setupUI() {
         view.backgroundColor=UIColor.white
         //取消自动缩进 如果隐藏了导航栏，会缩进20px
         automaticallyAdjustsScrollViewInsets = false
@@ -81,7 +98,9 @@ extension BaseViewController{
       view.insertSubview(visitorView, belowSubview: navigationBar)
       //访客视图数据
       visitorView.visitorInfo = visitorInfoDic
-        
+      //监听访客视图按钮
+        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
     }
     
     //设置导航条
