@@ -14,7 +14,7 @@ class BaseViewController: UIViewController {
     //访客视图字典
     var visitorInfoDic : [String :String]?
     // 用户登录标记
-    var userLogin = false
+    var userLogin = true
     //表格视图 用户没有登录就不创建
     var tableView : UITableView?
     //刷新控件
@@ -89,6 +89,19 @@ extension BaseViewController{
        //设置数据源&代理 子类实现数据源方法
        tableView?.dataSource = self
        tableView?.delegate = self
+       //设置内容缩进
+       tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height,
+                                               0,
+                                               tabBarController?.tabBar.bounds.height ?? 49,
+                                               0)
+       //设置刷新控件
+       //1 实例化控件
+       refreshControl = UIRefreshControl()
+       //2 添加到表格视图
+       tableView?.addSubview(refreshControl!)
+       //3 添加监听方法
+       refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+    
         
     }
     
@@ -104,7 +117,8 @@ extension BaseViewController{
         visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
      //设置导航条按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
-         navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(register))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(register))
+        
     }
     
     //设置导航条
@@ -112,22 +126,14 @@ extension BaseViewController{
         view.addSubview(navigationBar)
         //navigationBar上面添加navItem
         navigationBar.items=[navItem]
-        //navigationBar 的渲染颜色（系统默认导航栏右侧高亮）
+        //navigationBar 的渲染颜色（系统默认导航栏右侧高亮）（导航条背景颜色）
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         //设置 navBar title 字体颜色
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.darkGray]
-        //设置内容缩进
-        tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height,
-                                                0,
-                                                tabBarController?.tabBar.bounds.height ?? 49,
-                                                0)
-        //设置刷新控件
-          //1 实例化控件
-          refreshControl = UIRefreshControl()
-          //2 添加到表格视图
-          tableView?.addSubview(refreshControl!)
-          //3 添加监听方法
-          refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        //设置系统按钮的文字渲染颜色
+        navigationBar.tintColor = UIColor.orange
+        
+     
     
     }
     
