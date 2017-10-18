@@ -46,6 +46,9 @@
 		6D5D16561F2B372200F9C3B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */; };
 		6D5D16571F2B372200F9C3B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */; };
 		6D5D16581F2B372200F9C3B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */; };
+		6DCD09361F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD09351F975F5E008589D1 /* WBNetWorkManager+Extension.swift */; };
+		6DCD09371F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD09351F975F5E008589D1 /* WBNetWorkManager+Extension.swift */; };
+		6DCD09381F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD09351F975F5E008589D1 /* WBNetWorkManager+Extension.swift */; };
 		6DFF2FEE1F2DCBB300D51720 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF2FD71F2DCBB300D51720 /* NSArray+Log.m */; };
 		6DFF2FEF1F2DCBB300D51720 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF2FD71F2DCBB300D51720 /* NSArray+Log.m */; };
 		6DFF2FF01F2DCBB300D51720 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF2FD71F2DCBB300D51720 /* NSArray+Log.m */; };
@@ -132,6 +135,7 @@
 		6D5D164D1F2B371200F9C3B0 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		6D5D16511F2B371A00F9C3B0 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6DCD09351F975F5E008589D1 /* WBNetWorkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkManager+Extension.swift"; sourceTree = "<group>"; };
 		6DFF2FD51F2DCBB300D51720 /* CZAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAdditions.h; sourceTree = "<group>"; };
 		6DFF2FD61F2DCBB300D51720 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		6DFF2FD71F2DCBB300D51720 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				6D0A95611F97414A00F6A3C2 /* NetWorkManager.swift */,
+				6DCD09351F975F5E008589D1 /* WBNetWorkManager+Extension.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -719,6 +724,7 @@
 				6DFF300F1F2DCBB300D51720 /* UIViewController+CZAddition.m in Sources */,
 				6DFF30151F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DFF2FF71F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
+				6DCD09361F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5D16421F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
 				6D5D16521F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16461F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
@@ -751,6 +757,7 @@
 				6DFF30101F2DCBB300D51720 /* UIViewController+CZAddition.m in Sources */,
 				6DFF30161F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DFF2FF81F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
+				6DCD09371F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5D16431F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
 				6D5D16531F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16471F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
@@ -783,6 +790,7 @@
 				6DFF30111F2DCBB300D51720 /* UIViewController+CZAddition.m in Sources */,
 				6DFF30171F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DFF2FF91F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
+				6DCD09381F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5D16441F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
 				6D5D16541F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16481F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
