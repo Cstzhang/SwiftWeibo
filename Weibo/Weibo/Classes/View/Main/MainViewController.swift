@@ -109,7 +109,7 @@ class MainViewController: UITabBarController {
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_"+(imageName as! String)+"_selected")?.withRenderingMode(.alwaysOriginal)
         //4,设置标题样式
         vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.orange],
-                                             for: .highlighted)
+                                             for: .selected)
          //系统默认12号字 ，要设置normal 字体大小
         vc.tabBarItem.setTitleTextAttributes([NSFontAttributeName:UIFont.systemFont(ofSize: 12)],
                                              for: UIControlState.normal)

@@ -16,6 +16,19 @@ class HomeViewController: BaseViewController {
 
     //加载数据源 假数据
     override func loadData() {
+       //测试网络数据加载
+        let urlString = "https://api.weibo.com/2/statuses/user_timeline.json"
+        let params = ["access_token":"2.00aCMggCHdipjB89ce96f2760mSK47"]
+        NetWorkManager.shared.get(urlString, parameters: params, progress: nil, success: { (_, json) in
+            print(json ?? "success")
+        }) { (_, error) in
+            print(error)
+
+        }
+        
+        
+        
+        
        // 模拟延时加载数据
         print("加载数据")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
