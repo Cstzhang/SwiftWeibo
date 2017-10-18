@@ -74,11 +74,11 @@ extension HomeViewController{
 
 
 extension HomeViewController{
+    
 
     //navigationItem重写 设置导航栏按钮
-    override func setupUI() {
-        super.setupUI()
-        
+    override func setupTableView() {
+        super.setupTableView()
         //添加左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
         //注册cell

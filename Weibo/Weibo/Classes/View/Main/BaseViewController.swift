@@ -72,17 +72,18 @@ extension BaseViewController{
 
 // MARK: -导航相关
 extension BaseViewController{
-    func setupUI() {
+   fileprivate func setupUI() {
         view.backgroundColor=UIColor.white
         //取消自动缩进 如果隐藏了导航栏，会缩进20px
         automaticallyAdjustsScrollViewInsets = false
+        setupNavigationBar()
         //登录设置表格，未登录显示访客视图
         userLogin ? setupTableView() : setupVisitorView()
-        setupNavigationBar()
+        
     }
     
-    //创建表格
-    private func  setupTableView(){
+    //创建表格 用户登录之后（子类重写此方法，子类不需要关系用户登录之前的逻辑）
+   func  setupTableView(){
        tableView = UITableView(frame: view.bounds, style: .plain)
        view.insertSubview(tableView!, belowSubview: navigationBar)
        //设置数据源&代理 子类实现数据源方法
@@ -101,6 +102,9 @@ extension BaseViewController{
       //监听访客视图按钮
         visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+     //设置导航条按钮
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
+         navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(register))
     }
     
     //设置导航条

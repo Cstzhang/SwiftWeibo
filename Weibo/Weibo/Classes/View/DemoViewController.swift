@@ -31,11 +31,15 @@ class DemoViewController: BaseViewController {
 
 
 extension DemoViewController{
-    //navigationItem重写 设置导航栏按钮
-    override func setupUI() {
-        super.setupUI()
-        navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
-        
+    override func setupTableView() {
+        super.setupTableView()
+           navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
     }
+    //navigationItem重写 设置导航栏按钮
+//    override func setupUI() {
+//        super.setupUI()
+//        navItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", target: self, action: #selector(showNext))
+//
+//    }
 
 }
