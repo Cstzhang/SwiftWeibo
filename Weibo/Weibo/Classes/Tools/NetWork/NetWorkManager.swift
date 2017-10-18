@@ -20,7 +20,9 @@ enum HTTPMethod {
 class NetWorkManager: AFHTTPSessionManager {
     //静态-常量-闭包（第一次访问时执行闭包，并且保存在shared常量中） 单例
     static let shared = NetWorkManager()
-// WARN: - 后期需要优化
+    //访问令牌，登录除外
+    var accessToken :String? = "2.00aCMggCHdipjB89ce96f2760mSK47"
+
     /// 封装网络请求
     ///
     /// - Parameters:
@@ -28,8 +30,53 @@ class NetWorkManager: AFHTTPSessionManager {
     ///   - URLString: URLString
     ///   - parameters: 参数字典
     ///   - completion: 完成回调[json(字典/数组)，是否成功]
-    func request(method:HTTPMethod = .GET,URLString:String,parameters:[String:AnyObject],completion:@escaping (_ json:AnyObject?,_ isSuccess:Bool)->()) {
-        print("准备网络请求")
+    func request(method:HTTPMethod = .GET,URLString:String,parameters:[String:AnyObject]?,completion:@escaping (_ json:AnyObject?,_ isSuccess:Bool)->()) {
+        if method == .GET {
+            get(URLString, parameters: parameters, progress: nil, success: { (_, json) in
+                completion(json as AnyObject, true)
+            }, failure: { (_, error) in
+                print("网络请求错误\(error)")
+                completion(nil, false)
+            })
+        }else{
+            post(URLString, parameters: parameters, progress: nil, success: { (_, json) in
+                completion(json as AnyObject, true)
+            }, failure: { (_, error) in
+                print("网络请求错误\(error)")
+                completion(nil, false)
+            })
+        }
+    }
+    
+    
+    // 获取拼接  accessToken
+    func tokenRequest(method:HTTPMethod = .GET,URLString:String,parameters:[String:AnyObject]?,completion:@escaping (_ json:AnyObject?,_ isSuccess:Bool)->()) {
+        //0,判断toke 是否为nil
+        guard let token = accessToken else {
+            print("无token,需要登录！")
+            completion(nil, false)
+            return
+        }
+        
+        //1，判断参数字典是否存在
+        var parameters = parameters
+        if parameters == nil {
+            parameters = [String:AnyObject]()
+            
+        }
+        //2，设置字典参数 parameters一定有值
+        parameters!["access_token"] = token as AnyObject
+        
+        
+        
+        
+        //请求获取accessToken
+        request(URLString: URLString, parameters: parameters, completion: completion)
+        
+    }
+   
+}
+
 //        //成功回调
 //        let success   = {(task:URLSessionDataTask,json:AnyObject?)-> Void in
 //            print("网络请求成功")
@@ -40,32 +87,3 @@ class NetWorkManager: AFHTTPSessionManager {
 //            print("网络请求错误\(error)")
 //            completion(nil, false)
 //        }
-        
-        if method == .GET {
-            get(URLString, parameters: parameters, progress: nil, success: { (_, json) in
-                completion(json as AnyObject, true)
-            }, failure: { (_, error) in
-                print("网络请求错误\(error)")
-                completion(nil, false)
-            })
-                //                success: success as? (URLSessionDataTask, Any?) -> Void,
-                //                failure: failure as? (URLSessionDataTask?, Error) -> Void)
-//            get(<#T##URLString: String##String#>, parameters: <#T##Any?#>, progress: <#T##((Progress) -> Void)?##((Progress) -> Void)?##(Progress) -> Void#>, success: <#T##((URLSessionDataTask, Any?) -> Void)?##((URLSessionDataTask, Any?) -> Void)?##(URLSessionDataTask, Any?) -> Void#>, failure: <#T##((URLSessionDataTask?, Error) -> Void)?##((URLSessionDataTask?, Error) -> Void)?##(URLSessionDataTask?, Error) -> Void#>)
-//          get(URLString, parameters: parameters, progress: nil, success: success, failure: failure)
-//
-            
-        }else{
-            post(URLString, parameters: parameters, progress: nil, success: { (_, json) in
-                completion(json as AnyObject, true)
-            }, failure: { (_, error) in
-                print("网络请求错误\(error)")
-                completion(nil, false)
-            })
-        }
-        
-        
-        
-        
-    }
-   
-}
