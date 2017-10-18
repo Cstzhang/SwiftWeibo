@@ -108,10 +108,10 @@ class MainViewController: UITabBarController {
         vc.tabBarItem.image = UIImage(named: "tabbar_"+(imageName as! String))
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_"+(imageName as! String)+"_selected")?.withRenderingMode(.alwaysOriginal)
         //4,设置标题样式
-        vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.orange],
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor:UIColor.orange],
                                              for: .selected)
          //系统默认12号字 ，要设置normal 字体大小
-        vc.tabBarItem.setTitleTextAttributes([NSFontAttributeName:UIFont.systemFont(ofSize: 12)],
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.font:UIFont.systemFont(ofSize: 12)],
                                              for: UIControlState.normal)
         
         //实例化导航控制器的时候，会调用push方法将rootVC压栈

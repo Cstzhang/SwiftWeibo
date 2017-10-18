@@ -41,7 +41,7 @@ class BaseViewController: UIViewController {
     
     }
     //加载数据源， 具体实现由子类负责
-    func loadData()  {
+    @objc func loadData()  {
         //如果子类不识闲任何方法，默认关闭刷新控件
         refreshControl?.endRefreshing()
     }
@@ -129,7 +129,7 @@ extension BaseViewController{
         //navigationBar 的渲染颜色（系统默认导航栏右侧高亮）（导航条背景颜色）
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
         //设置 navBar title 字体颜色
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.darkGray]
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray]
         //设置系统按钮的文字渲染颜色
         navigationBar.tintColor = UIColor.orange
         

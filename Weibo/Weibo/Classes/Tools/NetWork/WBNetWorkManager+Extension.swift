@@ -22,7 +22,7 @@ extension NetWorkManager{
             let result = json?["statuses"] as? [[String:AnyObject]]
             completion(result, isSuccess)
         }
-//        tokenRequest(URLString: <#T##String#>, parameters: <#T##[String : AnyObject]?#>, completion: <#T##(AnyObject?, Bool) -> ()#>)
+
     }
 }
 

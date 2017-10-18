@@ -30,18 +30,23 @@ class NetWorkManager: AFHTTPSessionManager {
     ///   - URLString: URLString
     ///   - parameters: 参数字典
     ///   - completion: 完成回调[json(字典/数组)，是否成功]
+    
     func request(method:HTTPMethod = .GET,URLString:String,parameters:[String:AnyObject]?,completion:@escaping (_ json:AnyObject?,_ isSuccess:Bool)->()) {
         if method == .GET {
-            get(URLString, parameters: parameters, progress: nil, success: { (_, json) in
+            get(URLString, parameters: parameters, progress: nil, success: { (task, json) in
                 completion(json as AnyObject, true)
-            }, failure: { (_, error) in
+            }, failure: { (task, error) in
+                if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
+                    print("token 过期了")
+                    // FIXME: 发送通知 需要登录
+                }
                 print("网络请求错误\(error)")
                 completion(nil, false)
             })
         }else{
             post(URLString, parameters: parameters, progress: nil, success: { (_, json) in
                 completion(json as AnyObject, true)
-            }, failure: { (_, error) in
+            }, failure: { (task, error) in
                 print("网络请求错误\(error)")
                 completion(nil, false)
             })
@@ -54,6 +59,7 @@ class NetWorkManager: AFHTTPSessionManager {
         //0,判断toke 是否为nil
         guard let token = accessToken else {
             print("无token,需要登录！")
+            // FIXME: 发送通知 需要登录
             completion(nil, false)
             return
         }
@@ -66,11 +72,8 @@ class NetWorkManager: AFHTTPSessionManager {
         }
         //2，设置字典参数 parameters一定有值
         parameters!["access_token"] = token as AnyObject
-        
-        
-        
-        
-        //请求获取accessToken
+
+        //3,请求
         request(URLString: URLString, parameters: parameters, completion: completion)
         
     }
