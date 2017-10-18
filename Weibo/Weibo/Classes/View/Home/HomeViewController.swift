@@ -19,14 +19,10 @@ class HomeViewController: BaseViewController {
        //测试网络数据加载
         let urlString = "https://api.weibo.com/2/statuses/user_timeline.json"
         let params = ["access_token":"2.00aCMggCHdipjB89ce96f2760mSK47"]
-        NetWorkManager.shared.get(urlString, parameters: params, progress: nil, success: { (_, json) in
-            print(json ?? "success")
-        }) { (_, error) in
-            print(error)
 
+        NetWorkManager.shared.request(URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
+            print(json ?? "无返回")
         }
-        
-        
         
         
        // 模拟延时加载数据
