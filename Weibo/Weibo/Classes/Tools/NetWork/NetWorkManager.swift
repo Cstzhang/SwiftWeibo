@@ -20,8 +20,8 @@ enum HTTPMethod {
 class NetWorkManager: AFHTTPSessionManager {
     //静态-常量-闭包（第一次访问时执行闭包，并且保存在shared常量中） 单例
     static let shared = NetWorkManager()
-    //访问令牌，登录除外
-    var accessToken :String? = "2.00aCMggCHdipjB89ce96f2760mSK47"
+    //访问令牌，登录除外  2.00aCMggCYa1evD2610494659dtA_UE 2.00aCMggCHdipjB89ce96f2760mSK47
+    var accessToken :String? = "2.00aCMggCYa1evD2610494659dtA_UE"
 
     /// 封装网络请求
     ///
@@ -36,6 +36,7 @@ class NetWorkManager: AFHTTPSessionManager {
             get(URLString, parameters: parameters, progress: nil, success: { (task, json) in
                 completion(json as AnyObject, true)
             }, failure: { (task, error) in
+                
                 if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                     print("token 过期了")
                     // FIXME: 发送通知 需要登录

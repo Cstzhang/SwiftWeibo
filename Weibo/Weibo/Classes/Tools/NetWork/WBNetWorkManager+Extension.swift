@@ -20,7 +20,7 @@ extension NetWorkManager{
     func statusList(since_id:Int64 = 0,max_id:Int64 = 0,completion:@escaping (_ list:[[String:AnyObject]]?,_ isSuccess:Bool)->())  {
         let urlString = "https://api.weibo.com/2/statuses/user_timeline.json"
         // int 可以转anobject int64不行
-        let params = ["since_id":"\(since_id)","max_id":"\(max_id)"]
+        let params = ["since_id":"\(since_id)","max_id":"\(max_id > 0 ? max_id-1 : 0 )"]
         tokenRequest(URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
             //从json中获取statuses数据 如果as 失败 result = nil
             let result = json?["statuses"] as? [[String:AnyObject]]

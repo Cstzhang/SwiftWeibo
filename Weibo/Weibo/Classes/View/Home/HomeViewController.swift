@@ -15,13 +15,16 @@ class HomeViewController: BaseViewController {
     fileprivate lazy var listViewModel = WBStatusListViewModel()
     //加载数据源 假数据
     override func loadData() {
-        listViewModel.loadStatus { (isSuccess) in
-            print("刷新表格")
-            self.isPullup = false
+        listViewModel.loadStatus(pullop: self.isPullup) { (isSuccess,hasMorePullup) in
             //结束刷新
             self.refreshControl?.endRefreshing()
+            print("刷新表格")
+            self.isPullup = false
             //刷新表格数据
-            self.tableView?.reloadData()
+            if hasMorePullup{
+                self.tableView?.reloadData()
+            }
+           
         }
         
     }

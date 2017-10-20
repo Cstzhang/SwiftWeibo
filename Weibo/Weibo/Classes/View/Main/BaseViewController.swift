@@ -30,19 +30,17 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData()
+        loadData()//加载数据
     }
     //设置导航栏title 重写 title的set方法
     override var title: String? {
         didSet{
           navItem.title = title
-        
         }
-    
     }
     //加载数据源， 具体实现由子类负责
     @objc func loadData()  {
-        //如果子类不识闲任何方法，默认关闭刷新控件
+        //如果子类不实现任何方法，默认关闭刷新控件
         refreshControl?.endRefreshing()
     }
     
@@ -83,7 +81,7 @@ extension BaseViewController{
     }
     
     //创建表格 用户登录之后（子类重写此方法，子类不需要关系用户登录之前的逻辑）
- @objc  func  setupTableView(){
+   @objc  func  setupTableView(){
        tableView = UITableView(frame: view.bounds, style: .plain)
        view.insertSubview(tableView!, belowSubview: navigationBar)
        //设置数据源&代理 子类实现数据源方法
