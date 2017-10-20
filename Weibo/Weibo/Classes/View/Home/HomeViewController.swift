@@ -11,38 +11,18 @@ import UIKit
 private let cellId = "cellId"
 
 class HomeViewController: BaseViewController {
-    fileprivate lazy var statusList = [String]()
-    
-
+//    fileprivate lazy var statusList = [String]()
+    fileprivate lazy var listViewModel = WBStatusListViewModel()
     //加载数据源 假数据
     override func loadData() {
-       //测试网络数据加载
-        NetWorkManager.shared.statusList { (list, isSuccess) in
-            print(list ?? "")
-        }
-        
-       // 模拟延时加载数据
-        print("加载数据")
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
-            for i in 0..<15 {
-                if self.isPullup{
-                //上拉
-                   self.statusList.append("上拉 \(i)")
-                }else{
-                //下拉
-                 self.statusList.insert(i.description, at: 0)
-                }
-               
-            }
+        listViewModel.loadStatus { (isSuccess) in
             print("刷新表格")
             self.isPullup = false
             //结束刷新
             self.refreshControl?.endRefreshing()
             //刷新表格数据
             self.tableView?.reloadData()
-            
         }
-      
         
     }
     
@@ -63,13 +43,13 @@ class HomeViewController: BaseViewController {
 
 extension HomeViewController{
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statusList.count
+        return listViewModel.statusList.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
-        cell.textLabel?.text = statusList[indexPath.row]
+        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
         
         return cell
         
@@ -94,3 +74,4 @@ extension HomeViewController{
     
     
 }
+

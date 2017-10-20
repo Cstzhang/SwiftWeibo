@@ -964,7 +964,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -982,7 +982,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.Weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -999,7 +999,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.WeiboTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weibo.app/Weibo";
 			};
@@ -1017,7 +1017,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.WeiboTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weibo.app/Weibo";
 			};
@@ -1034,7 +1034,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.WeiboUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Weibo;
 			};
@@ -1051,7 +1051,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.WeiboUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Weibo;
 			};

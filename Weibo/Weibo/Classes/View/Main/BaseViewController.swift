@@ -83,7 +83,7 @@ extension BaseViewController{
     }
     
     //创建表格 用户登录之后（子类重写此方法，子类不需要关系用户登录之前的逻辑）
-   func  setupTableView(){
+ @objc  func  setupTableView(){
        tableView = UITableView(frame: view.bounds, style: .plain)
        view.insertSubview(tableView!, belowSubview: navigationBar)
        //设置数据源&代理 子类实现数据源方法
