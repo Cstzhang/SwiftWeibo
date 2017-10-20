@@ -25,15 +25,22 @@ class WBStatusListViewModel {
     ///
     /// - Parameter completion:完成回调，网络请求是否成功
     func loadStatus(completion:@escaping (_ success:Bool)->())  {
-          NetWorkManager.shared.statusList { (list, isSuccess) in
+        //since_id 下拉 数组中第一条微博id
+        let since_id = statusList.first?.id ?? 0
+        
+          NetWorkManager.shared.statusList(since_id: since_id,max_id: 0) { (list, isSuccess) in
           //1,字典转模型
              guard  let array = NSArray.yy_modelArray(with: WBStatus.self, json: list ?? []) as? [WBStatus] else{
                 completion(isSuccess)
                 return
             }
          //2,拼接数据
-            self.statusList += array
-         //3,完成回调
+            print("获取\(array.count)条数据")
+            //下拉刷新，应该将数组拼接在前面
+            
+            self.statusList = array + self.statusList
+         
+            //3,完成回调
             completion(isSuccess)
             
         }
