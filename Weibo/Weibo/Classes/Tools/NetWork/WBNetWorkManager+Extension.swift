@@ -28,5 +28,24 @@ extension NetWorkManager{
         }
 
     }
+    
+    /// 微博的未读数量
+    ///
+    /// - Returns:
+    func unreadCount(completion:@escaping (_ count:Int)->()) {
+        guard let uid = uid else {
+            return
+        }
+        let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
+        let params = ["uid":uid]
+        tokenRequest(URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
+            print(json ?? "")
+            let dic = json as? [String : AnyObject]
+            let count = dic?["status"] as? Int
+            completion(count ?? 0)
+        }
+        
+    }
+    
 }
 

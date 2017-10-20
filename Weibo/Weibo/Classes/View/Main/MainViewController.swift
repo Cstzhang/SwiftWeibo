@@ -14,7 +14,10 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
         setupChildController()
         setupComposeButton()
-
+        //测试未读书
+        NetWorkManager.shared.unreadCount { (count) in
+            print("有\(count)条新微博")
+        }
     
         }
     //修改横竖设置 portrait 竖屏 landscape 横屏 在需要横屏的时候单独处理

@@ -22,7 +22,7 @@ class NetWorkManager: AFHTTPSessionManager {
     static let shared = NetWorkManager()
     //访问令牌，登录除外  2.00aCMggCYa1evD2610494659dtA_UE 2.00aCMggCHdipjB89ce96f2760mSK47
     var accessToken :String? = "2.00aCMggCYa1evD2610494659dtA_UE"
-
+    var uid:String? = "123345"
     /// 封装网络请求
     ///
     /// - Parameters:
