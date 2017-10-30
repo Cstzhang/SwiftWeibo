@@ -18,7 +18,10 @@ class MainViewController: UITabBarController {
         setupComposeButton()
         setupTimer()
     
+        //设置tabbar 代理
+        delegate = self
     }
+    
     //销毁
     deinit {
         timer?.invalidate()
@@ -62,7 +65,6 @@ extension MainViewController{
             print("检测到\(count)条新微博")
             //设置首页tab bageNumber
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
-            
             //ios8.0后要用户授权后才能显示
             UIApplication.shared.applicationIconBadgeNumber =  count
             
@@ -77,6 +79,26 @@ extension MainViewController{
 }
 
 
+extension MainViewController:UITabBarControllerDelegate{
+    /// 将要选择tabbar
+    ///
+    /// - Parameters:
+    ///   - tabBarController: tabBarController
+    ///   - viewController: 目标控制器
+    /// - Returns: 是否切换到目标控制器
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        //判断目标控制器是否是UIViewController
+        return !viewController.isMember(of: UIViewController.self)
+        
+    }
+    
+    
+    
+    
+}
+
+
+
 /* extension类似oc分类，切分代码块
    可以把相近功能的函数放在一个extension中便于维护
    extension扩展只能添加些的计算属性，但不能添加存储属性，也不能像已有属性添加属性观察
@@ -85,8 +107,10 @@ extension MainViewController{
     //设置添加按钮
    fileprivate func setupComposeButton(){
         tabBar.addSubview(composeButton)
+        //按钮高度
         let count = CGFloat(childViewControllers.count)
-        let w = tabBar.bounds.width / count - 1//向内缩进的宽度减少，让按钮的宽度变大，盖住容错点，防止点击穿透
+        //按钮宽度
+        let w = tabBar.bounds.width / count
         composeButton.frame = tabBar.bounds.insetBy(dx: 2*w, dy: 0)
         composeButton.addTarget(self, action: #selector(composeStatus), for: .touchUpInside)
     
