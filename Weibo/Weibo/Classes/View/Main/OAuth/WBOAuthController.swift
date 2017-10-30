@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import SVProgressHUD
 //通过webview 加载登录页面
 class WBOAuthController: UIViewController {
     private lazy var webView = UIWebView()
     
     override func loadView() {
         view = webView
+        webView.scrollView.isScrollEnabled = false
         view.backgroundColor = UIColor .white
         //设置导航栏
         title = "登录新浪微博"
@@ -45,6 +47,7 @@ class WBOAuthController: UIViewController {
 
     // MARK: -监听方法
     @objc private func loginClose(){
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
 
@@ -86,10 +89,19 @@ extension WBOAuthController:UIWebViewDelegate{
             return false
         }
         let code = request.url?.query?.substring(from: "code=".endIndex) ?? ""
+        
         print("获取授权码 \(String(describing: code))")
+        
         return false
     }
     
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        SVProgressHUD.dismiss()
+    }
     
     
     
