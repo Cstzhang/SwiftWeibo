@@ -63,6 +63,9 @@ extension MainViewController{
             //设置首页tab bageNumber
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
             
+            //ios8.0后要用户授权后才能显示
+            UIApplication.shared.applicationIconBadgeNumber =  count
+            
         }
         
         
