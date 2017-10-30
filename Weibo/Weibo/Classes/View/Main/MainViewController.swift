@@ -17,14 +17,19 @@ class MainViewController: UITabBarController {
         setupChildController()
         setupComposeButton()
         setupTimer()
-    
+        
         //设置tabbar 代理
         delegate = self
+        
+        //注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userlogin), name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
     }
     
     //销毁
     deinit {
         timer?.invalidate()
+        NotificationCenter.default.removeObserver(self)
+
     }
     
     //修改横竖设置 portrait 竖屏 landscape 横屏 在需要横屏的时候单独处理
@@ -34,6 +39,15 @@ class MainViewController: UITabBarController {
       return UIInterfaceOrientationMask.portrait
     
     }
+    
+    @objc private func userlogin(n:Notification){
+//        print("用户登录通知\(n)")
+        //前往等路页面
+        let nv = UINavigationController(rootViewController: WBOAuthController())
+        present(nv, animated: true, completion: nil)
+        
+    }
+    
     
     
     //私用控件
