@@ -9,17 +9,21 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-
+    //定时器
+    private var timer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChildController()
         setupComposeButton()
-        //测试未读书
-        NetWorkManager.shared.unreadCount { (count) in
-            print("有\(count)条新微博")
-        }
+        setupTimer()
     
-        }
+    }
+    //销毁
+    deinit {
+        timer?.invalidate()
+    }
+    
     //修改横竖设置 portrait 竖屏 landscape 横屏 在需要横屏的时候单独处理
     //设置支持的方向后，当前控制器以及子控制器都会遵守这个方向
     //视频播放 用modal来展示，旋转
@@ -27,6 +31,7 @@ class MainViewController: UITabBarController {
       return UIInterfaceOrientationMask.portrait
     
     }
+    
     
     //私用控件
     fileprivate lazy var composeButton : UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
@@ -44,6 +49,31 @@ class MainViewController: UITabBarController {
     }
     
 }
+// MARK: -时钟
+extension MainViewController{
+    func setupTimer() -> () {
+        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector:#selector(updateTimer), userInfo: nil, repeats: true)
+        
+    }
+    
+    // 时钟触发方法
+    @objc private func updateTimer(){
+        NetWorkManager.shared.unreadCount { (count) in
+            print("检测到\(count)条新微博")
+            //设置首页tab bageNumber
+            self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
+}
+
+
 /* extension类似oc分类，切分代码块
    可以把相近功能的函数放在一个extension中便于维护
    extension扩展只能添加些的计算属性，但不能添加存储属性，也不能像已有属性添加属性观察
