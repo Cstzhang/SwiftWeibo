@@ -55,12 +55,15 @@ class MainViewController: UITabBarController {
 // MARK: -时钟
 extension MainViewController{
     func setupTimer() -> () {
-        timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector:#selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector:#selector(updateTimer), userInfo: nil, repeats: true)
         
     }
     
     // 时钟触发方法
     @objc private func updateTimer(){
+        if !NetWorkManager.shared.userlogon{
+            return
+        }
         NetWorkManager.shared.unreadCount { (count) in
             print("检测到\(count)条新微博")
             //设置首页tab bageNumber
@@ -102,10 +105,7 @@ extension MainViewController:UITabBarControllerDelegate{
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
                   vc.loadData()
             })
-            
         }
-        
-        
         //判断目标控制器是否是UIViewController
         return !viewController.isMember(of: UIViewController.self)
         

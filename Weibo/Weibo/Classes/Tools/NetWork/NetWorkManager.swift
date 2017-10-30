@@ -21,8 +21,13 @@ class NetWorkManager: AFHTTPSessionManager {
     //静态-常量-闭包（第一次访问时执行闭包，并且保存在shared常量中） 单例
     static let shared = NetWorkManager()
     //访问令牌，登录除外  2.00aCMggCYa1evD2610494659dtA_UE 2.00aCMggCHdipjB89ce96f2760mSK47
-    var accessToken :String? = "2.00aCMggCYa1evD2610494659dtA_UE"
+    var accessToken :String?
     var uid:String? = "123345"
+    //计算型属性
+    var userlogon: Bool{
+        return accessToken != nil
+    }
+    
     /// 封装网络请求
     ///
     /// - Parameters:

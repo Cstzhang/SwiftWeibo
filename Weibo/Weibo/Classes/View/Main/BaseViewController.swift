@@ -13,8 +13,7 @@ class BaseViewController: UIViewController {
     // MARK: -设置属性
     //访客视图字典
     var visitorInfoDic : [String :String]?
-    // 用户登录标记
-    var userLogin = true
+
     //表格视图 用户没有登录就不创建
     var tableView : UITableView?
     //刷新控件
@@ -30,7 +29,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData()//加载数据
+        NetWorkManager.shared.userlogon ?  loadData() : ()//加载数据
     }
     //设置导航栏title 重写 title的set方法
     override var title: String? {
@@ -76,7 +75,7 @@ extension BaseViewController{
         automaticallyAdjustsScrollViewInsets = false
         setupNavigationBar()
         //登录设置表格，未登录显示访客视图
-        userLogin ? setupTableView() : setupVisitorView()
+        NetWorkManager.shared.userlogon ? setupTableView() : setupVisitorView()
         
     }
     
