@@ -16,6 +16,9 @@ class WBOAuthController: UIViewController {
         view.backgroundColor = UIColor .white
         //设置导航栏
         title = "登录新浪微博"
+        //设置代理
+        webView.delegate = self
+        
         //按钮
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", fontSize: 14, target: self, action: #selector(loginClose), isBack: true)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "自动填充", fontSize: 14, target: self, action: #selector(autoFill), isBack: true)
@@ -56,5 +59,38 @@ class WBOAuthController: UIViewController {
         
         
     }
+    
 
+}
+
+extension WBOAuthController:UIWebViewDelegate{
+    /// webview将要加载请求
+    ///
+    /// - Parameters:
+    ///   - webView: webView
+    ///   - request: 要加载的请求
+    ///   - navigationType: 导航类型
+    /// - Returns: 是否加载 request
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        //  print("加载请求-- \(describing: request.url?.absoluteString)")
+        //如果请求地址包含 WBRedirectURL 则不加载 从WBRedirectURL回调url中查找"code="获取key
+        
+        if request.url?.absoluteString.hasPrefix(WBRedirectURL) == false{
+            return true
+        }
+        
+        if request.url?.query?.hasPrefix("code=") == false {
+           print("取消授权")
+            //取消授权
+            loginClose()
+            return false
+        }
+        let code = request.url?.query?.substring(from: "code=".endIndex) ?? ""
+        print("获取授权码 \(String(describing: code))")
+        return false
+    }
+    
+    
+    
+    
 }
