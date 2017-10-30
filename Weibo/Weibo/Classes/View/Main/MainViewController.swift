@@ -40,8 +40,8 @@ class MainViewController: UITabBarController {
     
     }
     
+    
     @objc private func userlogin(n:Notification){
-//        print("用户登录通知\(n)")
         //前往等路页面
         let nv = UINavigationController(rootViewController: WBOAuthController())
         present(nv, animated: true, completion: nil)
