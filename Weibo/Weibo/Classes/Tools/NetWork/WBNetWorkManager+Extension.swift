@@ -60,8 +60,10 @@ extension NetWorkManager {
         request(method:.POST, URLString: urlString, parameters: params as [String : AnyObject]) { (json, success) in
             print(json ?? "")
             //设置UserAccount属性
-            self.userAccount.yy_modelSet(with: (json as? [String : AnyObject]) ?? [:] )
+            self.userAccount.yy_modelSet(with: (json as? [AnyHashable : Any]) ?? [:] )
             print(self.userAccount)
+            //保存
+            self.userAccount.saveAccount()
         }
         
     }

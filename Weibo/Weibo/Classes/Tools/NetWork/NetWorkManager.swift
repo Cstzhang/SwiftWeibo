@@ -27,7 +27,7 @@ class NetWorkManager: AFHTTPSessionManager {
       return instance
     }()
     //用户属性
-    lazy var userAccount = UserAccount()
+    lazy  var userAccount = UserAccount()
     //计算型属性
     var userlogon: Bool{
         return userAccount.access_token != nil
