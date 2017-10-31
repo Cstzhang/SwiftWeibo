@@ -19,7 +19,13 @@ enum HTTPMethod {
 // MARK: -网络管理工具
 class NetWorkManager: AFHTTPSessionManager {
     //静态-常量-闭包（第一次访问时执行闭包，并且保存在shared常量中） 单例
-    static let shared = NetWorkManager()
+    static let shared = { () -> NetWorkManager in
+       //实例化对象
+      let instance = NetWorkManager()
+      //设置
+      instance.responseSerializer.acceptableContentTypes?.insert("text/plain")
+      return instance
+    }()
     //访问令牌，登录除外  2.00aCMggCYa1evD2610494659dtA_UE 2.00aCMggCHdipjB89ce96f2760mSK47
     var accessToken :String?
     var uid:String? = "123345"
@@ -78,14 +84,12 @@ class NetWorkManager: AFHTTPSessionManager {
         }
         //2，设置字典参数 parameters一定有值
         parameters!["access_token"] = token as AnyObject
-
         //3,请求
         request(URLString: URLString, parameters: parameters, completion: completion)
         
     }
    
 }
-
 //        //成功回调
 //        let success   = {(task:URLSessionDataTask,json:AnyObject?)-> Void in
 //            print("网络请求成功")

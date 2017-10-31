@@ -46,6 +46,25 @@ extension NetWorkManager{
         }
         
     }
+}
+
+extension NetWorkManager {
+    func loadAccessToken(code: String){
+        let urlString = "https://api.weibo.com/oauth2/access_token"
+        let params = ["client_id":WBAppKey,
+                      "client_secret":WBAppSecret,
+                      "grant_type":"authorization_code",
+                      "code":code,
+                      "redirect_uri":WBRedirectURL]
+        //发起网络请求
+        request(method:.POST, URLString: urlString, parameters: params as [String : AnyObject]) { (json, success) in
+            print(json ?? "")
+        }
+        
+    }
+    
+    
     
 }
+
 

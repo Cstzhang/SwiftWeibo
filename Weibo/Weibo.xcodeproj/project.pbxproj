@@ -30,6 +30,9 @@
 		6D2440111F99A517006D4342 /* WBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D24400F1F99A517006D4342 /* WBStatusListViewModel.swift */; };
 		6D2440121F99A517006D4342 /* WBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D24400F1F99A517006D4342 /* WBStatusListViewModel.swift */; };
 		6D3EC42E1F95E8EF00101115 /* MainVC.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D3EC42D1F95E87700101115 /* MainVC.json */; };
+		6D4B87EF1FA815810005788B /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4B87EE1FA815810005788B /* UserAccount.swift */; };
+		6D4B87F01FA815810005788B /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4B87EE1FA815810005788B /* UserAccount.swift */; };
+		6D4B87F11FA815810005788B /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4B87EE1FA815810005788B /* UserAccount.swift */; };
 		6D5D16061F2B31C300F9C3B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D16051F2B31C300F9C3B0 /* AppDelegate.swift */; };
 		6D5D160D1F2B31C300F9C3B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D5D160C1F2B31C300F9C3B0 /* Assets.xcassets */; };
 		6D5D161B1F2B31C300F9C3B0 /* WeiboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D161A1F2B31C300F9C3B0 /* WeiboTests.swift */; };
@@ -133,6 +136,7 @@
 		6D24400B1F99922F006D4342 /* WBStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatus.swift; sourceTree = "<group>"; };
 		6D24400F1F99A517006D4342 /* WBStatusListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusListViewModel.swift; sourceTree = "<group>"; };
 		6D3EC42D1F95E87700101115 /* MainVC.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MainVC.json; sourceTree = "<group>"; };
+		6D4B87EE1FA815810005788B /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		6D5D16021F2B31C300F9C3B0 /* Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5D16051F2B31C300F9C3B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D5D160C1F2B31C300F9C3B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 		6D0A955C1F97408100F6A3C2 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				6D4B87ED1FA815650005788B /* Model */,
 				6D0A95611F97414A00F6A3C2 /* NetWorkManager.swift */,
 				6DCD09351F975F5E008589D1 /* WBNetWorkManager+Extension.swift */,
 			);
@@ -271,6 +276,14 @@
 				6D2044FD1F2F791E00195C6D /* VisitorView.swift */,
 			);
 			path = VisitorView;
+			sourceTree = "<group>";
+		};
+		6D4B87ED1FA815650005788B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6D4B87EE1FA815810005788B /* UserAccount.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		6D5D15F91F2B31C300F9C3B0 = {
@@ -762,6 +775,7 @@
 				6D5D16521F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16461F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
 				6DFF30001F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
+				6D4B87EF1FA815810005788B /* UserAccount.swift in Sources */,
 				6DFF30091F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
 				6D1B06971FA6F46600BCD698 /* WBOAuthController.swift in Sources */,
 				6D5D16061F2B31C300F9C3B0 /* AppDelegate.swift in Sources */,
@@ -799,6 +813,7 @@
 				6D5D16531F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16471F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
 				6DFF30011F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
+				6D4B87F01FA815810005788B /* UserAccount.swift in Sources */,
 				6DFF300A1F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
 				6D1B06981FA6F46600BCD698 /* WBOAuthController.swift in Sources */,
 				6D5D161B1F2B31C300F9C3B0 /* WeiboTests.swift in Sources */,
@@ -836,6 +851,7 @@
 				6D5D16541F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16481F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
 				6DFF30021F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
+				6D4B87F11FA815810005788B /* UserAccount.swift in Sources */,
 				6DFF300B1F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
 				6D1B06991FA6F46600BCD698 /* WBOAuthController.swift in Sources */,
 				6D5D16261F2B31C300F9C3B0 /* WeiboUITests.swift in Sources */,
