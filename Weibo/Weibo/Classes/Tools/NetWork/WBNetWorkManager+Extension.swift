@@ -33,7 +33,7 @@ extension NetWorkManager{
     ///
     /// - Returns:
     func unreadCount(completion:@escaping (_ count:Int)->()) {
-        guard let uid = uid else {
+        guard let uid = userAccount.uid else {
             return
         }
         let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
@@ -59,6 +59,9 @@ extension NetWorkManager {
         //发起网络请求
         request(method:.POST, URLString: urlString, parameters: params as [String : AnyObject]) { (json, success) in
             print(json ?? "")
+            //设置UserAccount属性
+            self.userAccount.yy_modelSet(with: (json as? [String : AnyObject]) ?? [:] )
+            print(self.userAccount)
         }
         
     }

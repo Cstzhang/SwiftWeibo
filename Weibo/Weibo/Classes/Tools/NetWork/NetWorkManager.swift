@@ -26,12 +26,11 @@ class NetWorkManager: AFHTTPSessionManager {
       instance.responseSerializer.acceptableContentTypes?.insert("text/plain")
       return instance
     }()
-    //访问令牌，登录除外  2.00aCMggCYa1evD2610494659dtA_UE 2.00aCMggCHdipjB89ce96f2760mSK47
-    var accessToken :String?
-    var uid:String? = "123345"
+    //用户属性
+    lazy var userAccount = UserAccount()
     //计算型属性
     var userlogon: Bool{
-        return accessToken != nil
+        return userAccount.access_token != nil
     }
     
     /// 封装网络请求
@@ -69,7 +68,7 @@ class NetWorkManager: AFHTTPSessionManager {
     // 获取拼接  accessToken
     func tokenRequest(method:HTTPMethod = .GET,URLString:String,parameters:[String:AnyObject]?,completion:@escaping (_ json:AnyObject?,_ isSuccess:Bool)->()) {
         //0,判断toke 是否为nil
-        guard let token = accessToken else {
+        guard let token = userAccount.access_token else {
             print("无token,需要登录！")
             // FIXME: 发送通知 需要登录
             completion(nil, false)

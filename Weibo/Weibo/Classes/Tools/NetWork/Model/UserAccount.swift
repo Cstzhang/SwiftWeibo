@@ -10,7 +10,7 @@ import UIKit
 
 class UserAccount: NSObject {
     //令牌
-    var access_token:String?
+    var access_token:String? 
     //用户代号
     var uid:String?
     //过期日期 单位：秒  开发者5年，其他用户3天
@@ -19,6 +19,7 @@ class UserAccount: NSObject {
     override var description: String{
         return yy_modelDescription()
     }
+    
     
 
 }
