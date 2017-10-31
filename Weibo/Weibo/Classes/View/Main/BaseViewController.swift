@@ -55,6 +55,9 @@ class BaseViewController: UIViewController {
     
     @objc fileprivate func loginSuccess(n:Notification){
         print("登录成功 \(n)")
+        //去掉原来的按钮，重新加载
+        navItem.leftBarButtonItem = nil
+        navItem.rightBarButtonItem = nil
         //访客视图替换成表格视图,重新设置View
         //当访问view 的getter方法时  如view =nil ，会调用loadView -> viewdidload方法
         view = nil
@@ -108,6 +111,8 @@ extension BaseViewController{
                                                0,
                                                tabBarController?.tabBar.bounds.height ?? 49,
                                                0)
+       //修改指示器的缩进
+       tableView?.scrollIndicatorInsets = tableView!.contentInset
        //设置刷新控件
        //1 实例化控件
        refreshControl = UIRefreshControl()
