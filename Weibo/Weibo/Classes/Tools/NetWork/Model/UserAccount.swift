@@ -40,7 +40,7 @@ class UserAccount: NSObject {
         yy_modelSet(with: dict ?? [:])
         //判断token是否过期
            //测试过期
-//           expitesDate = Date(timeIntervalSinceNow: -3600 * 24)
+           expitesDate = Date(timeIntervalSinceNow: -3600 * 24)
        if expitesDate?.compare(NSDate() as Date) != .orderedDescending {
            print("账号过期")
            //清空token

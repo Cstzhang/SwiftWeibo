@@ -8,6 +8,8 @@
 
 import UIKit
 import UserNotifications
+import SVProgressHUD
+import AFNetworking
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,27 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-       
-        
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(options:[.alert,.sound,.badge,.carPlay]) { (success, error) in
-                print("授权" + (success ? "成功" : "失败"))
-            }
-        } else {
-            // Fallback on earlier versions
-            let notifySettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
-            application.registerUserNotificationSettings(notifySettings)
-        }
-        /*
-         
-         
-         */
-        
-        
-        //取得用户授权通知[上方提示条/声音/bageNumber]
-       
-
+        //应用程序额外设置
+        setupAdditions()
         window = UIWindow()
         window?.backgroundColor = UIColor.white
         window?.rootViewController = MainViewController()
@@ -45,6 +28,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+// MARK: -设置额外信息
+extension AppDelegate{
+    private func setupAdditions(){
+        //1设置提示语的显示时间
+        SVProgressHUD.setMinimumDismissTimeInterval(1)
+        
+        //2设置网络加载指示器
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
+        
+        //3设置提示授权
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options:[.alert,.sound,.badge,.carPlay]) { (success, error) in
+                print("授权" + (success ? "成功" : "失败"))
+            }
+        } else {
+            // Fallback on earlier versions
+            let notifySettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(notifySettings)
+            
+        }
+    }
+    
 }
 
 // MARK: -从服务器加载应用程序信息
