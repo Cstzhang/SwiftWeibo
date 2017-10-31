@@ -67,6 +67,9 @@ class UserAccount: NSObject {
         //2 写入磁盘
         (data as NSData).write(toFile: filePath, atomically: true)
          print("用户保存成功 \(filePath)")
+    
+    
+    
 
     }
 

@@ -49,7 +49,14 @@ extension NetWorkManager{
 }
 
 extension NetWorkManager {
-    func loadAccessToken(code: String){
+    //异步网络请求
+    
+    /// 获取授权码
+    ///
+    /// - Parameters:
+    ///   - code: 授权码
+    ///   - comletion: 完成回调 是否成功
+    func loadAccessToken(code: String,comletion:@escaping (_ isSuccess:Bool)->()){
         let urlString = "https://api.weibo.com/oauth2/access_token"
         let params = ["client_id":WBAppKey,
                       "client_secret":WBAppSecret,
@@ -58,12 +65,13 @@ extension NetWorkManager {
                       "redirect_uri":WBRedirectURL]
         //发起网络请求
         request(method:.POST, URLString: urlString, parameters: params as [String : AnyObject]) { (json, success) in
-            print(json ?? "")
+            //如果请求失败，对用户账户失败不会有影响
             //设置UserAccount属性
             self.userAccount.yy_modelSet(with: (json as? [AnyHashable : Any]) ?? [:] )
-            print(self.userAccount)
             //保存
             self.userAccount.saveAccount()
+            //完成回调
+            comletion(success)
         }
         
     }
