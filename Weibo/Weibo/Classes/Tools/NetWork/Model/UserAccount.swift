@@ -8,6 +8,8 @@
 
 import UIKit
 import YYModel
+//文件存储路径
+fileprivate let accountFile:NSString  = "saveAccount.json"
 class UserAccount: NSObject {
     //令牌
    @objc var access_token:String?
@@ -26,6 +28,20 @@ class UserAccount: NSObject {
         return yy_modelDescription()
     }
     
+    override init() {
+        super.init()
+        //从本地磁盘加载数据->字典 设置属性值
+        guard let path = accountFile.cz_appendDocumentDir(),
+              let data = NSData(contentsOfFile: path),
+              let dict = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [String:AnyObject] else{
+                  return
+        }
+        //数据设置到模型中
+        yy_modelSet(with: dict ?? [:])
+        
+        
+    }
+    
     //保存数据 json
     func saveAccount() {
          //1 模型转字典 去掉expires_in
@@ -34,7 +50,7 @@ class UserAccount: NSObject {
         dict.removeValue(forKey: "expires_in")
         //2 字典序列化
         guard let data = try? JSONSerialization.data(withJSONObject: dict, options: []),
-              let filePath = ("saveAccount.json" as NSString).cz_appendDocumentDir()
+              let filePath = accountFile.cz_appendDocumentDir()
               else{
               return
         }
