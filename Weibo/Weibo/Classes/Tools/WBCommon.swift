@@ -9,6 +9,8 @@
 import Foundation
 //登录通知
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
+
+let WBUserLoginSuccessNotification = "WBUserLoginSuccessNotification"
 //程序ID
 let WBAppKey = "3600261914"
 //加密信息

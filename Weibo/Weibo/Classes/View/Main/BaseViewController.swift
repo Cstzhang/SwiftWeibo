@@ -30,6 +30,16 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         NetWorkManager.shared.userlogon ?  loadData() : ()//加载数据
+        //注册通知
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(loginSuccess),
+                                               name: NSNotification.Name(rawValue: WBUserShouldLoginNotification),
+                                               object: nil)
+        
+    }
+    deinit {
+        //注册通知
+        NotificationCenter.default.removeObserver(self)
     }
     //设置导航栏title 重写 title的set方法
     override var title: String? {
@@ -43,6 +53,14 @@ class BaseViewController: UIViewController {
         refreshControl?.endRefreshing()
     }
     
+    @objc fileprivate func loginSuccess(n:Notification){
+        print("登录成功 \(n)")
+        //访客视图替换成表格视图,重新设置View
+        //当访问view 的getter方法时  如view =nil ，会调用loadView -> viewdidload方法
+        view = nil
+        //注销通知 重新执行viewDidload 会再次注册通知
+        NotificationCenter.default.removeObserver(self)
+    }
     
 
 }
@@ -55,9 +73,7 @@ extension BaseViewController{
     
     @objc fileprivate func register(){
         print("register")
-        
-        
-        
+
     }
     
     
