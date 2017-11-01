@@ -46,10 +46,10 @@ class NetWorkManager: AFHTTPSessionManager {
             get(URLString, parameters: parameters, progress: nil, success: { (task, json) in
                 completion(json as AnyObject, true)
             }, failure: { (task, error) in
-                
                 if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                     print("token 过期了")
-                    // FIXME: 发送通知 需要登录
+                    //发送通知 需要登录
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: "bad token")
                 }
                 print("网络请求错误\(error)")
                 completion(nil, false)
@@ -67,10 +67,12 @@ class NetWorkManager: AFHTTPSessionManager {
     
     // 获取拼接  accessToken
     func tokenRequest(method:HTTPMethod = .GET,URLString:String,parameters:[String:AnyObject]?,completion:@escaping (_ json:AnyObject?,_ isSuccess:Bool)->()) {
-        //0,判断toke 是否为nil
+        //0,判断toke 是否为nil 程序执行过程中一般不会为nil
         guard let token = userAccount.access_token else {
             print("无token,需要登录！")
-            // FIXME: 发送通知 需要登录
+            // 发送通知 需要登录
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
+            //回调
             completion(nil, false)
             return
         }

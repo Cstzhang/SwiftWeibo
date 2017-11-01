@@ -12,23 +12,27 @@ import YYModel
 fileprivate let accountFile:NSString  = "saveAccount.json"
 class UserAccount: NSObject {
     //令牌
-   @objc var access_token:String?
+    @objc var access_token:String?
     //用户代号
-   @objc var uid:String?
+    @objc var uid:String?
+    //用户昵称
+    @objc var screen_name:String?
+    //用户头像 大 180*180像素
+    @objc var avatar_large:String?
     //过期日期 单位：秒  开发者5年，其他用户3天
-   @objc var expires_in:TimeInterval = 0 {
+    @objc var expires_in:TimeInterval = 0 {
         didSet{
             expitesDate = Date(timeIntervalSinceNow: expires_in)
         }
     }
     //过去日期
-   @objc var expitesDate:Date?
+    @objc var expitesDate:Date?
     
-   override var description: String{
+    override var description: String{
         return yy_modelDescription()
     }
     
-   override init() {
+    override init() {
         super.init()
         //1从本地磁盘加载数据->字典 设置属性值
         guard let path = accountFile.cz_appendDocumentDir(),
@@ -36,11 +40,11 @@ class UserAccount: NSObject {
               let dict = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [String:AnyObject] else{
                   return
         }
-        //2数据设置到模型中
+        //2数据设置到模型中    用户是否登录
         yy_modelSet(with: dict ?? [:])
         //判断token是否过期
            //测试过期
-           expitesDate = Date(timeIntervalSinceNow: -3600 * 24)
+           // expitesDate = Date(timeIntervalSinceNow: -3600 * 24)
        if expitesDate?.compare(NSDate() as Date) != .orderedDescending {
            print("账号过期")
            //清空token
@@ -53,7 +57,7 @@ class UserAccount: NSObject {
     }
     
     //保存数据 json
-   func saveAccount() {
+    func saveAccount() {
          //1 模型转字典 去掉expires_in
         var dict = (self.yy_modelToJSONObject() as? [String : AnyObject]) ?? [:]
         //移除一个没必要的key

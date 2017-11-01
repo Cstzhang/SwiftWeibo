@@ -47,6 +47,29 @@ extension NetWorkManager{
         
     }
 }
+// MARK: -用户信息
+extension NetWorkManager{
+    //加载用户信息 登录后执行
+    func loadUserInfo(completion:@escaping (_ dict:[String:AnyObject])->())  {
+        guard let _ = userAccount.uid else {
+            return
+        }
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        let params = ["uid":userAccount.uid]
+        //发起网络请求
+        tokenRequest(URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
+            print(json ?? "")
+            
+            completion((json as? [String : AnyObject]) ?? [:])
+            
+            
+            
+        }
+        
+    }
+    
+}
+
 
 extension NetWorkManager {
     //异步网络请求
@@ -64,14 +87,21 @@ extension NetWorkManager {
                       "code":code,
                       "redirect_uri":WBRedirectURL]
         //发起网络请求
-        request(method:.POST, URLString: urlString, parameters: params as [String : AnyObject]) { (json, success) in
+        request(method:.POST, URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
             //如果请求失败，对用户账户失败不会有影响
             //设置UserAccount属性
             self.userAccount.yy_modelSet(with: (json as? [AnyHashable : Any]) ?? [:] )
-            //保存
-            self.userAccount.saveAccount()
-            //完成回调
-            comletion(success)
+            //加载当前用户信息
+            self.loadUserInfo(completion: { (dict) in
+                print(dict)
+                //使用用户信息字典设置用户账户信息（昵称 头像）
+                self.userAccount.yy_modelSet(with: dict)
+                //保存
+                self.userAccount.saveAccount()
+                //用户信息加载完成 再完成回调
+                comletion(isSuccess)
+            })
+         
         }
         
     }

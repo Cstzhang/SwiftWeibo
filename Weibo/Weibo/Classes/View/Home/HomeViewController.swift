@@ -73,6 +73,17 @@ extension HomeViewController{
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
         
     }
+    //设置导航栏
+    private func setupNavTitle()  {
+        let titleName = NetWorkManager.shared.userAccount.screen_name
+        let titleButton  = WBTitleButton(title: titleName)
+        navItem.titleView = titleButton
+        titleButton.addTarget(self, action: #selector(clickTitleButton), for: .touchUpInside)
+  
+    }
+    @objc func clickTitleButton(btn:UIButton){
+        btn.isSelected = !btn.isSelected
+    }
     
     
     

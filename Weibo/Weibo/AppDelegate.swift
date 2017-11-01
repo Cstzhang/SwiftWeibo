@@ -66,8 +66,6 @@ extension AppDelegate {
             let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             let jsonPath = (docDir as NSString).appendingPathComponent("MainVC.json")
             data?.write(toFile: jsonPath, atomically: true)
-//            print("应用程序加载完毕:\(jsonPath)")
-            
             
         }
         

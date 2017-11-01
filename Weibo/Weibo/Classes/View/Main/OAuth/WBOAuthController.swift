@@ -11,7 +11,6 @@ import SVProgressHUD
 //通过webview 加载登录页面
 class WBOAuthController: UIViewController {
     private lazy var webView = UIWebView()
-    
     override func loadView() {
         view = webView
         webView.scrollView.isScrollEnabled = false

@@ -7,7 +7,7 @@
 //  private当前类当前代码块访问 fileprivate当前文件内访问 @objc 允许函数在“运行时”通过OC的消息机制 被调用
 
 import UIKit
-
+import SVProgressHUD
 class MainViewController: UITabBarController {
     //定时器
     private var timer: Timer?
@@ -42,9 +42,19 @@ class MainViewController: UITabBarController {
     
     
     @objc private func userlogin(n:Notification){
-        //前往等路页面
-        let nv = UINavigationController(rootViewController: WBOAuthController())
-        present(nv, animated: true, completion: nil)
+        var when = DispatchTime.now()
+        if n.object != nil{//token 过期 提示重新登录
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            SVProgressHUD.showInfo(withStatus: "登录超时，需要重新登录")
+            when = DispatchTime.now() + 1.5 //需要延长 提示1.5秒
+        }
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            SVProgressHUD.setDefaultMaskType(.clear)
+            //前往等路页面
+            let nv = UINavigationController(rootViewController: WBOAuthController())
+            self.present(nv, animated: true, completion: nil)
+        }
+      
         
     }
     
