@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WBNewFeatureView" customModule="Weibo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uWN-Ug-aLs">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <metadata>
+                        <string key="libraryAssetSourceID">Xcode.InterfaceBuilderKit.CocoaTouchIntegration.ObjectLibraryAssetProvider:IBUIScrollView</string>
+                    </metadata>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfk-r5-Yrr">
+                    <rect key="frame" x="135" y="382" width="105" height="36"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                    <state key="normal" title="进入微博" backgroundImage="new_feature_finish_button"/>
+                    <state key="highlighted" title="进入微博" backgroundImage="new_feature_finish_button_highlighted"/>
+                    <connections>
+                        <action selector="enterStatus" destination="iN0-l3-epB" eventType="touchUpInside" id="bqM-M0-4Hb"/>
+                    </connections>
+                </button>
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="nFX-gQ-B7k">
+                    <rect key="frame" x="160" y="426" width="55" height="37"/>
+                    <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="uWN-Ug-aLs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="E5Z-V1-9Ru"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vfk-r5-Yrr" secondAttribute="bottom" constant="249" id="HYo-PN-TOx"/>
+                <constraint firstItem="uWN-Ug-aLs" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="O0Y-i1-utW"/>
+                <constraint firstItem="vfk-r5-Yrr" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="YMQ-vB-VsT"/>
+                <constraint firstItem="uWN-Ug-aLs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="daN-im-nB8"/>
+                <constraint firstItem="nFX-gQ-B7k" firstAttribute="centerX" secondItem="vfk-r5-Yrr" secondAttribute="centerX" id="n1h-wv-Prl"/>
+                <constraint firstItem="uWN-Ug-aLs" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="n91-px-C8j"/>
+                <constraint firstItem="nFX-gQ-B7k" firstAttribute="top" secondItem="vfk-r5-Yrr" secondAttribute="bottom" constant="8" id="uzO-1J-Td8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="enterButton" destination="vfk-r5-Yrr" id="8JZ-yi-iqk"/>
+                <outlet property="pageControl" destination="nFX-gQ-B7k" id="eAo-yj-1JK"/>
+                <outlet property="scrollView" destination="uWN-Ug-aLs" id="saY-pc-FRP"/>
+            </connections>
+            <point key="canvasLocation" x="26.5" y="16.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="new_feature_finish_button" width="105" height="36"/>
+        <image name="new_feature_finish_button_highlighted" width="105" height="36"/>
+    </resources>
+</document>
