@@ -17,7 +17,8 @@ class MainViewController: UITabBarController {
         setupChildController()
         setupComposeButton()
         setupTimer()
-        
+        //设置新特效视图
+        setupNewFeature()
         //设置tabbar 代理
         delegate = self
         
@@ -105,6 +106,44 @@ extension MainViewController{
     
 }
 
+extension MainViewController{
+   private func setupNewFeature()  {
+      //0 是否登录
+      if !NetWorkManager.shared.userlogon{
+          return
+      }
+      //1 检查版本是否更新
+    
+      //2 如果更新显示新特效
+      let v = isNewVersion ? WBNewFeatureView() : WBWelcomeView.welcomeView()
+    
+//      v.frame = view.bounds
+    
+      view.addSubview(v)
+      //3 否则显示欢迎
+    
+    
+    }
+    //extension 中可以有计算型属性，不会占用存储空间
+    //主版本号 次版本号 修订版本号
+    private var isNewVersion:Bool{
+        //1 取出当前版本号1.0.2
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+//        print("currentVersion \(currentVersion)")
+        //2 取出沙盒中备份的版本号1.0.2
+        let path:String = ("version" as NSString).cz_appendDocumentDir()
+        let sandboxVersion = (try? String(contentsOfFile: path)) ?? ""
+//        print("sandboxVersion \(sandboxVersion)")
+//         print("沙盒版本 \(path)")
+        //3 将当前版本好存到沙盒1.0.2
+        _ = try? currentVersion.write(toFile: path, atomically: true, encoding: .utf8)
+        //4 返回两个版本号比较是否一致
+        return currentVersion != sandboxVersion
+    }
+    
+    
+    
+}
 
 extension MainViewController:UITabBarControllerDelegate{
     /// 将要选择tabbar
