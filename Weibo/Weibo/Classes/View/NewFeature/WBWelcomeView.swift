@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class WBWelcomeView: UIView {
     //头像
     @IBOutlet weak var iconView: UIImageView!
@@ -22,7 +22,30 @@ class WBWelcomeView: UIView {
         //从xib 加载的视图默认600 * 600
         v.frame = UIScreen.main.bounds
         return v
+    
+    
     }
+    //initWithCoder 只是刚从二进制文件中加载xib,还没有与代码连线建立联系，不要在这里处理UI
+    
+    
+    //显示头像
+    override func awakeFromNib() {
+        guard   let urlString = NetWorkManager.shared.userAccount.avatar_large,
+                let url = URL(string: urlString) else{
+            return
+        }
+        
+        iconView.sd_setImage(with: url, placeholderImage: UIImage(named:"avatar_default_big"), options: [SDWebImageOptions(rawValue: 0)], completed: nil)
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     //自动布局系统完成约束后,自动调用方法
 //    override func layoutSubviews() {
 //
@@ -50,6 +73,11 @@ class WBWelcomeView: UIView {
                         
         }) { (_) in//动画完成
             
+            UIView.animate(withDuration: 1.0, animations: {
+                self.TipLabel.alpha = 1.0
+            }, completion: { (_) in
+                
+            })
         }
         
         
