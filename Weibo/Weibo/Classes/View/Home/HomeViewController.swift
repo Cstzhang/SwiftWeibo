@@ -50,9 +50,9 @@ extension HomeViewController{
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
         
-        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
+        cell.statusLabel?.text = listViewModel.statusList[indexPath.row].text
         
         return cell
         
@@ -70,8 +70,15 @@ extension HomeViewController{
         //添加左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
         //注册cell
-//        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-       tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: "cellId")
+       tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
+        //设置行高
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        //预估行高
+        tableView?.estimatedRowHeight = 300
+        //取消分隔线
+        tableView?.separatorStyle = .none
+        
+        
     }
     //设置导航栏
     private func setupNavTitle()  {
