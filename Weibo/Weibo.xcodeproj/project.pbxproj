@@ -76,6 +76,9 @@
 		6D90A5D31FAB364800EA8A45 /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90A5D21FAB364800EA8A45 /* WBUser.swift */; };
 		6D90A5D41FAB364800EA8A45 /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90A5D21FAB364800EA8A45 /* WBUser.swift */; };
 		6D90A5D51FAB364800EA8A45 /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90A5D21FAB364800EA8A45 /* WBUser.swift */; };
+		6D90A5D71FAB39A200EA8A45 /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90A5D61FAB39A200EA8A45 /* WBStatusViewModel.swift */; };
+		6D90A5D81FAB39A200EA8A45 /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90A5D61FAB39A200EA8A45 /* WBStatusViewModel.swift */; };
+		6D90A5D91FAB39A200EA8A45 /* WBStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90A5D61FAB39A200EA8A45 /* WBStatusViewModel.swift */; };
 		6DBBCDCD1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBBCDCC1FA9B50400E864F7 /* WBWelcomeView.xib */; };
 		6DBBCDCE1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBBCDCC1FA9B50400E864F7 /* WBWelcomeView.xib */; };
 		6DBBCDCF1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBBCDCC1FA9B50400E864F7 /* WBWelcomeView.xib */; };
@@ -184,6 +187,7 @@
 		6D5D16511F2B371A00F9C3B0 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6D90A5D21FAB364800EA8A45 /* WBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUser.swift; sourceTree = "<group>"; };
+		6D90A5D61FAB39A200EA8A45 /* WBStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusViewModel.swift; sourceTree = "<group>"; };
 		6DBBCDCC1FA9B50400E864F7 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		6DBBCDD01FA9C1D700E864F7 /* WBNewFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBNewFeatureView.xib; sourceTree = "<group>"; };
 		6DCD09351F975F5E008589D1 /* WBNetWorkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -493,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				6D24400F1F99A517006D4342 /* WBStatusListViewModel.swift */,
+				6D90A5D61FAB39A200EA8A45 /* WBStatusViewModel.swift */,
 			);
 			name = ViewModel;
 			path = Weibo/Classes/ViewModel;
@@ -835,6 +840,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DFF30031F2DCBB300D51720 /* UIColor+CZAddition.m in Sources */,
+				6D90A5D71FAB39A200EA8A45 /* WBStatusViewModel.swift in Sources */,
 				6DFF2FEE1F2DCBB300D51720 /* NSArray+Log.m in Sources */,
 				6D5D164A1F2B370500F9C3B0 /* HomeViewController.swift in Sources */,
 				6DFF30061F2DCBB300D51720 /* UILabel+CZAddition.m in Sources */,
@@ -878,6 +884,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DFF30041F2DCBB300D51720 /* UIColor+CZAddition.m in Sources */,
+				6D90A5D81FAB39A200EA8A45 /* WBStatusViewModel.swift in Sources */,
 				6DFF2FEF1F2DCBB300D51720 /* NSArray+Log.m in Sources */,
 				6D5D164B1F2B370500F9C3B0 /* HomeViewController.swift in Sources */,
 				6DFF30071F2DCBB300D51720 /* UILabel+CZAddition.m in Sources */,
@@ -921,6 +928,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DFF30051F2DCBB300D51720 /* UIColor+CZAddition.m in Sources */,
+				6D90A5D91FAB39A200EA8A45 /* WBStatusViewModel.swift in Sources */,
 				6DFF2FF01F2DCBB300D51720 /* NSArray+Log.m in Sources */,
 				6D5D164C1F2B370500F9C3B0 /* HomeViewController.swift in Sources */,
 				6DFF30081F2DCBB300D51720 /* UILabel+CZAddition.m in Sources */,

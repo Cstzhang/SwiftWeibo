@@ -24,11 +24,8 @@ class HomeViewController: BaseViewController {
             if hasMorePullup{
                 self.tableView?.reloadData()
             }
-           
         }
-        
     }
-    
     
     //显示好友的方法
     @objc fileprivate  func showFriends()  {
