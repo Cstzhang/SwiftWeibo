@@ -21,10 +21,10 @@ class WBUser: NSObject {
     //会员等级 0-6
    @objc var mbrank:Int = 0
     
-  override var description: String{
+   override var description: String{
         return yy_modelDescription()
         
-  }
+   }
     
     
     

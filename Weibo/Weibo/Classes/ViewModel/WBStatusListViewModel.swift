@@ -44,7 +44,7 @@ class WBStatusListViewModel {
                 return
             }
          //2,拼接数据
-            print("获取\(array.count)条数据")
+            print("获取\(array.count)条数据 \(array)")
             //下拉刷新，应该将数组拼接在前面
             if pullop {//上拉刷新
                 self.statusList += array

@@ -18,7 +18,7 @@ class HomeViewController: BaseViewController {
         listViewModel.loadStatus(pullop: self.isPullup) { (isSuccess,hasMorePullup) in
             //结束刷新
             self.refreshControl?.endRefreshing()
-            print("刷新表格")
+//            print("刷新表格")
             self.isPullup = false
             //刷新表格数据
             if hasMorePullup{

@@ -14,6 +14,8 @@ class WBStatus: NSObject {
   @objc  var id:Int64 = 0
     //微博信息
   @objc  var text:String?
+    //微博用户
+  @objc  var user:WBUser?
     
     //重写 description的计算型属性
     override var description: String{
