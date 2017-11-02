@@ -70,8 +70,8 @@ extension HomeViewController{
         //添加左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
         //注册cell
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
-        
+//        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+       tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: "cellId")
     }
     //设置导航栏
     private func setupNavTitle()  {
