@@ -17,8 +17,8 @@ import Foundation
 fileprivate let maxPullupTryTimes = 3
 //微博数据列表视图模型
 class WBStatusListViewModel {
-    //微博模型数组懒加载
-    lazy var statusList = [WBStatus]()
+    //微博视图模型数组懒加载
+    lazy var statusList = [WBStatusViewModel]()
     //上拉刷新错误次数
     fileprivate var pullErrorTimes = 0
     
@@ -34,10 +34,25 @@ class WBStatusListViewModel {
             return
         }
         //since_id 下拉 数组中第一条微博id pullop是否上拉刷新
-        let since_id = pullop ? 0 : (statusList.first?.id ?? 0)
+        let since_id = pullop ? 0 : (statusList.first?.status.id ?? 0)
         //max_id 上拉 数组中最后条微博id
-        let max_id = !pullop ? 0 :(statusList.last?.id ?? 0)
+        let max_id = !pullop ? 0 :(statusList.last?.status.id ?? 0)
           NetWorkManager.shared.statusList(since_id: since_id,max_id: max_id) { (list, isSuccess) in
+           //0 判断网络请求是否成功
+            if !isSuccess{
+                completion(false, false)
+                return
+            }
+            var array = [WBStatusViewModel]()
+            
+            //便利字典数组 字典转模型
+            for dict  in list ?? []{
+                //创建微博模型
+                let
+                
+            }
+            
+            
           //1,字典转模型
            guard  let array = NSArray.yy_modelArray(with: WBStatus.self, json: list ?? []) as? [WBStatus] else{
                 completion(isSuccess,false)
