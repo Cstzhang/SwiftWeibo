@@ -73,6 +73,9 @@
 		6D5D16561F2B372200F9C3B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */; };
 		6D5D16571F2B372200F9C3B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */; };
 		6D5D16581F2B372200F9C3B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */; };
+		6D90A5D31FAB364800EA8A45 /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90A5D21FAB364800EA8A45 /* WBUser.swift */; };
+		6D90A5D41FAB364800EA8A45 /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90A5D21FAB364800EA8A45 /* WBUser.swift */; };
+		6D90A5D51FAB364800EA8A45 /* WBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90A5D21FAB364800EA8A45 /* WBUser.swift */; };
 		6DBBCDCD1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBBCDCC1FA9B50400E864F7 /* WBWelcomeView.xib */; };
 		6DBBCDCE1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBBCDCC1FA9B50400E864F7 /* WBWelcomeView.xib */; };
 		6DBBCDCF1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBBCDCC1FA9B50400E864F7 /* WBWelcomeView.xib */; };
@@ -180,6 +183,7 @@
 		6D5D164D1F2B371200F9C3B0 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		6D5D16511F2B371A00F9C3B0 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		6D5D16551F2B372200F9C3B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6D90A5D21FAB364800EA8A45 /* WBUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBUser.swift; sourceTree = "<group>"; };
 		6DBBCDCC1FA9B50400E864F7 /* WBWelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		6DBBCDD01FA9C1D700E864F7 /* WBNewFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBNewFeatureView.xib; sourceTree = "<group>"; };
 		6DCD09351F975F5E008589D1 /* WBNetWorkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WBNetWorkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -410,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				6D24400B1F99922F006D4342 /* WBStatus.swift */,
+				6D90A5D21FAB364800EA8A45 /* WBUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -844,6 +849,7 @@
 				6DCD09361F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5CCA821FA9A0D3001FCCCA /* WBNewFeatureView.swift in Sources */,
 				6D5D16421F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
+				6D90A5D31FAB364800EA8A45 /* WBUser.swift in Sources */,
 				6D5D16521F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16461F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
 				6DFF30001F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
@@ -886,6 +892,7 @@
 				6DCD09371F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5CCA831FA9A0D3001FCCCA /* WBNewFeatureView.swift in Sources */,
 				6D5D16431F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
+				6D90A5D41FAB364800EA8A45 /* WBUser.swift in Sources */,
 				6D5D16531F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16471F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
 				6DFF30011F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
@@ -928,6 +935,7 @@
 				6DCD09381F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5CCA841FA9A0D3001FCCCA /* WBNewFeatureView.swift in Sources */,
 				6D5D16441F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
+				6D90A5D51FAB364800EA8A45 /* WBUser.swift in Sources */,
 				6D5D16541F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16481F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
 				6DFF30021F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
