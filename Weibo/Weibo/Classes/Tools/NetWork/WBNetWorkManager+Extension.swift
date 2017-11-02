@@ -18,7 +18,7 @@ extension NetWorkManager{
     ///   - max_id: 若指定此参数，则返回ID小于或等于max_id的微博，默认为0。
     ///   - Parameter completion: 完成回调[list:微博字典数组，是否成功]
     func statusList(since_id:Int64 = 0,max_id:Int64 = 0,completion:@escaping (_ list:[[String:AnyObject]]?,_ isSuccess:Bool)->())  {
-        let urlString = "https://api.weibo.com/2/statuses/user_timeline.json"
+        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         // int 可以转anobject int64不行
         let params = ["since_id":"\(since_id)","max_id":"\(max_id > 0 ? max_id-1 : 0 )"]
         tokenRequest(URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in

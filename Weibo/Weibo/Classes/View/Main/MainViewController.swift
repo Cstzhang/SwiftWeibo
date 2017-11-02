@@ -162,6 +162,10 @@ extension MainViewController:UITabBarControllerDelegate{
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
                   vc.loadData()
             })
+            //清楚tabbar item bagenumber
+            vc.tabBarItem.badgeValue = nil
+            UIApplication.shared.applicationIconBadgeNumber = 0
+            
         }
         //判断目标控制器是否是UIViewController
         return !viewController.isMember(of: UIViewController.self)

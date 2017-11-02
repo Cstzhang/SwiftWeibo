@@ -441,9 +441,9 @@
 		6D5D16391F2B34B500F9C3B0 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				6D11EE901F2F2D4100296E5E /* MainController */,
 				6D3FF5B21FA8C397009EFEF0 /* NewFeature */,
 				6D1B06951FA6F43700BCD698 /* OAuth */,
-				6D11EE901F2F2D4100296E5E /* MainController */,
 				6D2044FC1F2F78E900195C6D /* VisitorView */,
 				6D5D16451F2B36B900F9C3B0 /* BaseViewController.swift */,
 			);
