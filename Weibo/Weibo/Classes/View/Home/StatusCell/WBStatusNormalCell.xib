@@ -128,12 +128,15 @@
                             <outlet property="retweetedButton" destination="e08-ra-i2D" id="QQn-bP-WVb"/>
                         </connections>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Lf-Jf-P6K">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Lf-Jf-P6K" userLabel="配图视图" customClass="WBStatusPictureView" customModule="Weibo" customModuleProvider="target">
                         <rect key="frame" x="11" y="93" width="325" height="254.5"/>
                         <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="254.5" id="Jyd-9p-YQz"/>
                         </constraints>
+                        <connections>
+                            <outlet property="heightCons" destination="Jyd-9p-YQz" id="SEy-en-E2z"/>
+                        </connections>
                     </view>
                 </subviews>
                 <constraints>
@@ -168,13 +171,15 @@
                 <outlet property="iconView" destination="eEi-xq-9pW" id="Kgm-tb-AHY"/>
                 <outlet property="memberIconView" destination="Z46-X6-2sO" id="gGb-7d-ELy"/>
                 <outlet property="nameLabel" destination="TQO-sr-1dB" id="p99-pt-aeU"/>
+                <outlet property="pictureView" destination="0Lf-Jf-P6K" id="WTj-XV-nIp"/>
                 <outlet property="sourceLabel" destination="MK9-Cw-IrG" id="kBt-AQ-nSp"/>
                 <outlet property="statusLabel" destination="x58-9n-0a7" id="Gd1-vX-QtU"/>
                 <outlet property="timeLabel" destination="gqc-J8-LXO" id="4gN-Un-xhk"/>
                 <outlet property="toolBar" destination="iTk-9n-xBk" id="f7y-yq-NT2"/>
+                <outlet property="topCons" destination="Ec5-2G-KtL" id="fuw-72-aft"/>
                 <outlet property="vipIconView" destination="4qg-gD-srg" id="ydv-LJ-Zdv"/>
             </connections>
-            <point key="canvasLocation" x="12" y="169"/>
+            <point key="canvasLocation" x="-52" y="159"/>
         </tableViewCell>
     </objects>
     <resources>

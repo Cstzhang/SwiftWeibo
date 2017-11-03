@@ -131,6 +131,9 @@
 		6DFF30161F2DD86200D51720 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */; };
 		6DFF30171F2DD86200D51720 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */; };
 		713C7135DFEDAC7F443B2369 /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AB711F2FA1EC42AE7C9E36 /* Pods_Weibo.framework */; };
+		E07B7FB61FAC5CE200A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
+		E07B7FB71FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
+		E07B7FB81FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
 		E0F64CB31FAC0F920062624B /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */; };
 		E0F64CB41FAC0F920062624B /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */; };
 		E0F64CB51FAC0F920062624B /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */; };
@@ -231,6 +234,7 @@
 		95DCCA2B4BFA30F752EB32E4 /* Pods_WeiboTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F42EC5F23F74CE80B87D41D /* Pods_WeiboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B555260E08C0A722D5F6DC8D /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
+		E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
 		E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
 		E0F64CB61FAC14120062624B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		E0F64CBA1FAC4EF90062624B /* WBStatusToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusToolBar.swift; sourceTree = "<group>"; };
@@ -296,6 +300,7 @@
 				6D01E4A71FAB1D6A00C1B931 /* WBStatusCell.swift */,
 				6D01E4AB1FAB1D9B00C1B931 /* WBStatusNormalCell.xib */,
 				E0F64CBA1FAC4EF90062624B /* WBStatusToolBar.swift */,
+				E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */,
 			);
 			path = StatusCell;
 			sourceTree = "<group>";
@@ -892,6 +897,7 @@
 				6DFF300C1F2DCBB300D51720 /* UIView+CZAddition.m in Sources */,
 				6D11EE8D1F2F216600296E5E /* DemoViewController.swift in Sources */,
 				E0F64CB71FAC14120062624B /* UIImage+Extensions.swift in Sources */,
+				E07B7FB61FAC5CE200A36B8C /* WBStatusPictureView.swift in Sources */,
 				6DFF2FFA1F2DCBB300D51720 /* NSString+CZHash.m in Sources */,
 				6D5D163E1F2B366000F9C3B0 /* MainViewController.swift in Sources */,
 			);
@@ -939,6 +945,7 @@
 				6DFF300D1F2DCBB300D51720 /* UIView+CZAddition.m in Sources */,
 				6D11EE8E1F2F216600296E5E /* DemoViewController.swift in Sources */,
 				E0F64CB81FAC14120062624B /* UIImage+Extensions.swift in Sources */,
+				E07B7FB71FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */,
 				6DFF2FFB1F2DCBB300D51720 /* NSString+CZHash.m in Sources */,
 				6D5D163F1F2B366000F9C3B0 /* MainViewController.swift in Sources */,
 			);
@@ -986,6 +993,7 @@
 				6DFF300E1F2DCBB300D51720 /* UIView+CZAddition.m in Sources */,
 				6D11EE8F1F2F216600296E5E /* DemoViewController.swift in Sources */,
 				E0F64CB91FAC14120062624B /* UIImage+Extensions.swift in Sources */,
+				E07B7FB81FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */,
 				6DFF2FFC1F2DCBB300D51720 /* NSString+CZHash.m in Sources */,
 				6D5D16401F2B366000F9C3B0 /* MainViewController.swift in Sources */,
 			);

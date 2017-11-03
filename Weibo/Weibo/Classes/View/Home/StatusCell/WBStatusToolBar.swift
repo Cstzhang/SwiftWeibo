@@ -11,10 +11,7 @@ import UIKit
 class WBStatusToolBar: UIView {
     
     var viewModel:WBStatusViewModel?{
-        didSet{
-           retweetedButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, -8.0, 0.0, 0.0)
-           commentButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, -8.0, 0.0, 0.0)
-           likeButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, -8.0, 0.0, 0.0)
+        didSet{ 
            retweetedButton.setTitle(viewModel?.retweetStr, for: .normal)
            commentButton.setTitle(viewModel?.commentStr, for: .normal)
            likeButton.setTitle(viewModel?.likeStr, for: .normal)
@@ -26,5 +23,14 @@ class WBStatusToolBar: UIView {
      @IBOutlet weak var commentButton: UIButton!
      //点赞
      @IBOutlet weak var likeButton: UIButton!
+    
+    
+    override func awakeFromNib() {
+        
+//        retweetedButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, -8.0, 0.0, 0.0)
+//        commentButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, -8.0, 0.0, 0.0)
+//        likeButton.imageEdgeInsets = UIEdgeInsetsMake(0.0, -8.0, 0.0, 0.0)
+    }
+    
     
 }
