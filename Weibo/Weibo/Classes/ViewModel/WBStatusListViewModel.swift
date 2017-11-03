@@ -37,27 +37,27 @@ class WBStatusListViewModel {
         let since_id = pullop ? 0 : (statusList.first?.status.id ?? 0)
         //max_id 上拉 数组中最后条微博id
         let max_id = !pullop ? 0 :(statusList.last?.status.id ?? 0)
+          //网络请求 加载数据
           NetWorkManager.shared.statusList(since_id: since_id,max_id: max_id) { (list, isSuccess) in
            //0 判断网络请求是否成功
             if !isSuccess{
                 completion(false, false)
                 return
             }
+            
             var array = [WBStatusViewModel]()
             
             //便利字典数组 字典转模型
             for dict  in list ?? []{
-                //创建微博模型
-                let
+                //创建微博模型 创建失败，继续后续的遍历
+                guard let model = WBStatus.yy_model(with: dict) else{
+                    continue
+                }
+                //model 添加到数组
+                array.append(WBStatusViewModel(model: model))
                 
             }
             
-            
-          //1,字典转模型
-           guard  let array = NSArray.yy_modelArray(with: WBStatus.self, json: list ?? []) as? [WBStatus] else{
-                completion(isSuccess,false)
-                return
-            }
          //2,拼接数据
             print("获取\(array.count)条数据 \(array)")
             //下拉刷新，应该将数组拼接在前面

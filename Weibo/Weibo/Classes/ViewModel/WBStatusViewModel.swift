@@ -8,7 +8,11 @@
 
 import Foundation
 //单条微博视图模型
-class WBStatusViewModel {
+
+//没有继承任何父类 遵守 CustomStringConvertible协议 实现description计算型属性 输出调试信息
+
+
+class WBStatusViewModel:CustomStringConvertible {
     //微博模型
     var status = WBStatus()
     
@@ -20,6 +24,9 @@ class WBStatusViewModel {
     }
     
     
+    var description: String{
+        return status.description
+    }
     
     
 }
