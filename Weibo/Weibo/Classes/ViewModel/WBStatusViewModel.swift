@@ -25,7 +25,9 @@ class WBStatusViewModel:CustomStringConvertible {
     var status = WBStatus()
     var memberIcon:UIImage?
     var vipIcon:UIImage?
-    
+    var retweetStr:String?
+    var commentStr:String?
+    var likeStr:String?
     /// 构造函数
     ///
     /// - Parameter model: 微博模型
@@ -49,11 +51,36 @@ class WBStatusViewModel:CustomStringConvertible {
         }
         
         
+        retweetStr = countStr(count: status.reposts_count, defaultStr: "转发")
+        
+        commentStr = countStr(count: status.comment_count, defaultStr: "评论")
+     
+        likeStr = countStr(count: status.attitudes_count, defaultStr: "赞")
+        
+        
     }
     
     
     var description: String{
         return status.description
+    }
+    /// 一个数字 给描述结果
+    ///
+    /// - Returns: 结果
+    private func countStr(count:Int,defaultStr:String)->String{
+        
+        if count == 0{
+            return defaultStr
+        }
+        
+        if count < 10000{
+            return count.description
+        }
+        
+        return String(format: "%.02f 万", Double(count) / 10000)
+        
+        
+        
     }
     
     
