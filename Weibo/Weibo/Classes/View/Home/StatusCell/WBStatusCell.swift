@@ -50,8 +50,7 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var toolBar: WBStatusToolBar!
     //配图视图
     @IBOutlet weak var pictureView: WBStatusPictureView!
-    //配图视图与正文距离
-    @IBOutlet weak var topCons: NSLayoutConstraint!
+   
     
     
     override func awakeFromNib() {
