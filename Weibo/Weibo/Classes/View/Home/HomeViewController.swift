@@ -49,9 +49,9 @@ extension HomeViewController{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
         let listModel =  listViewModel.statusList[indexPath.row]
-        cell.statusLabel?.text = listModel.status.text
-        cell.nameLabel.text = listModel.status.user?.screen_name
-//        cell.sourceLabel.text = listModel.status.user.
+        cell.viewModel = listModel
+      
+
         
         return cell
         
