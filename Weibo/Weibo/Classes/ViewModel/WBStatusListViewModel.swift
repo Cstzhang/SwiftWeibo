@@ -46,7 +46,7 @@ class WBStatusListViewModel {
             }
             
             var array = [WBStatusViewModel]()
-            
+            //FIX ME
             //便利字典数组 字典转模型
             for dict  in list ?? []{
                 //创建微博模型 创建失败，继续后续的遍历

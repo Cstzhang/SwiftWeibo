@@ -28,6 +28,8 @@ class WBStatusViewModel:CustomStringConvertible {
     var retweetStr:String?
     var commentStr:String?
     var likeStr:String?
+    var pictureViewSize = CGSize()
+    
     /// 构造函数
     ///
     /// - Parameter model: 微博模型
@@ -57,6 +59,8 @@ class WBStatusViewModel:CustomStringConvertible {
      
         likeStr = countStr(count: status.attitudes_count, defaultStr: "赞")
         
+        //计算配图视图大小
+        pictureViewSize = calcPictureViewSize(count: status.pic_urls?.count ?? 0)
         
     }
     
@@ -78,9 +82,32 @@ class WBStatusViewModel:CustomStringConvertible {
         }
         
         return String(format: "%.02f 万", Double(count) / 10000)
+    }
+    
+    
+    
+    private func calcPictureViewSize(count:Int?) -> CGSize {
         
+        if count == 0 {
+            return CGSize()
+        }
+        //1，配图视图的宽度
+        //视图外侧间距
+        let WBStatusPictureOutterMargin:CGFloat = 12
+        //视图内部视图间距
+        let WBStatusPictureInnerMargin:CGFloat = 3
+        //配图视图宽度
+        let WBStatusPictureViewWidth = UIScreen.cz_screenWidth() - 2 * WBStatusPictureOutterMargin
         
+        //2,高度
+        //每个Items的宽度
+        let  WBStatusPictureViewItemWidth = (WBStatusPictureViewWidth - 2*WBStatusPictureInnerMargin) / 3
         
+        let row = ((count! - 1)  / 3) + 1
+        
+        let height = WBStatusPictureOutterMargin + (CGFloat(row)  * WBStatusPictureViewItemWidth) + CGFloat(row-1) * WBStatusPictureInnerMargin
+        
+        return CGSize(width: WBStatusPictureViewWidth, height: height)
     }
     
     

@@ -10,10 +10,11 @@ import UIKit
 import YYModel
 //微博配图模型
 class WBStatusPicture: NSObject {
+    //微博图片
     var thumbnail_pic:String?
+    
     override var description: String{
         return yy_modelDescription()
-        
     }
     
 }
