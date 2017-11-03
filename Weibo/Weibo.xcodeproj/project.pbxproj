@@ -631,7 +631,7 @@
 				TargetAttributes = {
 					6D5D16011F2B31C300F9C3B0 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Y5WX43KK4M;
+						DevelopmentTeam = 5G3E3YMC4T;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -1110,11 +1110,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = Y5WX43KK4M;
+				DEVELOPMENT_TEAM = 5G3E3YMC4T;
 				INFOPLIST_FILE = Weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.Weibo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.Weibo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -1128,11 +1128,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = Y5WX43KK4M;
+				DEVELOPMENT_TEAM = 5G3E3YMC4T;
 				INFOPLIST_FILE = Weibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.Weibo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zzb.wb.Weibo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Weibo/Weibo-Bridge.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
