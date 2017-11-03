@@ -15,7 +15,8 @@ extension UIImageView{
     /// - Parameters:
     ///   - urlString: url
     ///   - placeholderImage: 站位图
-    func zb_setImage(urlString:String!,placeholderImage:UIImage?)  {
+    ///   - placeholderImage: 是否是圆头像
+    func zb_setImage(urlString:String!,placeholderImage:UIImage?,isAvatar:Bool = false)  {
         //处理url
         guard  let urlString = urlString,
                let url  = URL(string:urlString) else{
@@ -23,11 +24,12 @@ extension UIImageView{
             image = placeholderImage
             return
         }
-        
-        
-        sd_setImage(with: url, placeholderImage: placeholderImage, options: [], progress: nil) { (image, _, _, _) in
+        sd_setImage(with: url, placeholderImage: placeholderImage, options: [], progress: nil) {[weak self] (image, _, _, _) in
             
-            
+            //完成回调 对图形进行判断是否是头像
+            if isAvatar {
+                self?.image = image?.zb_avatarImage(size: self?.bounds.size)
+            }
             
             
         }

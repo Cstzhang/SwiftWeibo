@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,7 +55,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_vip" translatesAutoresizingMaskIntoConstraints="NO" id="4qg-gD-srg" userLabel="认证图标">
-                        <rect key="frame" x="38" y="47" width="14" height="14"/>
+                        <rect key="frame" x="34" y="43" width="14" height="14"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x58-9n-0a7" userLabel="正文">
                         <rect key="frame" x="11" y="65" width="33" height="16"/>
@@ -78,10 +78,10 @@
                     <constraint firstItem="TQO-sr-1dB" firstAttribute="leading" secondItem="eEi-xq-9pW" secondAttribute="trailing" constant="18" id="Sr1-Nh-6Ky"/>
                     <constraint firstAttribute="trailing" secondItem="Czm-hz-3rz" secondAttribute="trailing" id="Wan-aX-ek9"/>
                     <constraint firstItem="Z46-X6-2sO" firstAttribute="leading" secondItem="TQO-sr-1dB" secondAttribute="trailing" constant="4" id="ZMZ-jB-FU9"/>
-                    <constraint firstItem="4qg-gD-srg" firstAttribute="centerX" secondItem="eEi-xq-9pW" secondAttribute="trailing" id="bE8-PU-X4n"/>
+                    <constraint firstItem="4qg-gD-srg" firstAttribute="centerX" secondItem="eEi-xq-9pW" secondAttribute="trailing" constant="-4" id="bE8-PU-X4n"/>
                     <constraint firstItem="gqc-J8-LXO" firstAttribute="bottom" secondItem="eEi-xq-9pW" secondAttribute="bottom" id="c6r-ID-UTT"/>
                     <constraint firstItem="x58-9n-0a7" firstAttribute="leading" secondItem="eEi-xq-9pW" secondAttribute="leading" id="ixI-y2-kNX"/>
-                    <constraint firstItem="4qg-gD-srg" firstAttribute="centerY" secondItem="eEi-xq-9pW" secondAttribute="bottom" id="lfr-jO-Sq9"/>
+                    <constraint firstItem="4qg-gD-srg" firstAttribute="centerY" secondItem="eEi-xq-9pW" secondAttribute="bottom" constant="-4" id="lfr-jO-Sq9"/>
                     <constraint firstItem="MK9-Cw-IrG" firstAttribute="leading" secondItem="gqc-J8-LXO" secondAttribute="trailing" constant="8" id="r90-mb-cBh"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="x58-9n-0a7" secondAttribute="trailing" constant="11" id="w6U-Cb-Sdb"/>
                 </constraints>

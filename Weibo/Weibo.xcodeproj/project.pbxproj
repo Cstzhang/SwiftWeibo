@@ -134,6 +134,9 @@
 		E0F64CB31FAC0F920062624B /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */; };
 		E0F64CB41FAC0F920062624B /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */; };
 		E0F64CB51FAC0F920062624B /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */; };
+		E0F64CB71FAC14120062624B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB61FAC14120062624B /* UIImage+Extensions.swift */; };
+		E0F64CB81FAC14120062624B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB61FAC14120062624B /* UIImage+Extensions.swift */; };
+		E0F64CB91FAC14120062624B /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB61FAC14120062624B /* UIImage+Extensions.swift */; };
 		E152946A68C2A1ABD554972D /* Pods_WeiboUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F42EC5F23F74CE80B87D41D /* Pods_WeiboUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -226,6 +229,7 @@
 		9F42EC5F23F74CE80B87D41D /* Pods_WeiboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B555260E08C0A722D5F6DC8D /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
+		E0F64CB61FAC14120062624B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		E553BD8CAFE680429D2D3DF4 /* Pods-WeiboUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiboUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiboUITests/Pods-WeiboUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F3AB711F2FA1EC42AE7C9E36 /* Pods_Weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA995D54FCF7D2AE1E6BE03A /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
@@ -545,6 +549,7 @@
 				6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */,
 				6D11EE881F2F0D7300296E5E /* UIButtonTtem+Extensions.swift */,
 				E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */,
+				E0F64CB61FAC14120062624B /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -880,6 +885,7 @@
 				6DFF2FFD1F2DCBB300D51720 /* NSString+CZPath.m in Sources */,
 				6DFF300C1F2DCBB300D51720 /* UIView+CZAddition.m in Sources */,
 				6D11EE8D1F2F216600296E5E /* DemoViewController.swift in Sources */,
+				E0F64CB71FAC14120062624B /* UIImage+Extensions.swift in Sources */,
 				6DFF2FFA1F2DCBB300D51720 /* NSString+CZHash.m in Sources */,
 				6D5D163E1F2B366000F9C3B0 /* MainViewController.swift in Sources */,
 			);
@@ -925,6 +931,7 @@
 				6DFF2FFE1F2DCBB300D51720 /* NSString+CZPath.m in Sources */,
 				6DFF300D1F2DCBB300D51720 /* UIView+CZAddition.m in Sources */,
 				6D11EE8E1F2F216600296E5E /* DemoViewController.swift in Sources */,
+				E0F64CB81FAC14120062624B /* UIImage+Extensions.swift in Sources */,
 				6DFF2FFB1F2DCBB300D51720 /* NSString+CZHash.m in Sources */,
 				6D5D163F1F2B366000F9C3B0 /* MainViewController.swift in Sources */,
 			);
@@ -970,6 +977,7 @@
 				6DFF2FFF1F2DCBB300D51720 /* NSString+CZPath.m in Sources */,
 				6DFF300E1F2DCBB300D51720 /* UIView+CZAddition.m in Sources */,
 				6D11EE8F1F2F216600296E5E /* DemoViewController.swift in Sources */,
+				E0F64CB91FAC14120062624B /* UIImage+Extensions.swift in Sources */,
 				6DFF2FFC1F2DCBB300D51720 /* NSString+CZHash.m in Sources */,
 				6D5D16401F2B366000F9C3B0 /* MainViewController.swift in Sources */,
 			);

@@ -34,7 +34,7 @@ class WBWelcomeView: UIView {
             return
         }
         
-        iconView.sd_setImage(with: url, placeholderImage: UIImage(named:"avatar_default_big"), options: [SDWebImageOptions(rawValue: 0)], completed: nil)
+        iconView.sd_setImage(with: url, placeholderImage: UIImage(named:"avatar_default_big"), options: [], completed: nil)
         
 
     }
