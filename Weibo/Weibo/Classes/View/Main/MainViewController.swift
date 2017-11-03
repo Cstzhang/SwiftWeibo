@@ -89,7 +89,7 @@ extension MainViewController{
             return
         }
         NetWorkManager.shared.unreadCount { (count) in
-            print("检测到\(count)条新微博")
+//            print("检测到\(count)条新微博")
             //设置首页tab bageNumber
             self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
             //ios8.0后要用户授权后才能显示

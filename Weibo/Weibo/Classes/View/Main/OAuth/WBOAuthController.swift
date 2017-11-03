@@ -89,7 +89,7 @@ extension WBOAuthController:UIWebViewDelegate{
         }
         let code = request.url?.query?.substring(from: "code=".endIndex) ?? ""
         
-        print("获取授权码 \(String(describing: code))")
+//        print("获取授权码 \(String(describing: code))")
         //使用授权码获取accessToken
         NetWorkManager.shared.loadAccessToken(code: code) { (isSuccess) in
             if !isSuccess{

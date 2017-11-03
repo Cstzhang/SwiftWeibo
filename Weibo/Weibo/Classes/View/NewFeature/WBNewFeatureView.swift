@@ -28,7 +28,7 @@ class WBNewFeatureView: UIView {
     }
     override func awakeFromNib() {
         //如果使用自动布局设置的界面，从xib 加载默认是600*600 大小
-        print(bounds)
+//        print(bounds)
         //添加4个图形视图
         let count  = 4
         let rect = UIScreen.main.bounds

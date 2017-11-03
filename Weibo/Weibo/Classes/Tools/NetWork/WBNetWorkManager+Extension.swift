@@ -39,7 +39,7 @@ extension NetWorkManager{
         let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
         let params = ["uid":uid]
         tokenRequest(URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
-            print(json ?? "")
+//            print(json ?? "")
             let dic = json as? [String : AnyObject]
             let count = dic?["status"] as? Int
             completion(count ?? 0)
@@ -58,7 +58,7 @@ extension NetWorkManager{
         let params = ["uid":userAccount.uid]
         //发起网络请求
         tokenRequest(URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
-            print(json ?? "")
+//            print(json ?? "")
             
             completion((json as? [String : AnyObject]) ?? [:])
             
@@ -93,7 +93,7 @@ extension NetWorkManager {
             self.userAccount.yy_modelSet(with: (json as? [AnyHashable : Any]) ?? [:] )
             //加载当前用户信息
             self.loadUserInfo(completion: { (dict) in
-                print(dict)
+//                print(dict)
                 //使用用户信息字典设置用户账户信息（昵称 头像）
                 self.userAccount.yy_modelSet(with: dict)
                 //保存
