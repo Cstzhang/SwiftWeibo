@@ -131,6 +131,9 @@
 		6DFF30161F2DD86200D51720 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */; };
 		6DFF30171F2DD86200D51720 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */; };
 		713C7135DFEDAC7F443B2369 /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AB711F2FA1EC42AE7C9E36 /* Pods_Weibo.framework */; };
+		E0F64CB31FAC0F920062624B /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */; };
+		E0F64CB41FAC0F920062624B /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */; };
+		E0F64CB51FAC0F920062624B /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */; };
 		E152946A68C2A1ABD554972D /* Pods_WeiboUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F42EC5F23F74CE80B87D41D /* Pods_WeiboUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +225,7 @@
 		95DCCA2B4BFA30F752EB32E4 /* Pods_WeiboTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F42EC5F23F74CE80B87D41D /* Pods_WeiboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B555260E08C0A722D5F6DC8D /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
+		E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
 		E553BD8CAFE680429D2D3DF4 /* Pods-WeiboUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiboUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiboUITests/Pods-WeiboUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F3AB711F2FA1EC42AE7C9E36 /* Pods_Weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA995D54FCF7D2AE1E6BE03A /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
@@ -540,6 +544,7 @@
 			children = (
 				6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */,
 				6D11EE881F2F0D7300296E5E /* UIButtonTtem+Extensions.swift */,
+				E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -852,6 +857,7 @@
 				6DFF30151F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DD669BB1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
 				6DFF2FF71F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
+				E0F64CB31FAC0F920062624B /* UIImageView+WebImage.swift in Sources */,
 				6DCD09361F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5CCA821FA9A0D3001FCCCA /* WBNewFeatureView.swift in Sources */,
 				6D5D16421F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
@@ -896,6 +902,7 @@
 				6DFF30161F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DD669BC1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
 				6DFF2FF81F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
+				E0F64CB41FAC0F920062624B /* UIImageView+WebImage.swift in Sources */,
 				6DCD09371F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5CCA831FA9A0D3001FCCCA /* WBNewFeatureView.swift in Sources */,
 				6D5D16431F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
@@ -940,6 +947,7 @@
 				6DFF30171F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DD669BD1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
 				6DFF2FF91F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
+				E0F64CB51FAC0F920062624B /* UIImageView+WebImage.swift in Sources */,
 				6DCD09381F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5CCA841FA9A0D3001FCCCA /* WBNewFeatureView.swift in Sources */,
 				6D5D16441F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,

@@ -24,20 +24,31 @@ class WBStatusViewModel:CustomStringConvertible {
     //微博模型
     var status = WBStatus()
     var memberIcon:UIImage?
+    var vipIcon:UIImage?
+    
     /// 构造函数
     ///
     /// - Parameter model: 微博模型
     init(model:WBStatus) {
         self.status = model
-        if (model.user?.mbrank)! > 0 && ((model.user?.mbrank))! < 7{
+        if (model.user?.mbrank) ?? 0 > 0 && ((model.user?.mbrank)) ?? 0 < 7{
             let imageName = "common_icon_membership_level\(model.user?.mbrank ?? 1)"
             memberIcon = UIImage(named: imageName)
         }
-//        else{
-//            let imageName = "common_icon_membership_expired"
-//            memberIcon = UIImage(named: imageName)
-//
-//        }
+      //verified_type
+        switch model.user?.verified_type ?? -1 {
+        case 0:
+            vipIcon = UIImage(named:"avatar_vip")
+        case 2,3,5:
+            vipIcon = UIImage(named:"avatar_enterprise_vip")
+        case 200:
+            vipIcon = UIImage(named:"avatar_grassroot")
+        default:
+            break
+            
+        }
+        
+        
     }
     
     

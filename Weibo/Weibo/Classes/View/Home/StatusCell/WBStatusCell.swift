@@ -18,6 +18,10 @@ class WBStatusCell: UITableViewCell {
             nameLabel.text = viewModel?.status.user?.screen_name
             //会员图标 在model中计算准备好
             memberIconView.image = viewModel?.memberIcon
+            //认证
+            vipIconView.image = viewModel?.vipIcon
+            //头像
+            iconView.zb_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named:"avatar_default_big"))
             
         }
     }
