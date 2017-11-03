@@ -24,6 +24,11 @@ class WBStatusCell: UITableViewCell {
             iconView.zb_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named:"avatar_default_big"),isAvatar: true)
             //底部工具栏
             toolBar.viewModel = viewModel!
+//            //来源
+//            sourceLabel.text = viewModel?.status.source
+//            //时间
+//            timeLabel.text = viewModel?.status.created_at
+            
 
         }
     }

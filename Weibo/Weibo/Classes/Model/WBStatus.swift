@@ -20,6 +20,10 @@ class WBStatus: NSObject {
   @objc  var comment_count:Int = 0
   //点赞数
   @objc  var attitudes_count:Int = 0
+  //来源
+  @objc  var source:String?
+  //创建时间
+  @objc  var created_at:String?
   //微博用户
   @objc  var user:WBUser?
     
