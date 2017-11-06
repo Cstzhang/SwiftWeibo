@@ -88,7 +88,7 @@ class WBStatusViewModel:CustomStringConvertible {
     
     private func calcPictureViewSize(count:Int?) -> CGSize {
         
-        if count == 0 {
+        if count == 0 && count == nil{
             return CGSize()
         }
         //1，配图视图的宽度
