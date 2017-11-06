@@ -79,7 +79,7 @@ class MainViewController: UITabBarController {
 // MARK: -时钟
 extension MainViewController{
     func setupTimer() -> () {
-        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector:#selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 360.0, target: self, selector:#selector(updateTimer), userInfo: nil, repeats: true)
         
     }
     

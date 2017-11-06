@@ -21,7 +21,8 @@ class BaseViewController: UIViewController {
     // 上拉刷新标志
     var isPullup = false
     //自定义导航条
-    lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
+    lazy var navigationBar = WBNavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
+   
     //navItem 后面设置导航条都要用这个进行设置
     lazy var navItem = UINavigationItem()
     
@@ -35,18 +36,20 @@ class BaseViewController: UIViewController {
                                                selector: #selector(loginSuccess),
                                                name: NSNotification.Name(rawValue: WBUserShouldLoginNotification),
                                                object: nil)
-        
     }
+    
     deinit {
         //注册通知
         NotificationCenter.default.removeObserver(self)
     }
+
     //设置导航栏title 重写 title的set方法
     override var title: String? {
         didSet{
           navItem.title = title
         }
     }
+    
     //加载数据源， 具体实现由子类负责
     @objc func loadData()  {
         //如果子类不实现任何方法，默认关闭刷新控件
@@ -65,7 +68,11 @@ class BaseViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-
+    
+    
+    
+    
+  
 }
 
 extension BaseViewController{
@@ -91,15 +98,14 @@ extension BaseViewController{
 // MARK: -导航相关
 extension BaseViewController{
    fileprivate func setupUI() {
-        view.backgroundColor=UIColor.white
+      view.backgroundColor=UIColor.white
         //取消自动缩进 如果隐藏了导航栏，会缩进20px
-        automaticallyAdjustsScrollViewInsets = false
         setupNavigationBar()
         //登录设置表格，未登录显示访客视图
         NetWorkManager.shared.userlogon ? setupTableView() : setupVisitorView()
         
     }
-    
+
     //创建表格 用户登录之后（子类重写此方法，子类不需要关系用户登录之前的逻辑）
    @objc  func  setupTableView(){
        tableView = UITableView(frame: view.bounds, style: .plain)
@@ -107,8 +113,14 @@ extension BaseViewController{
        //设置数据源&代理 子类实现数据源方法
        tableView?.dataSource = self
        tableView?.delegate = self
-       //设置内容缩进
-       tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height,
+       if #available(iOS 11.0, *) {
+          tableView?.contentInsetAdjustmentBehavior = .never
+          //设置内容缩进
+       } else {
+          automaticallyAdjustsScrollViewInsets = false;
+          //设置内容缩进
+      };
+      tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height,
                                                0,
                                                tabBarController?.tabBar.bounds.height ?? 49,
                                                0)
@@ -133,11 +145,11 @@ extension BaseViewController{
       //访客视图数据
       visitorView.visitorInfo = visitorInfoDic
       //监听访客视图按钮
-        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
-        visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+      visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+      visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
      //设置导航条按钮
-        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
-        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(register))
+      navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
+      navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(register))
         
     }
     
@@ -152,11 +164,7 @@ extension BaseViewController{
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray]
         //设置系统按钮的文字渲染颜色
         navigationBar.tintColor = UIColor.orange
-        
-     
-    
     }
-    
     
 }
 

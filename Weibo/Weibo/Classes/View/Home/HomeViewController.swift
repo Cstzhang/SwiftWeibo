@@ -7,8 +7,10 @@
 //
 
 import UIKit
-
-private let cellId = "cellId"
+//原创weibo
+private let originalCellId = "originalCellId"
+//转发微博
+private let retweetedcellId = "retweetedcellId"
 
 class HomeViewController: BaseViewController {
 //    fileprivate lazy var statusList = [String]()
@@ -47,7 +49,7 @@ extension HomeViewController{
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: originalCellId, for: indexPath) as! WBStatusCell
         let listModel =  listViewModel.statusList[indexPath.row]
         cell.viewModel = listModel
       
@@ -69,7 +71,8 @@ extension HomeViewController{
         //添加左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
         //注册cell
-       tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
+       tableView?.register(UINib(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: originalCellId)
+       tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: retweetedcellId)
         //设置行高
         tableView?.rowHeight = UITableViewAutomaticDimension
         //预估行高

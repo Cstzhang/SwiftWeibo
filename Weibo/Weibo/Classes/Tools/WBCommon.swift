@@ -11,10 +11,10 @@ import Foundation
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
 
 let WBUserLoginSuccessNotification = "WBUserLoginSuccessNotification"
-//程序ID
-let WBAppKey = "3600261914"
-//加密信息
-let WBAppSecret =  "136f1a5e9daddf4324b6fda287e4f29b"
+//程序ID "3600261914"
+let WBAppKey = "1593394241"
+//加密信息 "136f1a5e9daddf4324b6fda287e4f29b"
+let WBAppSecret =   "597cddeb7183823276891868e6b9943f"
 //回调地址（登录完成跳转 ）
 //http://www.jianshu.com/u/f07c03e14755?code=fee07bfbabc31fa344481871c200fac0
 let WBRedirectURL = "http://www.jianshu.com/u/f07c03e14755"

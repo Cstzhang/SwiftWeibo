@@ -134,6 +134,9 @@
 		E0382A221FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */; };
 		E0382A231FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */; };
 		E0382A241FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */; };
+		E0382A261FB05406004F21CB /* WBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0382A251FB05405004F21CB /* WBNavigationBar.swift */; };
+		E0382A271FB05406004F21CB /* WBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0382A251FB05405004F21CB /* WBNavigationBar.swift */; };
+		E0382A281FB05406004F21CB /* WBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0382A251FB05405004F21CB /* WBNavigationBar.swift */; };
 		E07B7FB61FAC5CE200A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
 		E07B7FB71FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
 		E07B7FB81FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
@@ -241,6 +244,7 @@
 		9F42EC5F23F74CE80B87D41D /* Pods_WeiboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B555260E08C0A722D5F6DC8D /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusRetweetedCell.xib; sourceTree = "<group>"; };
+		E0382A251FB05405004F21CB /* WBNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavigationBar.swift; sourceTree = "<group>"; };
 		E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
 		E07B7FB91FAC619F00A36B8C /* WBStatusPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPicture.swift; sourceTree = "<group>"; };
 		E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
@@ -458,6 +462,7 @@
 				6DFF30131F2DD81D00D51720 /* Extensions */,
 				6DFF2FD41F2DCBB300D51720 /* Additions */,
 				6DD669BA1FA6D4B600BB3BA5 /* WBCommon.swift */,
+				E0382A251FB05405004F21CB /* WBNavigationBar.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 				6DD669BB1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
 				6DFF2FF71F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
 				E0F64CB31FAC0F920062624B /* UIImageView+WebImage.swift in Sources */,
+				E0382A261FB05406004F21CB /* WBNavigationBar.swift in Sources */,
 				6DCD09361F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5CCA821FA9A0D3001FCCCA /* WBNewFeatureView.swift in Sources */,
 				6D5D16421F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
@@ -936,6 +942,7 @@
 				6DD669BC1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
 				6DFF2FF81F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
 				E0F64CB41FAC0F920062624B /* UIImageView+WebImage.swift in Sources */,
+				E0382A271FB05406004F21CB /* WBNavigationBar.swift in Sources */,
 				6DCD09371F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5CCA831FA9A0D3001FCCCA /* WBNewFeatureView.swift in Sources */,
 				6D5D16431F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,
@@ -985,6 +992,7 @@
 				6DD669BD1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
 				6DFF2FF91F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
 				E0F64CB51FAC0F920062624B /* UIImageView+WebImage.swift in Sources */,
+				E0382A281FB05406004F21CB /* WBNavigationBar.swift in Sources */,
 				6DCD09381F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
 				6D5CCA841FA9A0D3001FCCCA /* WBNewFeatureView.swift in Sources */,
 				6D5D16441F2B368A00F9C3B0 /* MainNavigationController.swift in Sources */,

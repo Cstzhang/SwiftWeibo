@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = MainViewController()
         window?.makeKeyAndVisible()
         loadAppInfo()
+        
         return true
     }
 
@@ -49,6 +50,11 @@ extension AppDelegate{
             UIApplication.shared.registerUserNotificationSettings(notifySettings)
             
         }
+        
+        // AppDelegate 进行全局设置
+
+        
+    
     }
     
 }
