@@ -28,6 +28,20 @@ class WBStatusCell: UITableViewCell {
              pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
             //配图数据
              pictureView.urls = viewModel?.status.pic_urls
+            //Test
+//            if viewModel?.status.pic_urls?.count ?? 0 > 4 {
+//
+//                var picURLS = viewModel!.status.pic_urls!
+//
+//                picURLS.removeSubrange((picURLS.startIndex + 4)..<picURLS.endIndex)
+//
+//                pictureView.urls = picURLS
+//
+//            }else{
+//                   pictureView.urls = viewModel?.status.pic_urls
+//
+//            }
+            
             
 //            //来源
 //            sourceLabel.text = viewModel?.status.source

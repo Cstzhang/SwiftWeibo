@@ -22,8 +22,12 @@ class WBStatusPictureView: UIView {
                 
                 let iv  = subviews[index] as! UIImageView
                 
-                iv.zb_setImage(urlString: url.thumbnail_pic, placeholderImage: nil)
+                //四张图处理 跳过第三张 换到下一行
+                if index == 1 && urls?.count == 4{
+                    index += 1
+                }
                 
+                iv.zb_setImage(urlString: url.thumbnail_pic, placeholderImage: nil)
                 //显示图
                  iv.isHidden = false
                 
@@ -50,8 +54,11 @@ extension WBStatusPictureView{
     //1，cell中所有控件提前创建好
     //2，设置时依据数据判断是否显示
     //3，不要动态创建
+  
     
     private func setupUI() -> () {
+        //设置背景颜色
+        backgroundColor = superview?.backgroundColor
         //超出边界的部分不显示
         clipsToBounds = true
         //1，创建9个imageview
@@ -61,9 +68,10 @@ extension WBStatusPictureView{
         for i in 0..<count * count {
             let iv = UIImageView()
             
+            //图形填充
             iv.contentMode = .scaleAspectFit
             iv.clipsToBounds = true
-//            iv.backgroundColor = UIColor.red
+            
             //行 - Y
             let row = CGFloat(i / count)
             //列 - X
