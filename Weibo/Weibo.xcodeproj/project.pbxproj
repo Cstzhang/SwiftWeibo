@@ -131,6 +131,9 @@
 		6DFF30161F2DD86200D51720 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */; };
 		6DFF30171F2DD86200D51720 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */; };
 		713C7135DFEDAC7F443B2369 /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AB711F2FA1EC42AE7C9E36 /* Pods_Weibo.framework */; };
+		E0382A221FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */; };
+		E0382A231FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */; };
+		E0382A241FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */; };
 		E07B7FB61FAC5CE200A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
 		E07B7FB71FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
 		E07B7FB81FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
@@ -237,6 +240,7 @@
 		95DCCA2B4BFA30F752EB32E4 /* Pods_WeiboTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F42EC5F23F74CE80B87D41D /* Pods_WeiboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B555260E08C0A722D5F6DC8D /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
+		E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusRetweetedCell.xib; sourceTree = "<group>"; };
 		E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
 		E07B7FB91FAC619F00A36B8C /* WBStatusPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPicture.swift; sourceTree = "<group>"; };
 		E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 		6D01E4A61FAB1D3200C1B931 /* StatusCell */ = {
 			isa = PBXGroup;
 			children = (
+				E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */,
 				6D01E4A71FAB1D6A00C1B931 /* WBStatusCell.swift */,
 				6D01E4AB1FAB1D9B00C1B931 /* WBStatusNormalCell.xib */,
 				E0F64CBA1FAC4EF90062624B /* WBStatusToolBar.swift */,
@@ -694,6 +699,7 @@
 			files = (
 				6D01E4AC1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
 				6D3EC42E1F95E8EF00101115 /* MainVC.json in Resources */,
+				E0382A221FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				6D5D160D1F2B31C300F9C3B0 /* Assets.xcassets in Resources */,
 				6DBBCDCD1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */,
 				6DBBCDD11FA9C1D700E864F7 /* WBNewFeatureView.xib in Resources */,
@@ -704,6 +710,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0382A231FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				6DBBCDCE1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */,
 				6D01E4AD1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
 				6DBBCDD21FA9C1D700E864F7 /* WBNewFeatureView.xib in Resources */,
@@ -714,6 +721,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0382A241FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				6DBBCDCF1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */,
 				6D01E4AE1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
 				6DBBCDD31FA9C1D700E864F7 /* WBNewFeatureView.xib in Resources */,
