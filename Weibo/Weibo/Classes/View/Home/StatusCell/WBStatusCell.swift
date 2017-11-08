@@ -26,8 +26,10 @@ class WBStatusCell: UITableViewCell {
             toolBar.viewModel = viewModel!
             //高度
             pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
-            //配图数据
-            pictureView.urls = viewModel?.status.pic_urls
+            
+            
+            //配图数据 （原创/被转发）
+            pictureView.urls = viewModel?.picURLs
             //Test
             //            if viewModel?.status.pic_urls?.count ?? 0 > 4 {
             //

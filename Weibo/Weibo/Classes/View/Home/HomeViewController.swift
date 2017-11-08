@@ -48,10 +48,12 @@ extension HomeViewController{
         return listViewModel.statusList.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // FIX ME
-        let cell = tableView.dequeueReusableCell(withIdentifier: retweetedcellId, for: indexPath) as! WBStatusCell
-        let listModel =  listViewModel.statusList[indexPath.row]
-        cell.viewModel = listModel
+        // 根据视图模型判断可用cell
+        let vm =  listViewModel.statusList[indexPath.row]
+        let cellId = (vm.status.retweeted_status != nil) ? retweetedcellId : originalCellId
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
+      
+        cell.viewModel = vm
         return cell
         
     }
@@ -68,8 +70,8 @@ extension HomeViewController{
         //添加左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
         //注册cell
-       tableView?.register(UINib(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: originalCellId)
-       tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: retweetedcellId)
+       tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellId)
+       tableView?.register(UINib(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedcellId)
         //设置行高
         tableView?.rowHeight = UITableViewAutomaticDimension
         //预估行高
