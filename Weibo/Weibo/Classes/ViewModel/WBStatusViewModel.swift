@@ -85,6 +85,19 @@ class WBStatusViewModel:CustomStringConvertible {
     var description: String{
         return status.description
     }
+    /// 用用单个图像的尺寸 更新配图视图的大小
+    ///
+    /// - Parameter image: 网络缓存的单张视图
+    func updateSingleImageSize(image:UIImage)  {
+        var size = image.size
+        
+        //顶部+12便于布局
+        size.height += WBStatusPictureOutterMargin
+        
+        pictureViewSize = size
+     
+    }
+    
     /// 一个数字 给描述结果
     ///
     /// - Returns: 结果

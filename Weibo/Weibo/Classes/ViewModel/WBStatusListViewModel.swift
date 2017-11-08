@@ -110,7 +110,7 @@ class WBStatusListViewModel {
             
             //下载图片 下载完成后图片会自动保存到沙河中 路径是 url 的 MD5
             // 如果沙河中已经有图片，通过SD加载图片，会加载沙河中的图片 不发起网络请求，回调方法同样会调用
-            //
+            // 缓存完成后更新 视图模型尺寸
             // 加入调度组
             group.enter()
             
@@ -118,8 +118,9 @@ class WBStatusListViewModel {
                 //图片转换成2进制数据
                 if let image = image,
                     let data  = UIImagePNGRepresentation(image){
-                    
                     length += data.count
+                    //图片缓存成功，更新视图大小
+                    vm.updateSingleImageSize(image: image)
                 }
                 print("缓存的图片 \(String(describing: image)) 长度\(length)")
                 
