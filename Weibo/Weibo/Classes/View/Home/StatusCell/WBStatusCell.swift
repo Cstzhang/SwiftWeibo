@@ -30,20 +30,8 @@ class WBStatusCell: UITableViewCell {
             
             //配图数据 （原创/被转发）
             pictureView.urls = viewModel?.picURLs
-            //Test
-            //            if viewModel?.status.pic_urls?.count ?? 0 > 4 {
-            //
-            //                var picURLS = viewModel!.status.pic_urls!
-            //
-            //                picURLS.removeSubrange((picURLS.startIndex + 4)..<picURLS.endIndex)
-            //
-            //                pictureView.urls = picURLS
-            //
-            //            }else{
-            //                   pictureView.urls = viewModel?.status.pic_urls
-            //
-            //            }
             
+            retweetedLabel?.text = viewModel?.retweetedText
             
             //            //来源
             //            sourceLabel.text = viewModel?.status.source
@@ -72,6 +60,8 @@ class WBStatusCell: UITableViewCell {
     //配图视图
     @IBOutlet weak var pictureView: WBStatusPictureView!
     
+    //原创微博没有转发微博
+    @IBOutlet weak var retweetedLabel: UILabel?
     
     
     override func awakeFromNib() {

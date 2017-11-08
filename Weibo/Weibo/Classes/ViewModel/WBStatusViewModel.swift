@@ -25,15 +25,18 @@ class WBStatusViewModel:CustomStringConvertible {
     var status = WBStatus()
     var memberIcon:UIImage?
     var vipIcon:UIImage?
+    //按钮文字
     var retweetStr:String?
     var commentStr:String?
     var likeStr:String?
+    //图片尺寸
     var pictureViewSize = CGSize()
-    
     //如果是被转发的微博，原创微博没有图
     var picURLs : [WBStatusPicture]?{
         return status.retweeted_status?.pic_urls ?? status.pic_urls
     }
+    //被转发微博文字
+    var retweetedText : String?
     
     
     /// 构造函数
@@ -58,7 +61,6 @@ class WBStatusViewModel:CustomStringConvertible {
             
         }
         
-        
         retweetStr = countStr(count: status.reposts_count, defaultStr: "转发")
         
         commentStr = countStr(count: status.comment_count, defaultStr: "评论")
@@ -67,6 +69,15 @@ class WBStatusViewModel:CustomStringConvertible {
         
         //计算配图视图大小
         pictureViewSize = calcPictureViewSize(count: picURLs?.count ?? 0)
+        
+
+        let screen_name = status.retweeted_status?.user?.screen_name ?? ""
+        
+        let retweeted_Text = status.retweeted_status?.text ?? ""
+        
+        //被转发微博文字
+        retweetedText = "@" + screen_name + ":" + retweeted_Text
+        
         
     }
     
