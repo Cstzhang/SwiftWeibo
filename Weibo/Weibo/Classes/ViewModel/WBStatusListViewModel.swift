@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SDWebImage
 /*
  父类的选择
  - 如果类需要时用"KVC"或者字典模型框架设置对象值，类就需要继承NSObject
@@ -73,6 +74,8 @@ class WBStatusListViewModel {
                 self.pullErrorTimes += 1
                 completion(isSuccess, false)
             }else{
+                //缓存单张图片
+                self.cacheSingleImage(list: array)
                 //3,完成回调
                 completion(isSuccess,true)
                 
@@ -82,6 +85,58 @@ class WBStatusListViewModel {
          
             
         }
+        
+    }
+    
+    
+    /// 缓存微博中的单张图片
+    ///
+    /// - Parameter list: 视图模型数组
+    private func cacheSingleImage(list:[WBStatusViewModel])  {
+        // 1 创建调度组
+        let group  = DispatchGroup()
+        //图片数据长度
+        var length = 0
+        //拿到图片url
+        for vm in list {
+            //判断图片数量
+            if vm.picURLs?.count != 1{
+                continue
+            }
+            //获取URL 代码走到这，数组中有且只有1张图片
+           guard let pic  = vm.picURLs?[0].thumbnail_pic ,
+                 let url = URL(string: pic) else{
+                
+                continue
+            }
+            print("要缓存的url : \(url)")
+            
+            //下载图片 下载完成后图片会自动保存到沙河中 路径是 url 的 MD5
+            // 如果沙河中已经有图片，通过SD加载图片，会加载沙河中的图片 不发起网络请求，回调方法同样会调用
+            //
+            // 加入调度组
+            group.enter()
+            
+            SDWebImageManager.shared().imageDownloader?.downloadImage(with: url, options: [], progress: nil, completed: { (image, _, _, _) in
+                //图片转换成2进制数据
+                if let image = image,
+                    let data  = UIImagePNGRepresentation(image){
+                    
+                    length += data.count
+                }
+                print("缓存的图片 \(String(describing: image)) 长度\(length)")
+                
+                //出调度组
+                group.leave()
+            });
+
+        }
+        //调度组完成
+        group.notify(queue: DispatchQueue.main) {
+           //图像缓存完成
+            print("缓存文件大小: \(length / 1024)k")
+        }
+        
         
     }
     
