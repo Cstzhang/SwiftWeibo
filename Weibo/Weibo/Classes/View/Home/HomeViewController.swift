@@ -49,7 +49,7 @@ extension HomeViewController{
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // FIX ME
-        let cell = tableView.dequeueReusableCell(withIdentifier: originalCellId, for: indexPath) as! WBStatusCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: retweetedcellId, for: indexPath) as! WBStatusCell
         let listModel =  listViewModel.statusList[indexPath.row]
         cell.viewModel = listModel
         return cell
