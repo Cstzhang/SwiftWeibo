@@ -75,10 +75,7 @@ class WBStatusListViewModel {
                 completion(isSuccess, false)
             }else{
                 //缓存单张图片
-                self.cacheSingleImage(list: array)
-                //3,完成回调
-                completion(isSuccess,true)
-                
+                self.cacheSingleImage(list: array,finished:completion)
             }
             
         
@@ -90,9 +87,9 @@ class WBStatusListViewModel {
     
     
     /// 缓存微博中的单张图片
-    ///
+    /// 缓存完单张图片，并且修改配图视图的大小后回调，才能保证表格等比例显示单张图片
     /// - Parameter list: 视图模型数组
-    private func cacheSingleImage(list:[WBStatusViewModel])  {
+    private func cacheSingleImage(list:[WBStatusViewModel],finished:@escaping (_ success:Bool,_ shouldRefresh:Bool)->())  {
         // 1 创建调度组
         let group  = DispatchGroup()
         //图片数据长度
@@ -135,6 +132,8 @@ class WBStatusListViewModel {
         group.notify(queue: DispatchQueue.main) {
            //图像缓存完成
             print("缓存文件大小: \(length / 1024)k")
+            //3,完成回调,刷新表格
+            finished(true, true)
         }
         
         
