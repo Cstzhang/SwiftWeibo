@@ -115,11 +115,11 @@ extension BaseViewController{
        tableView?.delegate = self
        if #available(iOS 11.0, *) {
           tableView?.contentInsetAdjustmentBehavior = .never
-          //设置内容缩进
+        
        } else {
           automaticallyAdjustsScrollViewInsets = false;
-          //设置内容缩进
       };
+     //设置内容缩进
       tableView?.contentInset = UIEdgeInsetsMake(navigationBar.bounds.height,
                                                0,
                                                tabBarController?.tabBar.bounds.height ?? 49,

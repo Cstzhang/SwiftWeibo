@@ -48,13 +48,10 @@ extension HomeViewController{
         return listViewModel.statusList.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        // FIX ME
         let cell = tableView.dequeueReusableCell(withIdentifier: originalCellId, for: indexPath) as! WBStatusCell
         let listModel =  listViewModel.statusList[indexPath.row]
         cell.viewModel = listModel
-      
-
-        
         return cell
         
     }
@@ -79,8 +76,7 @@ extension HomeViewController{
         tableView?.estimatedRowHeight = 300
         //取消分隔线
         tableView?.separatorStyle = .none
-        
-        
+
     }
     //设置导航栏
     private func setupNavTitle()  {

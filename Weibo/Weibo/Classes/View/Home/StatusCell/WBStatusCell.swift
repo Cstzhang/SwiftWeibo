@@ -25,33 +25,33 @@ class WBStatusCell: UITableViewCell {
             //底部工具栏
             toolBar.viewModel = viewModel!
             //高度
-             pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
+            pictureView.heightCons.constant = viewModel?.pictureViewSize.height ?? 0
             //配图数据
-             pictureView.urls = viewModel?.status.pic_urls
+            pictureView.urls = viewModel?.status.pic_urls
             //Test
-//            if viewModel?.status.pic_urls?.count ?? 0 > 4 {
-//
-//                var picURLS = viewModel!.status.pic_urls!
-//
-//                picURLS.removeSubrange((picURLS.startIndex + 4)..<picURLS.endIndex)
-//
-//                pictureView.urls = picURLS
-//
-//            }else{
-//                   pictureView.urls = viewModel?.status.pic_urls
-//
-//            }
+            //            if viewModel?.status.pic_urls?.count ?? 0 > 4 {
+            //
+            //                var picURLS = viewModel!.status.pic_urls!
+            //
+            //                picURLS.removeSubrange((picURLS.startIndex + 4)..<picURLS.endIndex)
+            //
+            //                pictureView.urls = picURLS
+            //
+            //            }else{
+            //                   pictureView.urls = viewModel?.status.pic_urls
+            //
+            //            }
             
             
-//            //来源
-//            sourceLabel.text = viewModel?.status.source
-//            //时间
-//            timeLabel.text = viewModel?.status.created_at
-           
-
+            //            //来源
+            //            sourceLabel.text = viewModel?.status.source
+            //            //时间
+            //            timeLabel.text = viewModel?.status.created_at
+            
+            
         }
     }
-   //头像
+    //头像
     @IBOutlet weak var iconView: UIImageView!
     //姓名
     @IBOutlet weak var nameLabel: UILabel!
@@ -69,18 +69,18 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var toolBar: WBStatusToolBar!
     //配图视图
     @IBOutlet weak var pictureView: WBStatusPictureView!
-   
+    
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
