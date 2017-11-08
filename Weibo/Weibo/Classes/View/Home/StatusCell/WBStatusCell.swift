@@ -24,21 +24,10 @@ class WBStatusCell: UITableViewCell {
             iconView.zb_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named:"avatar_default_big"),isAvatar: true)
             //底部工具栏
             toolBar.viewModel = viewModel!
-           
+            //配图视图数据
             pictureView.viewModel = viewModel!
-            
-            
-            //配图数据 （原创/被转发）
-            pictureView.urls = viewModel?.picURLs
-            
+            //设置被转发微博的文字
             retweetedLabel?.text = viewModel?.retweetedText
-            
-            //            //来源
-            //            sourceLabel.text = viewModel?.status.source
-            //            //时间
-            //            timeLabel.text = viewModel?.status.created_at
-            
-            
         }
     }
     //头像

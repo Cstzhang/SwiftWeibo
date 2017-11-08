@@ -12,7 +12,10 @@ class WBStatusPictureView: UIView {
     
     var viewModel:WBStatusViewModel?{
         didSet{
+            urls = viewModel?.picURLs
+            
             calcViewSize()
+            
         }
         
     }
@@ -34,7 +37,7 @@ class WBStatusPictureView: UIView {
     }
     
     //配图视图数组
-    var urls: [WBStatusPicture]?{
+    private var urls: [WBStatusPicture]?{
         didSet{
             //1隐藏所有imageView
             for v in subviews {
@@ -43,18 +46,14 @@ class WBStatusPictureView: UIView {
             //2遍历urls数组，设置图形
             var index = 0
             for url in urls ?? [] {
-                
                 let iv  = subviews[index] as! UIImageView
-                
                 //四张图处理 跳过第三张 换到下一行
                 if index == 1 && urls?.count == 4{
                     index += 1
                 }
-                
                 iv.zb_setImage(urlString: url.thumbnail_pic, placeholderImage: nil)
                 //显示图
                  iv.isHidden = false
-                
                 index += 1
             }
             

@@ -309,8 +309,8 @@
 		6D01E4A61FAB1D3200C1B931 /* StatusCell */ = {
 			isa = PBXGroup;
 			children = (
-				E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */,
 				6D01E4A71FAB1D6A00C1B931 /* WBStatusCell.swift */,
+				E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */,
 				6D01E4AB1FAB1D9B00C1B931 /* WBStatusNormalCell.xib */,
 				E0F64CBA1FAC4EF90062624B /* WBStatusToolBar.swift */,
 				E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */,
