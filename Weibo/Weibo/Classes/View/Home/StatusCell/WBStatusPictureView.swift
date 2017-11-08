@@ -18,8 +18,19 @@ class WBStatusPictureView: UIView {
     }
     //根据图片大小 调整显示内容
     private func calcViewSize(){
-        //高度
-        heightCons.constant = viewModel?.pictureViewSize.height ?? 0
+    //宽度
+      //1 单图,根据配图视图的大小修改subview[0]的宽高
+        if viewModel?.picURLs?.count == 1 {
+            let viewSize = viewModel?.pictureViewSize ?? CGSize()
+            let v = subviews[0]
+            v.frame =  CGRect(x: 0, y: WBStatusPictureOutterMargin, width: viewSize.width, height: viewSize.height - WBStatusPictureOutterMargin)
+        }else{      //2 多图/无图，恢复subview[0]的宽高，保持九宫格的完整
+            let v  = subviews[0]
+            v.frame = CGRect(x: 0, y: WBStatusPictureOutterMargin, width: WBStatusPictureViewItemWidth, height: WBStatusPictureViewItemWidth)
+        }
+   
+    //高度
+    heightCons.constant = viewModel?.pictureViewSize.height ?? 0
     }
     
     //配图视图数组
