@@ -14,10 +14,12 @@ class ZBRefreshControl: UIControl {
     
     init() {
         super.init(frame: CGRect())
+                setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+                setupUI()
         
     }
     /*
@@ -62,12 +64,12 @@ class ZBRefreshControl: UIControl {
     //开始刷新
     func beginRefreshing(){
         print("开始刷新")
-        
+
     }
     //结束刷新
     func endRefreshing(){
         print("结束刷新")
-        
+     
     }
 
 }
@@ -75,7 +77,6 @@ class ZBRefreshControl: UIControl {
 extension ZBRefreshControl{
     
     private func setupUI(){
-        
         self.backgroundColor = UIColor.red
         
     }

@@ -17,16 +17,21 @@ class HomeViewController: BaseViewController {
     fileprivate lazy var listViewModel = WBStatusListViewModel()
     //加载数据源 假数据
     override func loadData() {
-        listViewModel.loadStatus(pullop: self.isPullup) { (isSuccess,hasMorePullup) in
-            //结束刷新
-            self.refreshControl?.endRefreshing()
-//            print("刷新表格")
-            self.isPullup = false
-            //刷新表格数据
-            if hasMorePullup{
-                self.tableView?.reloadData()
+        print("准备刷新")
+        refreshControl?.beginRefreshing()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2 ) {
+            self.listViewModel.loadStatus(pullop: self.isPullup) { (isSuccess,hasMorePullup) in
+                //结束刷新
+                self.refreshControl?.endRefreshing()
+                //            print("刷新表格")
+                self.isPullup = false
+                //刷新表格数据
+                if hasMorePullup{
+                    self.tableView?.reloadData()
+                }
             }
         }
+  
     }
     
     //显示好友的方法
