@@ -93,19 +93,23 @@ class ZBRefreshControl: UIControl {
         
         //拖拽状态 -临界点只需要判断一次
         if sv.isDragging{
-            //判断是否到临界点
-            if height > ZBRefreshOffset{
+            //判断是否到临界点  往下拉 且还没有变过一次状态
+            if height > ZBRefreshOffset && (refreshView.refreshStatus == .Normal){
+                //修改状态
+                refreshView.refreshStatus = .Pulling
                 
-                
-            }else{
-                
-                
+             //往回推
+            }else if height <= ZBRefreshOffset && (refreshView.refreshStatus == .Pulling){
+                 refreshView.refreshStatus = .Normal
+ 
             }
-            
         }else{
-            
-            
-        
+            //放手 - 判断是否超过临界点
+            if refreshView.refreshStatus == .Pulling{
+                print("准备刷新")
+                //刷新结束后要把状态修改成 .Normal
+                refreshView.refreshStatus = .WillRefresh
+            }
         }
         
     }
