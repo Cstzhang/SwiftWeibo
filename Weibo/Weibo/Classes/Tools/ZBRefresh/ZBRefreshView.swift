@@ -10,11 +10,30 @@ import UIKit
 
 class ZBRefreshView: UIView {
     //初始化刷新状态
-    var refreshStatus:ZBRefreshStatus = .Normal    
+    var refreshStatus:ZBRefreshStatus = .Normal{
+        didSet{
+            switch refreshStatus {
+            case .Normal:
+                tipLabel.text = "继续使劲拉..."
+                
+            case .Pulling:
+                 tipLabel.text = "放手就劲拉..."
+                
+                
+            case .WillRefresh:
+                 tipLabel.text = "正在刷新中..."
+            
+            }
+        }
+        
+    }
     //提示图标
     @IBOutlet weak var tipIcon: UIImageView!
-    //提示文字
-    @IBOutlet weak var tipLabel: UIImageView!
+
+    
+    @IBOutlet weak var tipLabel: UILabel!
+    
+
     //指示器
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
