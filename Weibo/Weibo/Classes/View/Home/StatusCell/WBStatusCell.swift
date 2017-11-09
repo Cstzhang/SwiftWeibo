@@ -52,7 +52,6 @@ class WBStatusCell: UITableViewCell {
     //原创微博没有转发微博
     @IBOutlet weak var retweetedLabel: UILabel?
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         //离屏渲染 异步绘制  离屏渲染需要在GPU和CPU之间切换，耗电厉害，如果cell性能已经不错，就不需要这么优化了

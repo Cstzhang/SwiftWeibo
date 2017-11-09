@@ -25,7 +25,6 @@ extension UIImageView{
             return
         }
         sd_setImage(with: url, placeholderImage: placeholderImage, options: [], progress: nil) {[weak self] (image, _, _, _) in
-            
             //完成回调 对图形进行判断是否是头像
             if isAvatar {
                 self?.image = image?.zb_avatarImage(size: self?.bounds.size)
