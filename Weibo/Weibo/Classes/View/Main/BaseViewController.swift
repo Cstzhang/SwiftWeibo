@@ -17,7 +17,7 @@ class BaseViewController: UIViewController {
     //表格视图 用户没有登录就不创建
     var tableView : UITableView?
     //刷新控件
-    var refreshControl:UIRefreshControl?
+    var refreshControl:ZBRefreshControl?
     // 上拉刷新标志
     var isPullup = false
     //自定义导航条
@@ -128,7 +128,7 @@ extension BaseViewController{
        tableView?.scrollIndicatorInsets = tableView!.contentInset
        //设置刷新控件
        //1 实例化控件
-       refreshControl = UIRefreshControl()
+       refreshControl = ZBRefreshControl()
        //2 添加到表格视图
        tableView?.addSubview(refreshControl!)
        //3 添加监听方法
