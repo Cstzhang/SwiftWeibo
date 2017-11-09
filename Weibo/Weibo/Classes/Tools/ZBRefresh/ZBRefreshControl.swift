@@ -41,16 +41,28 @@ class ZBRefreshControl: UIControl {
         
         
     }
+    //本视图从父视图上移除
+    override func removeFromSuperview() {
+        //superview 还存在
+        //移除KVO监听
+        superview?.removeObserver(self, forKeyPath: "contentOffset")
+        super.removeFromSuperview()
+       //superview 不存在
+    }
+    
     
     //kvo方法回调
+    /*
+     观察者模式有2中 通知中心 KVO
+     通知中心不释放，内存泄露，重复注册
+     KVO不释放，崩溃
+     */
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         //刷新控件的高度初始化高度
         guard let sv = scrollView else {
             return
         }
         //contentOffset的y值和contentInset 的top有关
-        print(sv.contentOffset )
-        
         let height = -(sv.contentInset.top + sv.contentOffset.y)
         
         //根据高度 刷新控件的frame
