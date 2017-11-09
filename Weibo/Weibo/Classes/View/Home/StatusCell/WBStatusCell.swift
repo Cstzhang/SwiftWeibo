@@ -55,6 +55,14 @@ class WBStatusCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        //离屏渲染 异步绘制  离屏渲染需要在GPU和CPU之间切换，耗电厉害，如果cell性能已经不错，就不需要这么优化了
+        self.layer.drawsAsynchronously = true
+        //栅格化 异步绘制后，会生成一张独立的图像，cell在屏幕上滚动，实际滚动的是一张图
+        //cell优化后 尽量减少图层，相当于只有一层
+        //停止滚动后，可以接受监听
+        self.layer.shouldRasterize = true
+        //使用栅格化必须指定分辨率
+        self.layer.rasterizationScale = UIScreen.main.scale
         // Initialization code
     }
     

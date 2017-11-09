@@ -60,7 +60,7 @@ extension HomeViewController{
         
     }
     
-    // 父类要实现代理方法，子类才能重写 swift 3.0   4 不需要
+    // 父类要实现代理方法，子类才能重写 swift 3.0   2.0 不用
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let vm = listViewModel.statusList[indexPath.row]
         return vm.rowHeight
