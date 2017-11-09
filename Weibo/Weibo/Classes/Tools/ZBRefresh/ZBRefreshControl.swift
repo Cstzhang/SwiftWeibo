@@ -8,11 +8,28 @@
 //  刷新控件 刷新相关逻辑
 import UIKit
 
+//刷新状态切换临界点
+private let ZBRefreshOffset:CGFloat = 60
+
+/// 刷新状态
+///
+/// - Normal: 普通状态，下拉中
+/// - Pulling: 正在下拉且超过临界点，放手的话开始刷新
+/// - WillRefresh: 超过下拉临界点，并放手，将要刷新的状态
+enum ZBRefreshStatus{
+    case Normal
+    case Pulling
+    case WillRefresh
+    
+}
+
 class ZBRefreshControl: UIControl {
     //MARK 刷新控件父视图  应该支持 UItableView  UICollectionView
     private weak var scrollView:UIScrollView?
     //创建刷新视图
     private lazy var refreshView:ZBRefreshView = ZBRefreshView.refreshView()
+    //
+    
     
     init() {
         super.init(frame: CGRect())
@@ -65,12 +82,32 @@ class ZBRefreshControl: UIControl {
         }
         //contentOffset的y值和contentInset 的top有关
         let height = -(sv.contentInset.top + sv.contentOffset.y)
-        
+        if height < 0 {
+            return
+        }
         //根据高度 刷新控件的frame
         self.frame = CGRect(x: 0,
                             y: -height,
                             width: sv.bounds.width,
                             height: height)
+        
+        //拖拽状态 -临界点只需要判断一次
+        if sv.isDragging{
+            //判断是否到临界点
+            if height > ZBRefreshOffset{
+                
+                
+            }else{
+                
+                
+            }
+            
+        }else{
+            
+            
+        
+        }
+        
     }
     
     

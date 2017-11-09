@@ -9,7 +9,8 @@
 import UIKit
 
 class ZBRefreshView: UIView {
-    
+    //初始化刷新状态
+    var refreshStatus:ZBRefreshStatus = .Normal    
     //提示图标
     @IBOutlet weak var tipIcon: UIImageView!
     //提示文字
