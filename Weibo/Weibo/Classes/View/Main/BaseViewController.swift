@@ -182,6 +182,10 @@ extension BaseViewController:UITableViewDataSource,UITableViewDelegate{
         return UITableViewCell()
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 10
+    }
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
         let row = indexPath.row
         let section = tableView.numberOfSections-1
@@ -202,6 +206,8 @@ extension BaseViewController:UITableViewDataSource,UITableViewDelegate{
         
     
     }
+    
+  
 
 
 }

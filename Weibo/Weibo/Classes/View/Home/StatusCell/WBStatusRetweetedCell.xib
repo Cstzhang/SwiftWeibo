@@ -64,7 +64,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8t-kY-LHt" userLabel="被转发微博背景按钮">
-                        <rect key="frame" x="0.0" y="100" width="406" height="299.5"/>
+                        <rect key="frame" x="0.0" y="100" width="406" height="291"/>
                         <color key="backgroundColor" red="0.89019607840000003" green="0.89019607840000003" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                         <state key="normal">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,7 +77,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTk-9n-xBk" userLabel="工具栏" customClass="WBStatusToolBar" customModule="Weibo" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="399.5" width="406" height="35"/>
+                        <rect key="frame" x="0.0" y="391" width="406" height="35"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e08-ra-i2D">
                                 <rect key="frame" x="0.0" y="0.0" width="135.5" height="35"/>
@@ -167,9 +167,8 @@
                     <constraint firstItem="MK9-Cw-IrG" firstAttribute="centerY" secondItem="gqc-J8-LXO" secondAttribute="centerY" id="L3m-2j-hfy"/>
                     <constraint firstItem="eEi-xq-9pW" firstAttribute="top" secondItem="Czm-hz-3rz" secondAttribute="bottom" constant="12" id="LKw-ne-GWO"/>
                     <constraint firstAttribute="trailing" secondItem="0Lf-Jf-P6K" secondAttribute="trailing" constant="12" id="Nut-9u-vPW"/>
-                    <constraint firstAttribute="bottom" secondItem="iTk-9n-xBk" secondAttribute="bottom" id="Qsl-S2-83e"/>
                     <constraint firstItem="l8t-kY-LHt" firstAttribute="leading" secondItem="QfG-P6-37U" secondAttribute="leading" id="Qvb-Bt-Ufg"/>
-                    <constraint firstItem="iTk-9n-xBk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0Lf-Jf-P6K" secondAttribute="bottom" constant="12" id="RZr-g3-vqh"/>
+                    <constraint firstItem="iTk-9n-xBk" firstAttribute="top" secondItem="0Lf-Jf-P6K" secondAttribute="bottom" constant="12" id="RZr-g3-vqh"/>
                     <constraint firstItem="TQO-sr-1dB" firstAttribute="leading" secondItem="eEi-xq-9pW" secondAttribute="trailing" constant="18" id="Sr1-Nh-6Ky"/>
                     <constraint firstAttribute="trailing" secondItem="Czm-hz-3rz" secondAttribute="trailing" id="Wan-aX-ek9"/>
                     <constraint firstItem="Z46-X6-2sO" firstAttribute="leading" secondItem="TQO-sr-1dB" secondAttribute="trailing" constant="4" id="ZMZ-jB-FU9"/>

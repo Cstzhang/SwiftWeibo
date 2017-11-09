@@ -51,12 +51,24 @@ extension HomeViewController{
         // 根据视图模型判断可用cell
         let vm =  listViewModel.statusList[indexPath.row]
         let cellId = (vm.status.retweeted_status != nil) ? retweetedcellId : originalCellId
+        
+        //取cell 会调用代理方法获取cell高，如果没有，找到cell按照自动布局规则进行计算，找到向下的约束，计算动态行高
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
       
         cell.viewModel = vm
         return cell
         
     }
+    
+    // 父类要实现代理方法，子类才能重写 swift 3.0   4 不需要
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let vm = listViewModel.statusList[indexPath.row]
+        return vm.rowHeight
+    }
+    
+    
+    
+    
 
 }
 
@@ -73,8 +85,8 @@ extension HomeViewController{
        tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellId)
        tableView?.register(UINib(nibName: "WBStatusRetweetedCell", bundle: nil), forCellReuseIdentifier: retweetedcellId)
         //设置行高
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        //预估行高
+//        tableView?.rowHeight = UITableViewAutomaticDimension
+//        //预估行高
         tableView?.estimatedRowHeight = 300
         //取消分隔线
         tableView?.separatorStyle = .none
