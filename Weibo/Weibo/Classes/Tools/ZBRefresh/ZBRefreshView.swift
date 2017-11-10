@@ -33,7 +33,8 @@ class ZBRefreshView: UIView {
                  //隐藏提示图标，显示菊花
                  tipIcon.isHidden = true
                  indicator.startAnimating()
-            
+                
+                
             }
         }
         

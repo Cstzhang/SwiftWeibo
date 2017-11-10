@@ -108,8 +108,16 @@ class ZBRefreshControl: UIControl {
             if refreshView.refreshStatus == .Pulling{
                 print("准备刷新")
                 //刷新结束后要把状态修改成 .Normal
-//                beginRefreshing()
                 refreshView.refreshStatus = .WillRefresh
+                
+                //让整个刷新视图可以显示出来
+                var inset = sv.contentInset
+                inset.top += ZBRefreshOffset
+                sv.contentInset = inset
+                
+                
+                
+                
             }
         }
         
@@ -135,7 +143,7 @@ extension ZBRefreshControl{
     private func setupUI(){
         self.backgroundColor = superview?.backgroundColor
         //设置超出边界不显示
-        clipsToBounds = true
+        //clipsToBounds = true
         //添加刷新视图 - 从xib 中加载写出来 默认是xib 中制定的宽高
         addSubview(refreshView)
         //自动布局 设置xib的自动布局，需要制定宽高
