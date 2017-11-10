@@ -107,16 +107,7 @@ class ZBRefreshControl: UIControl {
             //放手 - 判断是否超过临界点
             if refreshView.refreshStatus == .Pulling{
                 print("准备刷新")
-                //刷新结束后要把状态修改成 .Normal
-                refreshView.refreshStatus = .WillRefresh
-                
-                //让整个刷新视图可以显示出来
-                var inset = sv.contentInset
-                inset.top += ZBRefreshOffset
-                sv.contentInset = inset
-                
-                
-                
+              beginRefreshing()
                 
             }
         }
@@ -127,14 +118,45 @@ class ZBRefreshControl: UIControl {
     //开始刷新
     func beginRefreshing(){
         print("开始刷新")
+         //判断是否正在刷新，如果已经在刷新，直接返回
+        if refreshView.refreshStatus == .WillRefresh {
+           return
+        }
+        
+        //判断父视图
+        guard let sv = scrollView else{
+            return
+        }
+       
+        //设置刷新视图状态
+        refreshView.refreshStatus = .WillRefresh
+        
+        //让整个刷新视图可以显示出来
+        var inset = sv.contentInset
+        inset.top += ZBRefreshOffset
+        sv.contentInset = inset
+        
+        
 
     }
+    
     //结束刷新
     func endRefreshing(){
-        refreshView.refreshStatus = .Normal
         print("结束刷新")
-       
+        guard let sv = scrollView else{
+            return
+        }
+        //隐藏菊花 回复刷新视图状态
+        refreshView.refreshStatus = .Normal
+        
+        
+        
+        //回复表格视图的contentInset
+        var inset = sv.contentInset
+        inset.top -= ZBRefreshOffset
+        sv.contentInset = inset
     }
+    
 
 }
 
