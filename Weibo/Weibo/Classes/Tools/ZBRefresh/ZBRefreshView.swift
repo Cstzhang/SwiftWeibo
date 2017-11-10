@@ -53,7 +53,7 @@ class ZBRefreshView: UIView {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     class func refreshView()->ZBRefreshView{
-        let nib = UINib(nibName: "ZBRefreshView", bundle: nil)
+        let nib = UINib(nibName: "ZBRefreshHumenView", bundle: nil)
         return nib.instantiate(withOwner: nil, options: nil)[0] as!ZBRefreshView
 
     }

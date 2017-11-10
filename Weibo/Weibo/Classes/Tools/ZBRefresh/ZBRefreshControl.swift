@@ -128,7 +128,6 @@ class ZBRefreshControl: UIControl {
         guard let sv = scrollView else{
             return
         }
-       
         
         //设置刷新视图状态
         refreshView.refreshStatus = .WillRefresh

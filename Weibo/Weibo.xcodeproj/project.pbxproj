@@ -131,6 +131,9 @@
 		6DFF30161F2DD86200D51720 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */; };
 		6DFF30171F2DD86200D51720 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DFF30141F2DD86200D51720 /* Bundle+Extensions.swift */; };
 		713C7135DFEDAC7F443B2369 /* Pods_Weibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3AB711F2FA1EC42AE7C9E36 /* Pods_Weibo.framework */; };
+		E00432551FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E00432541FB5A11200C7BA10 /* ZBRefreshHumenView.xib */; };
+		E00432561FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E00432541FB5A11200C7BA10 /* ZBRefreshHumenView.xib */; };
+		E00432571FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E00432541FB5A11200C7BA10 /* ZBRefreshHumenView.xib */; };
 		E0382A221FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */; };
 		E0382A231FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */; };
 		E0382A241FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */; };
@@ -252,6 +255,7 @@
 		95DCCA2B4BFA30F752EB32E4 /* Pods_WeiboTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F42EC5F23F74CE80B87D41D /* Pods_WeiboUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B555260E08C0A722D5F6DC8D /* Pods-Weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.debug.xcconfig"; sourceTree = "<group>"; };
+		E00432541FB5A11200C7BA10 /* ZBRefreshHumenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBRefreshHumenView.xib; sourceTree = "<group>"; };
 		E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusRetweetedCell.xib; sourceTree = "<group>"; };
 		E0382A251FB05405004F21CB /* WBNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavigationBar.swift; sourceTree = "<group>"; };
 		E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBRefreshControl.swift; sourceTree = "<group>"; };
@@ -598,6 +602,7 @@
 				E05A8AD21FB45234002F9DB6 /* ZBRefreshView.xib */,
 				E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */,
 				E05A8ADB1FB455AD002F9DB6 /* ZBRefreshView.swift */,
+				E00432541FB5A11200C7BA10 /* ZBRefreshHumenView.xib */,
 			);
 			path = ZBRefresh;
 			sourceTree = "<group>";
@@ -727,6 +732,7 @@
 			files = (
 				6D01E4AC1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
 				E05A8AD31FB45234002F9DB6 /* ZBRefreshView.xib in Resources */,
+				E00432551FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */,
 				6D3EC42E1F95E8EF00101115 /* MainVC.json in Resources */,
 				E0382A221FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				6D5D160D1F2B31C300F9C3B0 /* Assets.xcassets in Resources */,
@@ -743,6 +749,7 @@
 				E0382A231FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				6DBBCDCE1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */,
 				6D01E4AD1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
+				E00432561FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */,
 				6DBBCDD21FA9C1D700E864F7 /* WBNewFeatureView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,6 +762,7 @@
 				E0382A241FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				6DBBCDCF1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */,
 				6D01E4AE1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
+				E00432571FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */,
 				6DBBCDD31FA9C1D700E864F7 /* WBNewFeatureView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
