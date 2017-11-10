@@ -595,8 +595,8 @@
 		E05A8ACD1FB434C1002F9DB6 /* ZBRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */,
 				E05A8AD21FB45234002F9DB6 /* ZBRefreshView.xib */,
+				E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */,
 				E05A8ADB1FB455AD002F9DB6 /* ZBRefreshView.swift */,
 			);
 			path = ZBRefresh;

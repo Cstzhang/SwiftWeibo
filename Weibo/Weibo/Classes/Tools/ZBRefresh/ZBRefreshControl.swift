@@ -101,13 +101,14 @@ class ZBRefreshControl: UIControl {
              //往回推
             }else if height <= ZBRefreshOffset && (refreshView.refreshStatus == .Pulling){
                  refreshView.refreshStatus = .Normal
- 
+
             }
         }else{
             //放手 - 判断是否超过临界点
             if refreshView.refreshStatus == .Pulling{
                 print("准备刷新")
                 //刷新结束后要把状态修改成 .Normal
+//                beginRefreshing()
                 refreshView.refreshStatus = .WillRefresh
             }
         }
@@ -122,8 +123,9 @@ class ZBRefreshControl: UIControl {
     }
     //结束刷新
     func endRefreshing(){
+        refreshView.refreshStatus = .Normal
         print("结束刷新")
-     
+       
     }
 
 }
@@ -131,7 +133,7 @@ class ZBRefreshControl: UIControl {
 extension ZBRefreshControl{
     
     private func setupUI(){
-        self.backgroundColor = UIColor.red
+        self.backgroundColor = superview?.backgroundColor
         //设置超出边界不显示
         clipsToBounds = true
         //添加刷新视图 - 从xib 中加载写出来 默认是xib 中制定的宽高

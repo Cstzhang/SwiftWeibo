@@ -7,6 +7,9 @@
 //
 
 import UIKit
+//UIView 动画 系统默认顺时针旋转
+//就近原则（哪条路径近就走哪条 - 0.001）
+//想要360度旋转， 需要  CABaseAnimation
 
 class ZBRefreshView: UIView {
     //初始化刷新状态
@@ -14,12 +17,17 @@ class ZBRefreshView: UIView {
         didSet{
             switch refreshStatus {
             case .Normal:
-                tipLabel.text = "继续使劲拉..."
+                tipLabel.text =  "继续使劲拉..."
+                UIView.animate(withDuration: 0.25, animations: {
+                   self.tipIcon.transform = CGAffineTransform.identity
+                })
                 
             case .Pulling:
-                 tipLabel.text = "放手就劲拉..."
-                
-                
+                tipLabel.text = "放手就刷新..."
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.tipIcon.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi - 0.001))
+
+                })
             case .WillRefresh:
                  tipLabel.text = "正在刷新中..."
             
