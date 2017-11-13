@@ -30,7 +30,13 @@ class ZBMtRefreshView: ZBRefreshView {
         animation.isRemovedOnCompletion = false
         earthIconView.layer.add(animation, forKey: nil)
         //袋鼠
-        
+        //1 锚点
+        kangarooIconView.layer.anchorPoint =  CGPoint(x: 0.5, y: 1)
+        //2 设置frame/center
+        kangarooIconView.center = CGPoint(x: (self.bounds.width * 0.5), y: (self.bounds.height-23))
+        //3 缩小
+        kangarooIconView.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
+       
         
         
     }
