@@ -9,7 +9,7 @@
 import UIKit
 
 //刷新状态切换临界点
-private let ZBRefreshOffset:CGFloat = 60
+private let ZBRefreshOffset:CGFloat = 126
 
 /// 刷新状态
 ///

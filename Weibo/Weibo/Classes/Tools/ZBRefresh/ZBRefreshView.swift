@@ -18,24 +18,24 @@ class ZBRefreshView: UIView {
             switch refreshStatus {
             case .Normal:
                 //恢复状态
-                tipIcon.isHidden = false
-                indicator.stopAnimating()
-                tipLabel.text =  "继续使劲拉..."
+                tipIcon?.isHidden = false
+                indicator?.stopAnimating()
+                tipLabel?.text =  "继续使劲拉..."
                 UIView.animate(withDuration: 0.25, animations: {
-                   self.tipIcon.transform = CGAffineTransform.identity
+                    self.tipIcon?.transform = CGAffineTransform.identity
                 })
                 
             case .Pulling:
-                tipLabel.text = "放手就刷新..."
+                tipLabel?.text = "放手就刷新..."
                 UIView.animate(withDuration: 0.25, animations: {
-                    self.tipIcon.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi - 0.001))
+                    self.tipIcon?.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi - 0.001))
 
                 })
             case .WillRefresh:
-                 tipLabel.text = "正在刷新中..."
+                tipLabel?.text = "正在刷新中..."
                  //隐藏提示图标，显示菊花
-                 tipIcon.isHidden = true
-                 indicator.startAnimating()
+                tipIcon?.isHidden = true
+                indicator?.startAnimating()
                 
                 
             }
@@ -43,19 +43,23 @@ class ZBRefreshView: UIView {
         
     }
     //提示图标
-    @IBOutlet weak var tipIcon: UIImageView!
+    @IBOutlet weak var tipIcon: UIImageView?
 
     
-    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var tipLabel: UILabel?
     
 
     //指示器
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView?
     
     class func refreshView()->ZBRefreshView{
-        let nib = UINib(nibName: "ZBRefreshHumenView", bundle: nil)
+//        let nib = UINib(nibName: "ZBRefreshHumenView", bundle: nil)
+//        return nib.instantiate(withOwner: nil, options: nil)[0] as!ZBRefreshView
+
+        let nib = UINib(nibName: "ZBMtRefresh", bundle: nil)
         return nib.instantiate(withOwner: nil, options: nil)[0] as!ZBRefreshView
 
+        
     }
     
     
