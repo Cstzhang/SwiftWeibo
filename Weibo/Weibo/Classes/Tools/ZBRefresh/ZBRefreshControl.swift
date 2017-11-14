@@ -91,6 +91,9 @@ class ZBRefreshControl: UIControl {
                             width: sv.bounds.width,
                             height: height)
         
+        //传递父视图高度
+        refreshView.parentViewHeight = height
+        
         //拖拽状态 -临界点只需要判断一次
         if sv.isDragging{
             //判断是否到临界点  往下拉 且还没有变过一次状态
@@ -136,6 +139,8 @@ class ZBRefreshControl: UIControl {
         var inset = sv.contentInset
         inset.top += ZBRefreshOffset
         sv.contentInset = inset
+        //设置刷新视图父视图高度
+        refreshView.parentViewHeight = ZBRefreshOffset
         
         
 

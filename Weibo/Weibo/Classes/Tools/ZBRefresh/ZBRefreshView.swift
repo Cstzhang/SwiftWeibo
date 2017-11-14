@@ -42,6 +42,9 @@ class ZBRefreshView: UIView {
         }
         
     }
+    //父视图高度
+    var parentViewHeight:CGFloat = 0
+
     //提示图标
     @IBOutlet weak var tipIcon: UIImageView?
 
