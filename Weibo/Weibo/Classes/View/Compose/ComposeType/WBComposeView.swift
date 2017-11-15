@@ -30,4 +30,28 @@ class WBComposeView: UIView {
         
     }
     
+    override func awakeFromNib() {
+        setupUI()
+        print("test 11")
+    }
+    
+    //点击类型按钮
+    @objc private func clickButtn(){
+     print("test ===== test")
+    }
+    
 }
+
+// private 让extension中所有函数都是private
+private extension WBComposeView{
+    func setupUI()  {
+        let btn = WBComposeTypeButton.composeTypeButton(image: "tabbar_compose_music", title: "test")
+        btn.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        addSubview(btn)
+        btn.addTarget(self, action: #selector(clickButtn), for: .touchUpInside)
+        
+    }
+    
+    
+}
+
