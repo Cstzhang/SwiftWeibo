@@ -146,6 +146,9 @@
 		E0382A261FB05406004F21CB /* WBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0382A251FB05405004F21CB /* WBNavigationBar.swift */; };
 		E0382A271FB05406004F21CB /* WBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0382A251FB05405004F21CB /* WBNavigationBar.swift */; };
 		E0382A281FB05406004F21CB /* WBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0382A251FB05405004F21CB /* WBNavigationBar.swift */; };
+		E04B86641FBBE54700BDDEF0 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */; };
+		E04B86651FBBE54700BDDEF0 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */; };
+		E04B86661FBBE54700BDDEF0 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */; };
 		E05A8ACF1FB434FB002F9DB6 /* ZBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */; };
 		E05A8AD01FB434FB002F9DB6 /* ZBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */; };
 		E05A8AD11FB434FB002F9DB6 /* ZBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */; };
@@ -266,6 +269,7 @@
 		E00432541FB5A11200C7BA10 /* ZBRefreshHumenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBRefreshHumenView.xib; sourceTree = "<group>"; };
 		E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusRetweetedCell.xib; sourceTree = "<group>"; };
 		E0382A251FB05405004F21CB /* WBNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavigationBar.swift; sourceTree = "<group>"; };
+		E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeView.swift; sourceTree = "<group>"; };
 		E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBRefreshControl.swift; sourceTree = "<group>"; };
 		E05A8AD21FB45234002F9DB6 /* ZBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBRefreshView.xib; sourceTree = "<group>"; };
 		E05A8ADB1FB455AD002F9DB6 /* ZBRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBRefreshView.swift; sourceTree = "<group>"; };
@@ -495,6 +499,7 @@
 		6D5D16361F2B34B500F9C3B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E04B86611FBBE46C00BDDEF0 /* Compose */,
 				6D5D16391F2B34B500F9C3B0 /* Main */,
 				6D5D16381F2B34B500F9C3B0 /* Home */,
 				6D5D163A1F2B34B500F9C3B0 /* Message */,
@@ -602,6 +607,22 @@
 				E0F64CB61FAC14120062624B /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E04B86611FBBE46C00BDDEF0 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				E04B86621FBBE4C700BDDEF0 /* ComposeType */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		E04B86621FBBE4C700BDDEF0 /* ComposeType */ = {
+			isa = PBXGroup;
+			children = (
+				E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */,
+			);
+			path = ComposeType;
 			sourceTree = "<group>";
 		};
 		E05A8ACD1FB434C1002F9DB6 /* ZBRefresh */ = {
@@ -1005,6 +1026,7 @@
 				6D90A5D31FAB364800EA8A45 /* WBUser.swift in Sources */,
 				6D5D16521F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16461F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
+				E04B86641FBBE54700BDDEF0 /* WBComposeView.swift in Sources */,
 				6DFF30001F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
 				6D4B87EF1FA815810005788B /* UserAccount.swift in Sources */,
 				6DFF30091F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
@@ -1058,6 +1080,7 @@
 				6D90A5D41FAB364800EA8A45 /* WBUser.swift in Sources */,
 				6D5D16531F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16471F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
+				E04B86651FBBE54700BDDEF0 /* WBComposeView.swift in Sources */,
 				6DFF30011F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
 				6D4B87F01FA815810005788B /* UserAccount.swift in Sources */,
 				6DFF300A1F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
@@ -1111,6 +1134,7 @@
 				6D90A5D51FAB364800EA8A45 /* WBUser.swift in Sources */,
 				6D5D16541F2B371A00F9C3B0 /* DiscoverViewController.swift in Sources */,
 				6D5D16481F2B36B900F9C3B0 /* BaseViewController.swift in Sources */,
+				E04B86661FBBE54700BDDEF0 /* WBComposeView.swift in Sources */,
 				6DFF30021F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
 				6D4B87F11FA815810005788B /* UserAccount.swift in Sources */,
 				6DFF300B1F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,

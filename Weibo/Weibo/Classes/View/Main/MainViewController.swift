@@ -66,12 +66,12 @@ class MainViewController: UITabBarController {
     //撰写微博
     @objc fileprivate func composeStatus() -> () {
         print("撰写微博")
-        //测试方向旋转
-        let vc = UIViewController()
-        vc.view.backgroundColor = UIColor.cz_random()
-        let nav = UINavigationController(rootViewController: vc)
-        present(nav, animated: true) {
-        }
+        // 0 判断是否登录//FIXME: -
+        // 1 实例化视图
+        let v = WBComposeView()
+        
+        // 2 显示视图
+        v.show()
         
     }
     
