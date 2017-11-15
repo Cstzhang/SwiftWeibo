@@ -68,7 +68,7 @@ class MainViewController: UITabBarController {
         print("撰写微博")
         // 0 判断是否登录//FIXME: -
         // 1 实例化视图
-        let v = WBComposeView()
+        let v = WBComposeView.WBComposeView()
         
         // 2 显示视图
         v.show()

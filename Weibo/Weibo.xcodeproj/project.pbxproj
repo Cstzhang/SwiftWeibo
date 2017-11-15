@@ -149,6 +149,9 @@
 		E04B86641FBBE54700BDDEF0 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */; };
 		E04B86651FBBE54700BDDEF0 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */; };
 		E04B86661FBBE54700BDDEF0 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */; };
+		E04B86681FBBEC7600BDDEF0 /* WBComposeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04B86671FBBEC7600BDDEF0 /* WBComposeView.xib */; };
+		E04B86691FBBEC7600BDDEF0 /* WBComposeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04B86671FBBEC7600BDDEF0 /* WBComposeView.xib */; };
+		E04B866A1FBBEC7600BDDEF0 /* WBComposeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04B86671FBBEC7600BDDEF0 /* WBComposeView.xib */; };
 		E05A8ACF1FB434FB002F9DB6 /* ZBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */; };
 		E05A8AD01FB434FB002F9DB6 /* ZBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */; };
 		E05A8AD11FB434FB002F9DB6 /* ZBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */; };
@@ -270,6 +273,7 @@
 		E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusRetweetedCell.xib; sourceTree = "<group>"; };
 		E0382A251FB05405004F21CB /* WBNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavigationBar.swift; sourceTree = "<group>"; };
 		E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeView.swift; sourceTree = "<group>"; };
+		E04B86671FBBEC7600BDDEF0 /* WBComposeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeView.xib; sourceTree = "<group>"; };
 		E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBRefreshControl.swift; sourceTree = "<group>"; };
 		E05A8AD21FB45234002F9DB6 /* ZBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBRefreshView.xib; sourceTree = "<group>"; };
 		E05A8ADB1FB455AD002F9DB6 /* ZBRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBRefreshView.swift; sourceTree = "<group>"; };
@@ -621,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */,
+				E04B86671FBBEC7600BDDEF0 /* WBComposeView.xib */,
 			);
 			path = ComposeType;
 			sourceTree = "<group>";
@@ -761,6 +766,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E04B86681FBBEC7600BDDEF0 /* WBComposeView.xib in Resources */,
 				6D01E4AC1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
 				E05A8AD31FB45234002F9DB6 /* ZBRefreshView.xib in Resources */,
 				E00432551FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */,
@@ -781,6 +787,7 @@
 				E0382A231FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				6DBBCDCE1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */,
 				6D01E4AD1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
+				E04B86691FBBEC7600BDDEF0 /* WBComposeView.xib in Resources */,
 				E00432561FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */,
 				6DBBCDD21FA9C1D700E864F7 /* WBNewFeatureView.xib in Resources */,
 				6DDE35771FB9DDEF009DAEF3 /* ZBMtRefresh.xib in Resources */,
@@ -795,6 +802,7 @@
 				E0382A241FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				6DBBCDCF1FA9B50400E864F7 /* WBWelcomeView.xib in Resources */,
 				6D01E4AE1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
+				E04B866A1FBBEC7600BDDEF0 /* WBComposeView.xib in Resources */,
 				E00432571FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */,
 				6DBBCDD31FA9C1D700E864F7 /* WBNewFeatureView.xib in Resources */,
 				6DDE35781FB9DDEF009DAEF3 /* ZBMtRefresh.xib in Resources */,
