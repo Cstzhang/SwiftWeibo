@@ -15,8 +15,66 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WBComposeView" customModule="Weibo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKj-D2-pQn">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RzO-9n-U9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="compose_slogan" translatesAutoresizingMaskIntoConstraints="NO" id="O76-Vr-RwD">
+                                <rect key="frame" x="110" y="100" width="154" height="48"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkn-Qo-OFV">
+                                <rect key="frame" x="0.0" y="603" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5g1-51-erL">
+                                        <rect key="frame" x="175" y="10" width="25" height="25"/>
+                                        <state key="normal" image="tabbar_compose_background_icon_close"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="5g1-51-erL" firstAttribute="centerX" secondItem="hkn-Qo-OFV" secondAttribute="centerX" id="fMF-IE-rHU"/>
+                                    <constraint firstAttribute="height" constant="44" id="gJS-k8-bg3"/>
+                                    <constraint firstItem="5g1-51-erL" firstAttribute="centerY" secondItem="hkn-Qo-OFV" secondAttribute="centerY" id="ghb-Xa-R5Z"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LSu-We-SvV">
+                                <rect key="frame" x="0.0" y="323" width="375" height="224"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="T14-oV-rq9"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hkn-Qo-OFV" secondAttribute="trailing" id="494-Oc-83W"/>
+                            <constraint firstItem="O76-Vr-RwD" firstAttribute="centerX" secondItem="RzO-9n-U9Y" secondAttribute="centerX" id="Ro4-a5-g07"/>
+                            <constraint firstItem="O76-Vr-RwD" firstAttribute="top" secondItem="RzO-9n-U9Y" secondAttribute="top" constant="100" id="Why-Pd-vXr"/>
+                            <constraint firstItem="hkn-Qo-OFV" firstAttribute="leading" secondItem="RzO-9n-U9Y" secondAttribute="leading" id="bvS-wu-4o5"/>
+                            <constraint firstItem="LSu-We-SvV" firstAttribute="leading" secondItem="RzO-9n-U9Y" secondAttribute="leading" id="fvA-xb-yle"/>
+                            <constraint firstAttribute="trailing" secondItem="LSu-We-SvV" secondAttribute="trailing" id="hvL-47-YBC"/>
+                            <constraint firstItem="hkn-Qo-OFV" firstAttribute="top" secondItem="LSu-We-SvV" secondAttribute="bottom" constant="56" id="nDp-tK-NLY"/>
+                            <constraint firstAttribute="bottom" secondItem="hkn-Qo-OFV" secondAttribute="bottom" id="yZF-SR-FKn"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="XKj-D2-pQn" secondAttribute="bottom" id="4I2-kP-YCN"/>
+                <constraint firstItem="XKj-D2-pQn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="X5u-RC-Y4M"/>
+                <constraint firstItem="XKj-D2-pQn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dHB-VW-5ve"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XKj-D2-pQn" secondAttribute="trailing" id="hDE-Zb-1Iy"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="compose_slogan" width="154" height="48"/>
+        <image name="tabbar_compose_background_icon_close" width="25" height="25"/>
+    </resources>
 </document>
