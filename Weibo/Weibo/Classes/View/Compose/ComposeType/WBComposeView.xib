@@ -31,6 +31,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5g1-51-erL">
                                         <rect key="frame" x="175" y="10" width="25" height="25"/>
                                         <state key="normal" image="tabbar_compose_background_icon_close"/>
+                                        <connections>
+                                            <action selector="close" destination="iN0-l3-epB" eventType="touchUpInside" id="BA6-1o-eMs"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,6 +73,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="closeButton" destination="5g1-51-erL" id="nft-n5-ISh"/>
+                <outlet property="scrollView" destination="LSu-We-SvV" id="Pzs-io-BWM"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
