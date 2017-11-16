@@ -72,11 +72,54 @@ private extension WBComposeView{
         // 0 强行更新布局
         layoutIfNeeded()
         // 1 添加视图
-        let v = UIView()
+        let rect = scrollView.bounds
+        let v = UIView(frame: rect)
+        addButton(v: v, index: 0)
+        scrollView.addSubview(v)
+    }
+
+    /// 循环添加类型按钮
+    ///
+    /// - Parameters:
+    ///   - v: 主视图
+    ///   - index: 索引
+    func addButton(v:UIView,index:Int)  {
+        let count = 6
+        for i in index ..< (index+count) {
+            //1获取图形信息
+            if index >= buttonsInfo.count{
+                return
+            }
+            let dict = buttonsInfo[i]
+            guard let imageName = dict["imageName"],
+                   let title = dict["title"] else {
+                continue
+            }
+            
+            let btn = WBComposeTypeButton.composeTypeButton(image: imageName, title: title)
+            v.addSubview(btn)
+            
+            
+            
+            
+            
+            
+            
+
+            
+            //2添加
+            
+            
+            
+            
+            
+        
+        }
+        
+        
         
         
     }
-    
     
 }
 
