@@ -2,8 +2,8 @@
 //  WBComposeView.swift
 //  Weibo
 //
-//  Created by 恒信永利 on 2017/11/15.
-//  Copyright © 2017年 zhangzb. All rights reserved.
+//  Created by 恒信永利 on 2017/                                    11/15.
+
 //
 
 import UIKit
@@ -84,6 +84,7 @@ private extension WBComposeView{
     ///   - v: 主视图
     ///   - index: 索引
     func addButton(v:UIView,index:Int)  {
+        //添加按钮
         let count = 6
         for i in index ..< (index+count) {
             //1获取图形信息
@@ -98,24 +99,21 @@ private extension WBComposeView{
             
             let btn = WBComposeTypeButton.composeTypeButton(image: imageName, title: title)
             v.addSubview(btn)
-            
-            
-            
-            
-            
-            
-            
-
-            
-            //2添加
-            
-            
-            
-            
-            
-        
         }
-        
+        //遍历视图的字数图 枚举 布局按钮
+        //准备常量
+        let btnSize = CGSize(width: 100, height: 100)
+        let margin:CGFloat = (v.bounds.width - 3 * btnSize.width) / 4
+ 
+        for (i,btn) in v.subviews.enumerated() {
+            let y:CGFloat = (i > 2) ? (v.bounds.height - btnSize.height) : 0
+            let colum = i % 3 //列
+            let x = CGFloat(colum + 1) * margin + CGFloat(colum) * btnSize.width
+            
+            btn.frame = CGRect(x: x, y: y, width: btnSize.width, height: btnSize.height)
+            
+            
+        }
         
         
         
