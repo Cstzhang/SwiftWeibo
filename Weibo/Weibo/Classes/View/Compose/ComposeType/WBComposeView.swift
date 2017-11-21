@@ -109,14 +109,41 @@ class WBComposeView: UIView {
 
 private extension WBComposeView{
     //显示当前视图(透明度变化)
-    func showCurrentView(){
+   private func showCurrentView(){
         //创建动画
-        let animation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
-        animation?.fromValue = 0
-        animation?.toValue = 1
-        animation?.duration = 0.5
+    let animation:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.duration = 0.25
         //添加到视图
         pop_add(animation, forKey: nil)
+        
+        //添加按钮动画
+        showButtons()
+    }
+    //弹力显示所有按钮
+   private func showButtons() {
+        //获取scrollview 的子视图的第0个视图
+        let v = scrollView.subviews[0]
+        //遍历V中所有button
+        for (i,btn) in v.subviews.enumerated() {
+            //创建动画
+            let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            //动画属性
+            anim.fromValue = btn.center.y + 300
+            anim.toValue = btn.center.y
+            //弹力系数
+            anim.springBounciness = 8
+            anim.springSpeed  = 8
+            //动画启动时间
+            anim.beginTime = CACurrentMediaTime() + CFTimeInterval(i) * 0.025
+            //添加动画
+            btn.pop_add(anim, forKey: nil)
+            
+            
+        }
+        
+        
     }
     
     
