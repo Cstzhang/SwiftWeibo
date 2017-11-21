@@ -51,13 +51,18 @@ class WBComposeView: UIView {
         
         
     }
-    
+    @objc private func clickMore(){
+        print("点击更多")
+    }
 
     
     //点击类型按钮
     @objc private func clickButtn(){
      print("test ===== test")
     }
+//    @objc private func clickmo
+    
+    
     
     @IBAction func close() {
         print("关闭选择视图")
@@ -100,14 +105,20 @@ private extension WBComposeView{
                 break
             }
             let dict = buttonsInfo[i]
-            
             guard let imageName = dict["imageName"],
                    let title = dict["title"] else {
                 continue
             }
-            
+            //创建按钮
             let btn = WBComposeTypeButton.composeTypeButton(image: imageName, title: title)
+            //添加监听方法
+            if let actionName = dict["actionName"]{
+                //oc中使用NSSelctorFromSTRING(@"actionName")
+                btn.addTarget(self, action: Selector(actionName), for: .touchUpInside)
+            }
+            //添加到视图
             v.addSubview(btn)
+            
         }
         //遍历视图的字数图 枚举 布局按钮
         //准备常量
