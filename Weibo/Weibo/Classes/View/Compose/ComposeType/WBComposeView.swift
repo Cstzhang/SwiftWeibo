@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import pop
 //撰写微博类型视图
 class WBComposeView: UIView {
     //选择类型view
@@ -54,7 +55,7 @@ class WBComposeView: UIView {
         }
         vc.view.addSubview(self)
         //2 设置虚化虚化效果
-        
+        showCurrentView()
         
     }
     @objc private func clickMore(){
@@ -80,10 +81,7 @@ class WBComposeView: UIView {
     @objc private func clickButtn(){
      print("test ===== test")
     }
-//    @objc private func clickmo
-    
-    
-    
+
     @IBAction func close() {
         print("关闭选择视图")
         removeFromSuperview()
@@ -108,6 +106,22 @@ class WBComposeView: UIView {
     
     
 }
+
+private extension WBComposeView{
+    //显示当前视图(透明度变化)
+    func showCurrentView(){
+        //创建动画
+        let animation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        animation?.fromValue = 0
+        animation?.toValue = 1
+        animation?.duration = 0.5
+        //添加到视图
+        pop_add(animation, forKey: nil)
+    }
+    
+    
+}
+
 
 // private 让extension中所有函数都是private
 private extension WBComposeView{
