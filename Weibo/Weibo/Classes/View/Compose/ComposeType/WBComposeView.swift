@@ -9,10 +9,16 @@
 import UIKit
 //撰写微博类型视图
 class WBComposeView: UIView {
-    
+    //选择类型view
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    //关闭按钮
     @IBOutlet weak var closeButton: UIButton!
+    //关闭按钮centerx
+    @IBOutlet weak var closeButtonCenterX: NSLayoutConstraint!
+    //返回按钮centerx
+    @IBOutlet weak var returnButtonCenterX: NSLayoutConstraint!
+    //返回按钮
+    @IBOutlet weak var returnButton: UIButton!
     
     /// 按钮数据数组
     private let buttonsInfo = [["imageName": "tabbar_compose_idea", "title": "文字", "clsName": "WBComposeViewController"],
@@ -53,8 +59,21 @@ class WBComposeView: UIView {
     }
     @objc private func clickMore(){
         print("点击更多")
+        //便宜view
+        let offset = CGPoint(x: scrollView.bounds.width, y: 0)
+        scrollView.setContentOffset(offset, animated: true)
+        //处理底部按钮
+        self.returnButton.isHidden = false
+        let margin  =  scrollView.bounds.width/6
+        closeButtonCenterX.constant += margin
+        returnButtonCenterX.constant -= margin
+        UIView.animate(withDuration: 0.25) {
+            self.layoutIfNeeded()
+        }
     }
 
+    
+    
     
     //点击类型按钮
     @objc private func clickButtn(){
@@ -68,6 +87,14 @@ class WBComposeView: UIView {
         print("关闭选择视图")
         removeFromSuperview()
     }
+    
+    
+    @IBAction func clickReturn() {
+        print("点击返回")
+        
+    }
+    
+    
     
 }
 
