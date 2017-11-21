@@ -84,7 +84,7 @@ class WBComposeView: UIView {
 
     @IBAction func close() {
         print("关闭选择视图")
-        removeFromSuperview()
+        hideButtons()
     }
     
     
@@ -108,6 +108,7 @@ class WBComposeView: UIView {
 }
 
 private extension WBComposeView{
+    // MARK: -显示动画
     //显示当前视图(透明度变化)
    private func showCurrentView(){
         //创建动画
@@ -130,7 +131,7 @@ private extension WBComposeView{
             //创建动画
             let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
             //动画属性
-            anim.fromValue = btn.center.y + 300
+            anim.fromValue = btn.center.y + 350
             anim.toValue = btn.center.y
             //弹力系数
             anim.springBounciness = 8
@@ -138,12 +139,48 @@ private extension WBComposeView{
             //动画启动时间
             anim.beginTime = CACurrentMediaTime() + CFTimeInterval(i) * 0.025
             //添加动画
-            btn.pop_add(anim, forKey: nil)
-            
-            
+            btn.layer.pop_add(anim, forKey: nil)
         }
-        
-        
+    }
+    // MARK: -隐藏动画
+    //隐藏按钮
+    private func hideButtons(){
+        //判断当前显示的子视图
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        let v = scrollView.subviews[page]
+        //遍历所有按钮
+        for (i,btn) in v.subviews.enumerated().reversed() {
+            //创建动画
+            let anim:POPSpringAnimation = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            //动画属性
+            anim.fromValue = btn.center.y
+            anim.toValue = btn.center.y + 350
+            anim.beginTime = CACurrentMediaTime()  + CFTimeInterval(v.subviews.count - i) * 0.025
+            //添加动画
+            btn.layer.pop_add(anim, forKey: nil)
+            //监听最后一个执行的动画
+            if i == 0 {
+                anim.completionBlock = {(_,_)->() in
+                    //隐藏当前视图
+                    self.hideCurrentView()
+                }
+            }
+        }
+       
+ 
+    }
+    //隐藏当前视图
+    private func hideCurrentView(){
+        let anim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+        anim.fromValue = 1
+        anim.toValue = 0
+        anim.duration = 0.25
+        pop_add(anim, forKey: nil)
+        anim.completionBlock = {(_,_)->() in
+            //隐藏当前视图
+            self.removeFromSuperview()
+        }
+
     }
     
     
