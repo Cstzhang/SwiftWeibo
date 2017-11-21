@@ -68,6 +68,7 @@ class WBComposeView: UIView {
         closeButtonCenterX.constant += margin
         returnButtonCenterX.constant -= margin
         UIView.animate(withDuration: 0.25) {
+            
             self.layoutIfNeeded()
         }
     }
@@ -90,7 +91,17 @@ class WBComposeView: UIView {
     
     
     @IBAction func clickReturn() {
+        scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+        closeButtonCenterX.constant = 0
+        returnButtonCenterX.constant = 0
         print("点击返回")
+        UIView.animate(withDuration: 0.25, animations: {
+            self.layoutIfNeeded()
+            self.returnButton.alpha = 0
+        }) { (_) in
+            self.returnButton.isHidden = true
+            self.returnButton.alpha = 1
+        }
         
     }
     
