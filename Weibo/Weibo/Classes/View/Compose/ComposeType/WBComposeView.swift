@@ -73,9 +73,17 @@ private extension WBComposeView{
         layoutIfNeeded()
         // 1 添加视图
         let rect = scrollView.bounds
-        let v = UIView(frame: rect)
-        addButton(v: v, index: 0)
-        scrollView.addSubview(v)
+        let width = scrollView.bounds.width
+        
+        for i in 0..<2 { //分2个批，生成View
+            let v = UIView(frame: rect.offsetBy(dx: CGFloat(i) * width, dy: 0))
+            addButton(v: v, index: i * 6)
+            scrollView.addSubview(v)
+        }
+       scrollView.contentSize = CGSize(width: width * 2, height: scrollView.bounds.height)
+       scrollView.showsVerticalScrollIndicator = false
+       scrollView.showsHorizontalScrollIndicator = false
+       scrollView.bounces = false
     }
 
     /// 循环添加类型按钮
@@ -85,13 +93,14 @@ private extension WBComposeView{
     ///   - index: 索引
     func addButton(v:UIView,index:Int)  {
         //添加按钮
-        let count = 6
+        let count = 6 //最多6个按钮
         for i in index ..< (index+count) {
             //1获取图形信息
-            if index >= buttonsInfo.count{
-                return
+            if i >= buttonsInfo.count{
+                break
             }
             let dict = buttonsInfo[i]
+            
             guard let imageName = dict["imageName"],
                    let title = dict["title"] else {
                 continue
@@ -104,19 +113,14 @@ private extension WBComposeView{
         //准备常量
         let btnSize = CGSize(width: 100, height: 100)
         let margin:CGFloat = (v.bounds.width - 3 * btnSize.width) / 4
- 
+        //循环布局
         for (i,btn) in v.subviews.enumerated() {
-            let y:CGFloat = (i > 2) ? (v.bounds.height - btnSize.height) : 0
+            let y:CGFloat = (i > 2) ? (v.bounds.height - btnSize.height) : 0 // 第二排的
             let colum = i % 3 //列
             let x = CGFloat(colum + 1) * margin + CGFloat(colum) * btnSize.width
-            
             btn.frame = CGRect(x: x, y: y, width: btnSize.width, height: btnSize.height)
-            
-            
         }
-        
-        
-        
+
     }
     
 }
