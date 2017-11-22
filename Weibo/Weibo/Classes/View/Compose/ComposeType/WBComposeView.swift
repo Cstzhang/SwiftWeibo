@@ -76,10 +76,11 @@ class WBComposeView: UIView {
 
     
     
-    
+    //MARK: -监听方法
     //点击类型按钮
-    @objc private func clickButtn(){
-     print("test ===== test")
+    @objc private func clickButtn(btn:WBComposeTypeButton){
+     print("点了\(btn.clsName ?? "")")
+        
     }
 
     @IBAction func close() {
@@ -118,7 +119,6 @@ private extension WBComposeView{
         animation.duration = 0.25
         //添加到视图
         pop_add(animation, forKey: nil)
-        
         //添加按钮动画
         showButtons()
     }
@@ -231,7 +231,13 @@ private extension WBComposeView{
             if let actionName = dict["actionName"]{
                 //oc中使用NSSelctorFromSTRING(@"actionName")
                 btn.addTarget(self, action: Selector(actionName), for: .touchUpInside)
+            }else{
+               
+                btn.addTarget(self, action: #selector(clickButtn(btn:)), for: .touchUpInside)
+                
             }
+            //展现控制器
+            btn.clsName = dict["clsName"]
             //添加到视图
             v.addSubview(btn)
             

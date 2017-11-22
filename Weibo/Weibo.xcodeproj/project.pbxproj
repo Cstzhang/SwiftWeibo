@@ -167,6 +167,9 @@
 		E05A8ADC1FB455AD002F9DB6 /* ZBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A8ADB1FB455AD002F9DB6 /* ZBRefreshView.swift */; };
 		E05A8ADD1FB455AD002F9DB6 /* ZBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A8ADB1FB455AD002F9DB6 /* ZBRefreshView.swift */; };
 		E05A8ADE1FB455AD002F9DB6 /* ZBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A8ADB1FB455AD002F9DB6 /* ZBRefreshView.swift */; };
+		E078656C1FC5605E00111951 /* WBComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E078656B1FC5605E00111951 /* WBComposeViewController.swift */; };
+		E078656D1FC5605E00111951 /* WBComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E078656B1FC5605E00111951 /* WBComposeViewController.swift */; };
+		E078656E1FC5605E00111951 /* WBComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E078656B1FC5605E00111951 /* WBComposeViewController.swift */; };
 		E07B7FB61FAC5CE200A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
 		E07B7FB71FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
 		E07B7FB81FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */; };
@@ -285,6 +288,7 @@
 		E05A8ACE1FB434FB002F9DB6 /* ZBRefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBRefreshControl.swift; sourceTree = "<group>"; };
 		E05A8AD21FB45234002F9DB6 /* ZBRefreshView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBRefreshView.xib; sourceTree = "<group>"; };
 		E05A8ADB1FB455AD002F9DB6 /* ZBRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBRefreshView.swift; sourceTree = "<group>"; };
+		E078656B1FC5605E00111951 /* WBComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeViewController.swift; sourceTree = "<group>"; };
 		E07B7FB51FAC5CE200A36B8C /* WBStatusPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPictureView.swift; sourceTree = "<group>"; };
 		E07B7FB91FAC619F00A36B8C /* WBStatusPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusPicture.swift; sourceTree = "<group>"; };
 		E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
@@ -624,6 +628,7 @@
 		E04B86611FBBE46C00BDDEF0 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				E078656B1FC5605E00111951 /* WBComposeViewController.swift */,
 				E04B86621FBBE4C700BDDEF0 /* ComposeType */,
 			);
 			path = Compose;
@@ -1036,6 +1041,7 @@
 				6D5CCA7E1FA9A097001FCCCA /* WBWelcomeView.swift in Sources */,
 				E05A8ADC1FB455AD002F9DB6 /* ZBRefreshView.swift in Sources */,
 				6D24400C1F99922F006D4342 /* WBStatus.swift in Sources */,
+				E078656C1FC5605E00111951 /* WBComposeViewController.swift in Sources */,
 				6DFF300F1F2DCBB300D51720 /* UIViewController+CZAddition.m in Sources */,
 				6DFF30151F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DD669BB1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
@@ -1091,6 +1097,7 @@
 				6D5CCA7F1FA9A097001FCCCA /* WBWelcomeView.swift in Sources */,
 				E05A8ADD1FB455AD002F9DB6 /* ZBRefreshView.swift in Sources */,
 				6D24400D1F99922F006D4342 /* WBStatus.swift in Sources */,
+				E078656D1FC5605E00111951 /* WBComposeViewController.swift in Sources */,
 				6DFF30101F2DCBB300D51720 /* UIViewController+CZAddition.m in Sources */,
 				6DFF30161F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DD669BC1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
@@ -1146,6 +1153,7 @@
 				6D5CCA801FA9A097001FCCCA /* WBWelcomeView.swift in Sources */,
 				E05A8ADE1FB455AD002F9DB6 /* ZBRefreshView.swift in Sources */,
 				6D24400E1F99922F006D4342 /* WBStatus.swift in Sources */,
+				E078656E1FC5605E00111951 /* WBComposeViewController.swift in Sources */,
 				6DFF30111F2DCBB300D51720 /* UIViewController+CZAddition.m in Sources */,
 				6DFF30171F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DD669BD1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,

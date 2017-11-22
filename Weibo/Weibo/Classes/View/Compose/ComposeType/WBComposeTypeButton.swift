@@ -13,6 +13,8 @@ class WBComposeTypeButton: UIControl {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
+    //要展示的控制器的类名
+    var clsName:String?
     
     /// 创建一个类型按钮
     ///
