@@ -96,6 +96,7 @@ extension HomeViewController{
         //取消分隔线
         tableView?.separatorStyle = .none
 
+        setupNavTitle()
     }
     //设置导航栏
     private func setupNavTitle()  {

@@ -36,14 +36,20 @@ class WBTitleButton: UIButton {
     
     //自定义UI 布局调整
     override func layoutSubviews() {
+        
         super.layoutSubviews()//一定要有super
         guard let titleLabel = titleLabel,
               let imageView = imageView  else {
               return
         }
         //label的x向左移动image宽度 image的x向右移动label宽度
-        titleLabel.frame = titleLabel.frame.offsetBy(dx: -imageView.bounds.width, dy: 0)
-        imageView.frame = imageView.frame.offsetBy(dx: titleLabel.bounds.width, dy: 0)
+//        titleLabel.frame = titleLabel.frame.offsetBy(dx: -imageView.bounds.width, dy: 0)
+        titleLabel.frame.origin.x = 0
+        
+        
+//        imageView.frame = imageView.frame.offsetBy(dx: titleLabel.bounds.width, dy: 0)
+        imageView.frame.origin.x = titleLabel.bounds.width
+        
     }
     
 
