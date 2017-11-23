@@ -2,7 +2,7 @@
 //  WBComposeView.swift
 //  Weibo
 //
-//  Created by 恒信永利 on 2017/                                    11/15.
+//  Created by 恒信永利 on 2017/11/15.
 
 //
 
@@ -22,7 +22,7 @@ class WBComposeView: UIView {
     @IBOutlet weak var returnButton: UIButton!
     
     /// 按钮数据数组
-    private let buttonsInfo = [["imageName": "tabbar_compose_idea", "title": "文字", "clsName": "WBComposeViewController"],
+    private let buttonsInfo = [["imageName": "tabbar_compose_idea", "title": "文字", "clsName": "WBComposeController"],
                                ["imageName": "tabbar_compose_photo", "title": "照片/视频"],
                                ["imageName": "tabbar_compose_weibo", "title": "长微博"],
                                ["imageName": "tabbar_compose_lbs", "title": "签到"],
@@ -33,28 +33,34 @@ class WBComposeView: UIView {
                                ["imageName": "tabbar_compose_music", "title": "音乐"],
                                ["imageName": "tabbar_compose_shooting", "title": "拍摄"]
     ]
+    //完成回调
+    private var completeBlock:((_ clsName:String?)->())?
 
-    //构造函数
+    //实例化方法
     class func WBComposeView()->WBComposeView{
         let nib = UINib(nibName: "WBComposeView", bundle: nil)
         //从xib加载完成就会调用awakefromnib
         let v = nib.instantiate(withOwner: nil, options: nil)[0] as! WBComposeView
         // xib 加载默认是600*600
         v.frame = UIScreen.main.bounds
-        
         v.setupUI()
         
         return v
     }
 
     /// 显示当前视图
-    func show()  {
+    func show(completion:@escaping (_ clsName:String?)->())  {
+        
+        //记录闭包
+        completeBlock = completion
+        
         //1 当前视图添加到显示视图 rootViewController是tabbarcontroller
         guard  let vc = UIApplication.shared.keyWindow?.rootViewController else{
             return
         }
+        //添加视图
         vc.view.addSubview(self)
-        //2 设置虚化虚化效果
+        //2 开始动画
         showCurrentView()
         
     }
@@ -69,7 +75,6 @@ class WBComposeView: UIView {
         closeButtonCenterX.constant += margin
         returnButtonCenterX.constant -= margin
         UIView.animate(withDuration: 0.25) {
-            
             self.layoutIfNeeded()
         }
     }
@@ -78,8 +83,39 @@ class WBComposeView: UIView {
     
     //MARK: -监听方法
     //点击类型按钮
-    @objc private func clickButtn(btn:WBComposeTypeButton){
-     print("点了\(btn.clsName ?? "")")
+    @objc private func clickButtn(selecterBtn:WBComposeTypeButton){
+     print("点了\(selecterBtn.clsName ?? "")")
+     //1判断当前显示的视图
+        let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        let v  = scrollView.subviews[page]
+     //2动画组(加多个动画)
+        for (i,button) in v.subviews.enumerated() {
+            let anim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewScaleXY)
+            let scale = (selecterBtn == button) ? 2 : 0.2
+            //xy 用CGPoint表示 转换成id 用NSValue 包装
+//          anim.fromValue = NSValue(cgPoint: CGPoint(x: 1.0, y: 1.0))
+            anim.toValue = NSValue(cgPoint: CGPoint(x: scale, y: scale))
+            anim.duration = 0.5
+            button.pop_add(anim, forKey: nil)
+            //渐变动画
+            let alpAnim:POPBasicAnimation = POPBasicAnimation(propertyNamed: kPOPViewAlpha)
+            alpAnim.toValue = 0.2
+            alpAnim.duration = 0.5
+            button.pop_add(alpAnim, forKey: nil)
+            if i == 0 {
+                alpAnim.completionBlock = {(_,_)->() in
+                    print("完成动画，展现控制器")
+                    self.completeBlock?(selecterBtn.clsName)
+                }
+            }
+            
+            
+        }
+        
+     //3
+        
+        
+        
         
     }
 
@@ -233,7 +269,7 @@ private extension WBComposeView{
                 btn.addTarget(self, action: Selector(actionName), for: .touchUpInside)
             }else{
                
-                btn.addTarget(self, action: #selector(clickButtn(btn:)), for: .touchUpInside)
+                btn.addTarget(self, action: #selector(clickButtn(selecterBtn:)), for: .touchUpInside)
                 
             }
             //展现控制器

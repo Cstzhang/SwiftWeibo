@@ -71,7 +71,22 @@ class MainViewController: UITabBarController {
         let v = WBComposeView.WBComposeView()
         
         // 2 显示视图
-        v.show()
+        v.show { [weak v] (clsName) in
+            print("前往目标 \(clsName ?? "")")
+            guard let clsName = clsName,
+                  let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type else{
+                v?.removeFromSuperview()
+                return
+            }
+            //FIXME: -闪退问题
+            let vc = cls.init()
+            let nav  = UINavigationController(rootViewController: vc)
+            v?.removeFromSuperview()
+            self.present(nav, animated: true){
+//                v?.removeFromSuperview()
+            }
+
+        }
         
     }
     

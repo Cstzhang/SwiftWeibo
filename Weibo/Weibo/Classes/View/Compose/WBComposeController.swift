@@ -1,19 +1,24 @@
 //
-//  WBComposeViewController.swift
+//  WBComposeController.swift
 //  Weibo
 //
-//  Created by 恒信永利 on 2017/11/22.
+//  Created by 恒信永利 on 2017/11/23.
 //  Copyright © 2017年 zhangzb. All rights reserved.
-//  撰写微博控制器
+//
 
 import UIKit
 
-class WBComposeViewController: UIViewController {
+class WBComposeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.cz_random()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.red
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", target: self, action: #selector(close))
+    
+    }
+    @objc private func close(){
+        dismiss(animated: true, completion: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
