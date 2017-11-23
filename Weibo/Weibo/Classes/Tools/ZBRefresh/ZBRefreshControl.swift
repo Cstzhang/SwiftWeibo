@@ -95,8 +95,6 @@ class ZBRefreshControl: UIControl {
         if refreshView.refreshStatus != .WillRefresh {
              refreshView.parentViewHeight = height
         }
-  
-        
         //拖拽状态 -临界点只需要判断一次
         if sv.isDragging{
             //判断是否到临界点  往下拉 且还没有变过一次状态

@@ -18,7 +18,7 @@ class WBStatusCell: UITableViewCell {
             nameLabel.text = viewModel?.status.user?.screen_name
             //会员图标 在model中计算准备好
             memberIconView.image = viewModel?.memberIcon
-            //认
+            //认证
             vipIconView.image = viewModel?.vipIcon
             //头像
             iconView.zb_setImage(urlString: viewModel?.status.user?.profile_image_url, placeholderImage: UIImage(named:"avatar_default_big"),isAvatar: true)
@@ -28,6 +28,10 @@ class WBStatusCell: UITableViewCell {
             pictureView.viewModel = viewModel!
             //设置被转发微博的文字
             retweetedLabel?.text = viewModel?.retweetedText
+            //设置来源
+            sourceLabel.text = viewModel?.status.source
+            //创建时间
+            timeLabel.text = viewModel?.status.created_at
         }
     }
     //头像
