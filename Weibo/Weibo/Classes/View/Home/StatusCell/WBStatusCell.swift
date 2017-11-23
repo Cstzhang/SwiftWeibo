@@ -29,7 +29,7 @@ class WBStatusCell: UITableViewCell {
             //设置被转发微博的文字
             retweetedLabel?.text = viewModel?.retweetedText
             //设置来源
-            sourceLabel.text = viewModel?.status.source
+            sourceLabel.text = viewModel?.sourceStr
             //创建时间
             timeLabel.text = viewModel?.status.created_at
 

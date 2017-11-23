@@ -29,6 +29,9 @@ class WBStatusViewModel:CustomStringConvertible {
     var retweetStr:String?
     var commentStr:String?
     var likeStr:String?
+    //来源str
+    var sourceStr:String?
+    
     //图片尺寸
     var pictureViewSize = CGSize()
     //如果是被转发的微博，原创微博没有图
@@ -80,8 +83,8 @@ class WBStatusViewModel:CustomStringConvertible {
         retweetedText = "@" + screen_name + ":" + retweeted_Text
         
 //        let regx = NSRegularExpression(
-        
-        
+        //设置来源字符串
+        sourceStr = "来自 " + (status.source?.zb_href()?.text ?? "微博")
         
         //计算行高
         updateRowHeight()
