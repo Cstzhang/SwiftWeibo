@@ -21,7 +21,12 @@ class WBStatus: NSObject {
   //点赞数
   @objc  var attitudes_count:Int = 0
   //来源
-  @objc  var source:String?
+    @objc  var source:String?{
+        didSet{
+            //在didSet中给source赋值不会再调用didSet
+            source = "来自于 " + (source?.zb_href()?.text ?? "微博")
+        }
+    }
   //创建时间
   @objc  var created_at:String?
   //创建
