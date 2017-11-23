@@ -32,6 +32,7 @@ class WBStatusCell: UITableViewCell {
             sourceLabel.text = viewModel?.status.source
             //创建时间
             timeLabel.text = viewModel?.status.created_at
+
         }
     }
     //头像

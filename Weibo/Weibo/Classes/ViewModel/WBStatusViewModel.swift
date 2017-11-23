@@ -79,8 +79,15 @@ class WBStatusViewModel:CustomStringConvertible {
         //被转发微博文字
         retweetedText = "@" + screen_name + ":" + retweeted_Text
         
+//        let regx = NSRegularExpression(
+        
+        
+        
         //计算行高
         updateRowHeight()
+        
+        
+        
         
     }
     
