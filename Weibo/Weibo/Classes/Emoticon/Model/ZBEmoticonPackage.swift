@@ -12,7 +12,7 @@ import YYModel
 class ZBEmoticonPackage: NSObject {
     //表情包分组名
     var groupName:String?
-    //表情包目录 从目录下加载info.plist可以创建表情模型数组
+    //表情包目录 从目录下加载可以创建表情模型数组
     var directory:String?{
         didSet{
             //当设置时，从目录下加载info.plist
@@ -25,14 +25,15 @@ class ZBEmoticonPackage: NSObject {
                 else {
                 return
             }
-         
+
             print(models)
+            //遍历models 设置目录
+            for  m in models {
+                m.directory = directory
+            }
+            
             //设置表情模型数组
             emoticons += models
-            
-            
-            
-            
         }
     }
     //懒加载表情模型数组空数组 (懒加载避免后续解包)
