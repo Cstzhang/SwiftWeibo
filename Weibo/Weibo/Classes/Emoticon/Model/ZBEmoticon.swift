@@ -33,9 +33,7 @@ class ZBEmoticon: NSObject {
               return nil
         }
         return   UIImage(named: "\(directory)/\(png)", in: bundle, compatibleWith: nil)
-
     }
-
      override  var description: String{
         return yy_modelDescription()
     }

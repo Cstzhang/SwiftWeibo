@@ -20,6 +20,30 @@ class ZBEmoticonManager {
     }
     
 }
+//MARK: -表情符号处理
+extension ZBEmoticonManager{
+    
+    /// 根据string查找对应的表情模型对象
+    ///
+    /// - Parameter string: 表情string
+    /// - Returns: 返回表情模型/nil
+    func findEmoticon(string:String) -> ZBEmoticon? {
+        for p in packages {
+            //过滤string
+            let result =  p.emoticons.filter({ (em) -> Bool in
+                return em.chs == string
+            })
+            //返回招到的表情模型
+            if result.count == 1{
+                return result[0]
+            }
+        }
+        return nil
+    }
+    
+    
+    
+}
 
 
 //表情包数据处理
@@ -40,7 +64,5 @@ private extension ZBEmoticonManager{
         print(packages)
         
     }
-    
-    
-    
+
 }

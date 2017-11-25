@@ -28,7 +28,7 @@ class ZBEmoticonPackage: NSObject {
 
             print(models)
             //遍历models 设置目录
-            for  m in models {
+            for m in models {
                 m.directory = directory
             }
             
