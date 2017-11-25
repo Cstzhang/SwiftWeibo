@@ -29,10 +29,17 @@ extension ZBEmoticonManager{
     /// - Returns: 返回表情模型/nil
     func findEmoticon(string:String) -> ZBEmoticon? {
         for p in packages {
-            //过滤string
-            let result =  p.emoticons.filter({ (em) -> Bool in
-                return em.chs == string
-            })
+            //过滤string（1）
+//            let result =  p.emoticons.filter({ (em) -> Bool in
+//                return em.chs == string
+//            })
+             //过滤string（2）尾随闭包
+//            let result =  p.emoticons.filter(){ (em) -> Bool in
+//                return em.chs == string
+//            }
+             //过滤string（3）尾随闭包 （闭包中只有一句 且是返回，闭包格式定义可以省略，参数省略后使用 $0,$1一次替代原有参数 return也可以省略）
+            let result =  p.emoticons.filter() { $0.chs == string }
+            
             //返回招到的表情模型
             if result.count == 1{
                 return result[0]
