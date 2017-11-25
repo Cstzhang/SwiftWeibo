@@ -31,6 +31,8 @@ class WBStatusViewModel:CustomStringConvertible {
     var likeStr:String?
     //来源str
     var sourceStr:String?
+
+    
     
     //图片尺寸
     var pictureViewSize = CGSize()
@@ -40,6 +42,10 @@ class WBStatusViewModel:CustomStringConvertible {
     }
     //被转发微博文字
     var retweetedText : String?
+    //转发微博的属性文本
+    var retweetedAttrText : NSAttributedString?
+    //微博正文的属性文本
+    var statusAttrText:NSAttributedString?
     //行高
     var rowHeight:CGFloat = 0
 
@@ -74,15 +80,18 @@ class WBStatusViewModel:CustomStringConvertible {
         //计算配图视图大小
         pictureViewSize = calcPictureViewSize(count: picURLs?.count ?? 0)
         
-
+        let originalFont = UIFont.systemFont(ofSize: 15)
+        let retweetedFont = UIFont.systemFont(ofSize: 14)
         let screen_name = status.retweeted_status?.user?.screen_name ?? ""
         
         let retweeted_Text = status.retweeted_status?.text ?? ""
         
         //被转发微博文字
-        retweetedText = "@" + screen_name + ":" + retweeted_Text
-        
-//        let regx = NSRegularExpression(
+        let rText = "@" + screen_name + ":" + retweeted_Text
+        //被转发微博属性文本
+        retweetedAttrText = ZBEmoticonManager.shared.emoticonString(string: rText, font: retweetedFont)
+        //微博正文的属性文本
+        statusAttrText = ZBEmoticonManager.shared.emoticonString(string: model.text ?? "" , font: originalFont)
         //设置来源字符串
         sourceStr = "来自 " + (status.source?.zb_href()?.text ?? "微博")
         
@@ -108,31 +117,18 @@ class WBStatusViewModel:CustomStringConvertible {
         let iconHeight:CGFloat = 34
         let toolBaRHeight:CGFloat = 35
         let viewSize = CGSize(width: UIScreen.cz_screenWidth() - 2*margin, height: CGFloat(MAXFLOAT))
-        let originalFont = UIFont.systemFont(ofSize: 15)
-        let retweetedFont = UIFont.systemFont(ofSize: 14)
         //1 计算顶部位置
         var  height:CGFloat = 0
         height = 2 * margin  + iconHeight + margin
         //2 正文高度
-        if let text = status.text {
-            /*
-             1,预期尺寸
-             2,选项 换行文本 统一使用NSStringDrawingUsesLineFragmentOrigin
-             3<制定字体字典
-             
-             */
-            height += (text as NSString).boundingRect(with: viewSize,
-                                            options:.usesLineFragmentOrigin,
-                                            attributes: [NSAttributedStringKey.font:originalFont],
-                                            context: nil).height
+        if let text = statusAttrText {//属性文本中包含了字体属性font
+            height += text.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, context: nil).height
         }
-        
         // 3 判断是否转发微博
-        
         if status.retweeted_status != nil {
              height += 2*margin
-            if let text = retweetedText{
-              height +=    (text as NSString).boundingRect(with: viewSize, options:.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:retweetedFont], context: nil).height
+            if let text = retweetedAttrText{
+                height += text.boundingRect(with: viewSize, options: .usesLineFragmentOrigin, context: nil).height
             }
         }
         // 4 配图视图

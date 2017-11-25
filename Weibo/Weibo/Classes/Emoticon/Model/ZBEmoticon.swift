@@ -34,9 +34,24 @@ class ZBEmoticon: NSObject {
         }
         return   UIImage(named: "\(directory)/\(png)", in: bundle, compatibleWith: nil)
     }
+    
+    //当前的图像生成图片的属性文本
+    func imageText(font:UIFont) -> NSAttributedString{
+        guard let  image = image else{
+            return NSAttributedString(string: "")
+        }
+        let attachment  = NSTextAttachment()
+        attachment.image = image
+        let  height = font.lineHeight
+        attachment.bounds = CGRect(x: 0, y: -4, width: height, height: height)
+        return NSAttributedString(attachment: attachment)
+    }
      override  var description: String{
         return yy_modelDescription()
     }
+    
+    
+   
     
     
     

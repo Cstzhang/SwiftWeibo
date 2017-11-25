@@ -13,7 +13,7 @@ class WBStatusCell: UITableViewCell {
     var  viewModel:WBStatusViewModel?{
         didSet{
             //正文
-            statusLabel.text = viewModel?.status.text
+            statusLabel.attributedText = viewModel?.statusAttrText
             //昵称
             nameLabel.text = viewModel?.status.user?.screen_name
             //会员图标 在model中计算准备好
@@ -27,9 +27,8 @@ class WBStatusCell: UITableViewCell {
             //配图视图数据
             pictureView.viewModel = viewModel!
             //设置被转发微博的文字
-            retweetedLabel?.text = viewModel?.retweetedText
+            retweetedLabel?.attributedText = viewModel?.retweetedAttrText
             //设置来源
-//            sourceLabel.text = viewModel?.sourceStr
             sourceLabel.text = viewModel?.status.source
             //创建时间
             timeLabel.text = viewModel?.status.created_at
