@@ -31,9 +31,6 @@ class WBStatusViewModel:CustomStringConvertible {
     var likeStr:String?
     //来源str
     var sourceStr:String?
-
-    
-    
     //图片尺寸
     var pictureViewSize = CGSize()
     //如果是被转发的微博，原创微博没有图

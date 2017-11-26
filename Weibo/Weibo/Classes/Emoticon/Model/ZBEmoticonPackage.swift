@@ -11,9 +11,9 @@ import YYModel
 //表情包模型
 class ZBEmoticonPackage: NSObject {
     //表情包分组名
-    var groupName:String?
+     @objc var groupName:String?
     //表情包目录 从目录下加载可以创建表情模型数组
-    var directory:String?{
+    @objc  var directory:String?{
         didSet{
             //当设置时，从目录下加载info.plist
             guard let directory = directory,
@@ -26,19 +26,21 @@ class ZBEmoticonPackage: NSObject {
                 return
             }
 
-            print(models)
+            //print(models)
             //遍历models 设置目录
             for m in models {
                 m.directory = directory
             }
-            
             //设置表情模型数组
             emoticons += models
         }
     }
     //懒加载表情模型数组空数组 (懒加载避免后续解包)
-    lazy var emoticons = [ZBEmoticon]()
+    @objc  lazy var emoticons = [ZBEmoticon]()
     
+    override var description: String {
+        return yy_modelDescription()
+    }
     
     
 }

@@ -11,6 +11,7 @@ import Foundation
 class ZBEmoticonManager {
     //表情管理器单例
     static let shared = ZBEmoticonManager()
+    /// 表情包的懒加载数组 - 第一个数组是最近表情，加载之后，表情数组为空
     lazy var packages = [ZBEmoticonPackage]()
     //构造函数 在init之前增加 private修饰符,可以要求调用者必须用shared访问对象
     //oc 中要重写 allocWithZone

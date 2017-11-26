@@ -11,17 +11,17 @@ import YYModel
 //表情模型
 class ZBEmoticon: NSObject {
     //表情类型 false 是图片 true是emoji
-    var type = false
+    @objc  var type = false
     //表情字符串
-    var chs:String?
+    @objc var chs:String?
     //表情图片名称
-    var png:String?
+     @objc var png:String?
     //emoji的16进制编码
-    var code:String?
+     @objc var code:String?
     //表情模型所在目录
-    var directory:String?
+     @objc var directory:String?
     //·图片·表情对应的图像
-    var image:UIImage?{
+     @objc var image:UIImage?{
         //判断表情类型
         if type {
             return nil
@@ -32,6 +32,7 @@ class ZBEmoticon: NSObject {
               let bundle = Bundle(path: path) else{
               return nil
         }
+        print(UIImage(named: "\(directory)/\(png)", in: bundle, compatibleWith: nil))
         return   UIImage(named: "\(directory)/\(png)", in: bundle, compatibleWith: nil)
     }
     
@@ -44,9 +45,14 @@ class ZBEmoticon: NSObject {
         attachment.image = image
         let  height = font.lineHeight
         attachment.bounds = CGRect(x: 0, y: -4, width: height, height: height)
-        return NSAttributedString(attachment: attachment)
+        // 3. 返回图片属性文本
+        let attrStrM = NSMutableAttributedString(attributedString: NSAttributedString(attachment: attachment))
+        // 设置字体属性
+        attrStrM.addAttributes([NSAttributedStringKey.font: font], range: NSRange(location: 0, length: 1))
+        
+        return attrStrM
     }
-     override  var description: String{
+    override  var description: String{
         return yy_modelDescription()
     }
     
