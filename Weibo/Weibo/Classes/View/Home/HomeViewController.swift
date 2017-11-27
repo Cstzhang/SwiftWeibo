@@ -61,7 +61,8 @@ extension HomeViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
       
         cell.viewModel = vm
-        //设置代理
+        //设置代理 （如果用block 需要在数据源方法中，需要给每一个cell 设置block 设置了代理只是传递了指针地址）
+        
         cell.delegate = self
         return cell
         
@@ -82,6 +83,9 @@ extension HomeViewController{
 extension  HomeViewController:WBStatusCellDelegate{
     func statusCellDidSelectURLString(cell: WBStatusCell, urlString: String) {
         print(urlString)
+        let vc = WBWebViewController()
+        vc.urlString = urlString
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
