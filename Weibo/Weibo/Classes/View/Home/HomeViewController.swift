@@ -61,6 +61,8 @@ extension HomeViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
       
         cell.viewModel = vm
+        //设置代理
+        cell.delegate = self
         return cell
         
     }
@@ -77,6 +79,12 @@ extension HomeViewController{
 
 }
 
+extension  HomeViewController:WBStatusCellDelegate{
+    func statusCellDidSelectURLString(cell: WBStatusCell, urlString: String) {
+        print(urlString)
+    }
+    
+}
 
 extension HomeViewController{
     

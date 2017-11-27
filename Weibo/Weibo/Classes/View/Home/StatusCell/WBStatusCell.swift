@@ -7,8 +7,16 @@
 //
 
 import UIKit
+//微博cell的协议 (可选协议 需要加 @objc  方法需要： @objc optional)
+@objc protocol WBStatusCellDelegate:NSObjectProtocol {
+   //微博cell 中选中urL
+   @objc optional func statusCellDidSelectURLString(cell:WBStatusCell,urlString:String)
+}
+
 
 class WBStatusCell: UITableViewCell {
+    //代理属性
+    weak var delegate: WBStatusCellDelegate?
     //微博视图模型
     var  viewModel:WBStatusViewModel?{
         didSet{
@@ -48,14 +56,14 @@ class WBStatusCell: UITableViewCell {
     //认证
     @IBOutlet weak var vipIconView: UIImageView!
     //正文
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusLabel: FFLabel!
     //底部工具栏
     @IBOutlet weak var toolBar: WBStatusToolBar!
     //配图视图
     @IBOutlet weak var pictureView: WBStatusPictureView!
     
     //原创微博没有转发微博
-    @IBOutlet weak var retweetedLabel: UILabel?
+    @IBOutlet weak var retweetedLabel: FFLabel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -68,12 +76,24 @@ class WBStatusCell: UITableViewCell {
         //使用栅格化必须指定分辨率
         self.layer.rasterizationScale = UIScreen.main.scale
         // Initialization code
+        //设置微博文本代理
+        statusLabel.delegate = self
+        retweetedLabel?.delegate = self
+        
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+    
+}
+
+extension WBStatusCell:FFLabelDelegate {
+    func labelDidSelectedLinkText(label: FFLabel, text: String) {
+        //判断是否是url
+        if !text.hasPrefix("http://") {
+            return
+        }
+        //插入？ 表示代理没有实现协议方法，就什么都不做反之强行执行
+        delegate?.statusCellDidSelectURLString?(cell: self, urlString: text)
     }
+    
     
 }
