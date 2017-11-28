@@ -30,6 +30,18 @@ class WBComposeController: UIViewController {
                                                name:NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //打开键盘
+        textView.becomeFirstResponder()
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //关闭键盘
+        textView.resignFirstResponder()
+    }
     
     // keyboardChangedFrame
     @objc private func keyboardChanged(n:Notification){
@@ -38,9 +50,6 @@ class WBComposeController: UIViewController {
             let duration = (n.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue else{
             return
         }
-       
-
-        
         //2 设置底部约束的高度
         let offset  = view.bounds.height - rect.origin.y
         // 3 更新底部约束
