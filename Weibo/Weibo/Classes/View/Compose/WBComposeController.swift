@@ -15,29 +15,43 @@ class WBComposeController: UIViewController {
     @IBOutlet weak var toolBar: UIToolbar!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.red
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", target: self, action: #selector(close))
+        setupUI()
     }
     
     @objc private func close(){
         dismiss(animated: true, completion: nil)
         
     }
+    //发布按钮
+    lazy var sendButton:UIButton = {
+        let btn = UIButton()
+        btn.setTitle("发布", for: [])
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        btn.setTitleColor(UIColor.white, for: [])
+        btn.setTitleColor(UIColor.gray, for: .disabled)
+        btn.setBackgroundImage(UIImage(named:"common_button_orange_highlighted"), for: .highlighted)
+        btn.setBackgroundImage(UIImage(named:"common_button_orange"), for: [])
+        btn.setBackgroundImage(UIImage(named:"common_button_white_disable"), for: .disabled)
+        btn.frame = CGRect(x: 0 , y: 0 , width: 45 , height: 35)
+        return btn
+    }()
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//MARK: -UI 底部工具
+private extension WBComposeController{
+    //设置UI
+    func setupUI() -> () {
+        view.backgroundColor = UIColor.white
+        setupNavigationBar()
+    }
+    //设置导航
+    func setupNavigationBar() -> () {
+          navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", target: self, action: #selector(close))
+          navigationItem.rightBarButtonItem  = UIBarButtonItem(customView: sendButton)
+          sendButton.isEnabled = false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
+
+
