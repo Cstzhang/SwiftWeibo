@@ -146,6 +146,9 @@
 		E0382A261FB05406004F21CB /* WBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0382A251FB05405004F21CB /* WBNavigationBar.swift */; };
 		E0382A271FB05406004F21CB /* WBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0382A251FB05405004F21CB /* WBNavigationBar.swift */; };
 		E0382A281FB05406004F21CB /* WBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0382A251FB05405004F21CB /* WBNavigationBar.swift */; };
+		E04914BF1FCD454A001437DD /* WBComposeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04914BE1FCD454A001437DD /* WBComposeController.xib */; };
+		E04914C01FCD454A001437DD /* WBComposeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04914BE1FCD454A001437DD /* WBComposeController.xib */; };
+		E04914C11FCD454A001437DD /* WBComposeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04914BE1FCD454A001437DD /* WBComposeController.xib */; };
 		E04B86641FBBE54700BDDEF0 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */; };
 		E04B86651FBBE54700BDDEF0 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */; };
 		E04B86661FBBE54700BDDEF0 /* WBComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */; };
@@ -302,6 +305,7 @@
 		E00432541FB5A11200C7BA10 /* ZBRefreshHumenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBRefreshHumenView.xib; sourceTree = "<group>"; };
 		E0382A211FB0105C004F21CB /* WBStatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusRetweetedCell.xib; sourceTree = "<group>"; };
 		E0382A251FB05405004F21CB /* WBNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBNavigationBar.swift; sourceTree = "<group>"; };
+		E04914BE1FCD454A001437DD /* WBComposeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeController.xib; sourceTree = "<group>"; };
 		E04B86631FBBE54700BDDEF0 /* WBComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeView.swift; sourceTree = "<group>"; };
 		E04B86671FBBEC7600BDDEF0 /* WBComposeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBComposeView.xib; sourceTree = "<group>"; };
 		E04B866B1FBBF1D600BDDEF0 /* WBComposeTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeTypeButton.swift; sourceTree = "<group>"; };
@@ -662,6 +666,7 @@
 			children = (
 				E04B86621FBBE4C700BDDEF0 /* ComposeType */,
 				E072E1871FC6A8B100B95D7E /* WBComposeController.swift */,
+				E04914BE1FCD454A001437DD /* WBComposeController.xib */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -843,6 +848,7 @@
 				E04B86681FBBEC7600BDDEF0 /* WBComposeView.xib in Resources */,
 				6D01E4AC1FAB1D9B00C1B931 /* WBStatusNormalCell.xib in Resources */,
 				E05A8AD31FB45234002F9DB6 /* ZBRefreshView.xib in Resources */,
+				E04914BF1FCD454A001437DD /* WBComposeController.xib in Resources */,
 				E04B86701FBBF1E600BDDEF0 /* WBComposeTypeButton.xib in Resources */,
 				E0E5A36A1FC7FF9600DF3EB1 /* HMEmoticon.bundle in Resources */,
 				E00432551FB5A11200C7BA10 /* ZBRefreshHumenView.xib in Resources */,
@@ -860,6 +866,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E05A8AD41FB45234002F9DB6 /* ZBRefreshView.xib in Resources */,
+				E04914C01FCD454A001437DD /* WBComposeController.xib in Resources */,
 				E0382A231FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				E0E5A36B1FC7FF9600DF3EB1 /* HMEmoticon.bundle in Resources */,
 				E04B86711FBBF1E600BDDEF0 /* WBComposeTypeButton.xib in Resources */,
@@ -877,6 +884,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E05A8AD51FB45234002F9DB6 /* ZBRefreshView.xib in Resources */,
+				E04914C11FCD454A001437DD /* WBComposeController.xib in Resources */,
 				E0382A241FB0105D004F21CB /* WBStatusRetweetedCell.xib in Resources */,
 				E0E5A36C1FC7FF9600DF3EB1 /* HMEmoticon.bundle in Resources */,
 				E04B86721FBBF1E600BDDEF0 /* WBComposeTypeButton.xib in Resources */,

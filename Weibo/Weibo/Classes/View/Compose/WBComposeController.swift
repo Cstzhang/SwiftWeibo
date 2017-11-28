@@ -9,13 +9,16 @@
 import UIKit
 
 class WBComposeController: UIViewController {
-
+    //文本编辑视图
+    @IBOutlet weak var textView: UITextView!
+    //底部工具栏
+    @IBOutlet weak var toolBar: UIToolbar!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.red
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", target: self, action: #selector(close))
-    
     }
+    
     @objc private func close(){
         dismiss(animated: true, completion: nil)
         

@@ -17,12 +17,8 @@ class WBWebViewController: BaseViewController {
                 return
             }
            webView.loadRequest(URLRequest(url: url))
-            
         }
     }
-    
-    
-    
 }
 
 extension WBWebViewController{
