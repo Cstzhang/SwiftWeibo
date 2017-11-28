@@ -16,6 +16,7 @@
                 <outlet property="textView" destination="60N-mq-vRE" id="Et7-aY-ty0"/>
                 <outlet property="titleLabel" destination="CTp-FV-az1" id="sfD-fo-pd2"/>
                 <outlet property="toolBar" destination="xLH-0y-s0S" id="B9i-DV-iGX"/>
+                <outlet property="toolBarBottomCons" destination="WeJ-Nh-CrZ" id="FuN-hp-VJw"/>
                 <outlet property="view" destination="6au-Qw-kFL" id="sWc-xI-XHy"/>
             </connections>
         </placeholder>
@@ -42,7 +43,7 @@
             <constraints>
                 <constraint firstItem="xLH-0y-s0S" firstAttribute="top" secondItem="60N-mq-vRE" secondAttribute="bottom" id="LEd-QP-IxK"/>
                 <constraint firstItem="xLH-0y-s0S" firstAttribute="leading" secondItem="nH3-rR-RTE" secondAttribute="leading" id="MwB-QX-fOr"/>
-                <constraint firstItem="xLH-0y-s0S" firstAttribute="bottom" secondItem="nH3-rR-RTE" secondAttribute="bottom" id="WeJ-Nh-CrZ"/>
+                <constraint firstItem="nH3-rR-RTE" firstAttribute="bottom" secondItem="xLH-0y-s0S" secondAttribute="bottom" id="WeJ-Nh-CrZ"/>
                 <constraint firstItem="60N-mq-vRE" firstAttribute="leading" secondItem="nH3-rR-RTE" secondAttribute="leading" id="YJP-j7-KvY"/>
                 <constraint firstItem="60N-mq-vRE" firstAttribute="trailing" secondItem="nH3-rR-RTE" secondAttribute="trailing" id="sol-6U-BEv"/>
                 <constraint firstItem="xLH-0y-s0S" firstAttribute="trailing" secondItem="nH3-rR-RTE" secondAttribute="trailing" id="uuT-0V-rCS"/>
