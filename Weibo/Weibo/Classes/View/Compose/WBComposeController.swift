@@ -90,6 +90,20 @@ class WBComposeController: UIViewController {
 //    }()
 }
 
+//MARK: -UITextViewDelegate
+
+extension WBComposeController:UITextViewDelegate{
+    //文字变化
+    func textViewDidChange(_ textView: UITextView) {
+        sendButton.isEnabled = textView.hasText
+        
+    }
+
+    
+    
+}
+
+
 //MARK: -UI 底部工具
 private extension WBComposeController{
     //设置UI
