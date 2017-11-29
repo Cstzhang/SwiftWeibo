@@ -13,11 +13,12 @@ class WBComposeTextView: UITextView {
     override func awakeFromNib() {
         setupUI()
     }
-  
+    //监听输入
     @objc private func textChanged(n:Notification){
+        //有文本不显示标签
         placeholderlabel.isHidden = self.hasText
     }
-    
+    //注销通知
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
