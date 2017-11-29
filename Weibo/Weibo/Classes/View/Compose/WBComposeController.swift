@@ -77,7 +77,8 @@ class WBComposeController: UIViewController {
             return
         }
         //2 发布(目前API已经不支持了)
-        NetWorkManager.shared.postStatus(textStatus: text) { (json, isSuccess) in
+        let image  = UIImage(named: "icon_small_kangaroo_loading_1")
+        NetWorkManager.shared.postStatus(textStatus: text,image: image) { (json, isSuccess) in
             print(json ?? "")
             SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
             let message = isSuccess ? "发布成功" : "发布失败"

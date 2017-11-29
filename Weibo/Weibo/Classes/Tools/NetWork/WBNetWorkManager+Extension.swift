@@ -70,15 +70,39 @@ extension NetWorkManager{
 
 //MARK: - 发送微博
 extension NetWorkManager{
-    func postStatus(textStatus:String,comlation:@escaping  (_ result:[String:AnyObject]?,_ isSuccess:Bool)->()) -> () {
+    
+    /// 发送微博
+    ///
+    /// - Parameters:
+    ///   - textStatus: 文本内容
+    ///   - image: 图形 为nil 的时候 发布纯文本
+    ///   - comlation: 完成回调
+    func postStatus(textStatus:String,image:UIImage? = nil,comlation:@escaping  (_ result:[String:AnyObject]?,_ isSuccess:Bool)->()) -> () {
         // 1 url
-        let urlString = "https://api.weibo.com/2/statuses/update.json"
+        let urlString:String
+        if image ==  nil {//跟据是否有图选择不同的url 接口地址
+                urlString = "https://api.weibo.com/2/statuses/update.json"
+        }else{
+                urlString = "https://upload.api.weibo.com/2/statuses/upload.json"
+        }
+     
         // 2 字典
         let params = ["status":textStatus]
-        // 3 发起请求
-        tokenRequest(method: .POST, URLString: urlString, parameters: params as [String : AnyObject]) { (json , isSuccess) in
-            comlation(json as? [String : AnyObject], isSuccess)
+        //如果图像不为空
+        var name:String?
+        var data:Data?
+        if image != nil {
+            name = "pic"
+            data = UIImagePNGRepresentation(image!)
         }
+        
+        
+        // 3 发起请求
+        tokenRequest(method: .POST, URLString: urlString, parameters: params as [String : AnyObject] as [String : AnyObject], name: name, data: data) { (json , isSuccess) in
+              comlation(json as? [String : AnyObject], isSuccess)
+        }
+        
+
         
         
     }
