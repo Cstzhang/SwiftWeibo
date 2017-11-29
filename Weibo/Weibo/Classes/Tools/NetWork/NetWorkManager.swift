@@ -86,19 +86,40 @@ class NetWorkManager: AFHTTPSessionManager {
         //2，设置字典参数 parameters一定有值
         parameters!["access_token"] = token as AnyObject
         //3,请求
-//        request(URLString: URLString, parameters: parameters, completion: completion)
         request(method: method, URLString: URLString, parameters: parameters, completion: completion)
         
     }
+    //
+    
+    /// 封装上传文件方法
+    ///
+    /// - Parameters:
+    ///   - url: url
+    ///   - parameters: 参数字典
+    ///   - name: 服务器接收的数据的字段名 `pic`
+    ///   - data: 图片数据
+    ///   - completion: 完成回调
+    func upload(url:String,parameters:[String:AnyObject]?,name:String,data:Data,completion:@escaping (_ json:AnyObject?,_ isSuccess:Bool)->()) -> () {
+        post(url, parameters: parameters, constructingBodyWith: { (fromData) in
+            //FIXME: -  创建 fromData
+            
+        }, progress: nil, success: { (_, json) in
+            completion(json as AnyObject, true)
+        }) { (task, error) in
+            if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
+                print("token 过期了")
+                //发送通知 需要登录
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: "bad token")
+            }
+            print("网络请求错误\(error)")
+            completion(nil, false)
+        }
+
+        
+    }
+    
+    
+    
    
 }
-//        //成功回调
-//        let success   = {(task:URLSessionDataTask,json:AnyObject?)-> Void in
-//            print("网络请求成功")
-//            completion(json, true)
-//        }
-//        //失败回调
-//        let failure = { (task:URLSessionDataTask?,error:NSError)-> Void in
-//            print("网络请求错误\(error)")
-//            completion(nil, false)
-//        }
+
