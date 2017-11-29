@@ -30,6 +30,9 @@ class WBComposeController: UIViewController {
                                                name:NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
     }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //打开键盘
