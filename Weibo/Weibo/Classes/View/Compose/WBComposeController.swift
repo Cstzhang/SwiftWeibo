@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class WBComposeController: UIViewController {
     //文本编辑视图
     @IBOutlet weak var textView: UITextView!
@@ -79,6 +79,14 @@ class WBComposeController: UIViewController {
         //2 发布(目前API已经不支持了)
         NetWorkManager.shared.postStatus(textStatus: text) { (json, isSuccess) in
             print(json ?? "")
+            SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+            let message = isSuccess ? "发布成功" : "发布失败"
+            SVProgressHUD.showInfo(withStatus: message)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                SVProgressHUD.setDefaultStyle(.light)
+                self.close()
+            })
+            
         }
         
     }
