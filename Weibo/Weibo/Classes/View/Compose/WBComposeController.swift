@@ -72,6 +72,15 @@ class WBComposeController: UIViewController {
     //MARK: -发布微博
     @IBAction func postStatus(_ sender: Any) {
      print("点击发布")
+        //1 获取微博文字/
+        guard  let text = textView.text else{
+            return
+        }
+        //2 发布(目前API已经不支持了)
+        NetWorkManager.shared.postStatus(textStatus: text) { (json, isSuccess) in
+            print(json ?? "")
+        }
+        
     }
     
     

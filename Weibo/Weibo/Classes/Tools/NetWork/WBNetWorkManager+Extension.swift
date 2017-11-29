@@ -8,7 +8,10 @@
 
 import Foundation
 // MARK: -封装新浪微博的网络请求
-
+// 网络请求返回405 不支持的网络请求方法，首先查找请求的方法是否正确
+/*
+ 403错误，是一种在网站访问过程中，常见的错误提示。403错误，表示资源不可用。服务器理解客户的请求，但拒绝处理它，通常由于服务器上文件或目录的权限设置导致的WEB访问错误。
+ */
 extension NetWorkManager{
     
     /// 加载微博数据
@@ -58,15 +61,28 @@ extension NetWorkManager{
         let params = ["uid":userAccount.uid]
         //发起网络请求
         tokenRequest(URLString: urlString, parameters: params as [String : AnyObject]) { (json, isSuccess) in
-//            print(json ?? "")
-            
             completion((json as? [String : AnyObject]) ?? [:])
-            
-            
-            
         }
         
     }
+    
+}
+
+//MARK: - 发送微博
+extension NetWorkManager{
+    func postStatus(textStatus:String,comlation:@escaping  (_ result:[String:AnyObject]?,_ isSuccess:Bool)->()) -> () {
+        // 1 url
+        let urlString = "https://api.weibo.com/2/statuses/update.json"
+        // 2 字典
+        let params = ["status":textStatus]
+        // 3 发起请求
+        tokenRequest(method: .POST, URLString: urlString, parameters: params as [String : AnyObject]) { (json , isSuccess) in
+            comlation(json as? [String : AnyObject], isSuccess)
+        }
+        
+        
+    }
+    
     
 }
 

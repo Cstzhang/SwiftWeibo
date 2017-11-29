@@ -86,7 +86,8 @@ class NetWorkManager: AFHTTPSessionManager {
         //2，设置字典参数 parameters一定有值
         parameters!["access_token"] = token as AnyObject
         //3,请求
-        request(URLString: URLString, parameters: parameters, completion: completion)
+//        request(URLString: URLString, parameters: parameters, completion: completion)
+        request(method: method, URLString: URLString, parameters: parameters, completion: completion)
         
     }
    
