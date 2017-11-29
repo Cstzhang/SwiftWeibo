@@ -36,11 +36,11 @@ class WBComposeTextView: UITextView {
         NotificationCenter.default.removeObserver(self)
     }
 }
-extension WBComposeTextView:UITextViewDelegate{
-    func textViewDidChange(_ textView: UITextView) {
-        print("text")
-    }
-}
+//extension WBComposeTextView:UITextViewDelegate{
+//    func textViewDidChange(_ textView: UITextView) {
+//        print("text")
+//    }
+//}
 
 private extension WBComposeTextView{
     func setupUI(){
@@ -57,7 +57,7 @@ private extension WBComposeTextView{
         placeholderlabel.frame.origin = CGPoint(x: 5, y: 8)
         placeholderlabel.sizeToFit()
         addSubview(placeholderlabel)
-        self.delegate = self
+//        self.delegate = self
     }
     
     
