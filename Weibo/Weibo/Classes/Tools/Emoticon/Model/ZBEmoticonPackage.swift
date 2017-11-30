@@ -42,6 +42,23 @@ class ZBEmoticonPackage: NSObject {
     var numberOfPages:Int{
         return (emoticons.count - 1)  / 20 + 1
     }
+    //从懒加载的表情包中，按照page截取最多20个表情模型的数组（假设26表情）
+    //page=0 返回0~19模型，
+    //page=1 返回20~25模型
+    func emotico(page:Int) -> [ZBEmoticon] {
+        //每页最多表情数
+        let count  = 20
+        let location = page * count
+        var length  = count
+        //判断数据是否超出
+        if location + length > emoticons.count {
+            length = emoticons.count - location
+        }
+        let range  = NSRange(location:location, length: length)
+        //截取数组的子数组
+        let subArray =   (emoticons as NSArray).subarray(with: range)
+        return subArray as! [ZBEmoticon]
+    }
     
     override var description: String {
         return yy_modelDescription()

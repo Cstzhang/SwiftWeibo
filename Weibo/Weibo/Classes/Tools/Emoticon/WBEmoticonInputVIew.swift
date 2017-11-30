@@ -44,6 +44,7 @@ extension WBEmoticonInputVIew: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ZBEmoticonCell
 //        cell.label.text = "\(indexPath.section) - \(indexPath.item)"
+        cell.emoticons = ZBEmoticonManager.shared.packages[indexPath.section].emotico(page: indexPath.item)
         return cell
     }
     
