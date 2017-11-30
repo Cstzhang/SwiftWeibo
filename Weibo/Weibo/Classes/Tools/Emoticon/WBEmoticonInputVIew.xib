@@ -15,11 +15,43 @@
         <view contentMode="scaleToFill" id="hNC-ec-bJk" customClass="WBEmoticonInputVIew" customModule="Weibo" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="253"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yxO-Qb-HW7">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eQL-Vm-N0o">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIk-lW-gEy" userLabel="底部工具栏" customClass="WBEmoticonToolBar" customModule="Weibo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="213" width="375" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="ogM-cm-Gal"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="0.96078431610000004" green="0.70588237050000002" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IIk-lW-gEy" firstAttribute="bottom" secondItem="NmS-2K-lIL" secondAttribute="bottom" id="GjG-cL-ITm"/>
+                <constraint firstItem="yxO-Qb-HW7" firstAttribute="leading" secondItem="NmS-2K-lIL" secondAttribute="leading" id="KRx-NS-SNK"/>
+                <constraint firstItem="IIk-lW-gEy" firstAttribute="top" secondItem="yxO-Qb-HW7" secondAttribute="bottom" id="MGg-SX-8Gx"/>
+                <constraint firstItem="yxO-Qb-HW7" firstAttribute="top" secondItem="NmS-2K-lIL" secondAttribute="top" id="WLg-kv-KlS"/>
+                <constraint firstItem="IIk-lW-gEy" firstAttribute="trailing" secondItem="NmS-2K-lIL" secondAttribute="trailing" id="ZiF-ta-pKf"/>
+                <constraint firstItem="IIk-lW-gEy" firstAttribute="leading" secondItem="NmS-2K-lIL" secondAttribute="leading" id="wFI-3o-viH"/>
+                <constraint firstItem="yxO-Qb-HW7" firstAttribute="trailing" secondItem="NmS-2K-lIL" secondAttribute="trailing" id="xSU-aJ-6Be"/>
+            </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="NmS-2K-lIL"/>
-            <point key="canvasLocation" x="-224" y="17"/>
+            <connections>
+                <outlet property="collectionView" destination="yxO-Qb-HW7" id="cvZ-6K-qa4"/>
+                <outlet property="toolBar" destination="IIk-lW-gEy" id="OVU-ZS-n8z"/>
+            </connections>
+            <point key="canvasLocation" x="-658" y="-207"/>
         </view>
     </objects>
 </document>

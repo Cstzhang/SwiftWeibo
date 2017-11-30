@@ -197,6 +197,9 @@
 		E0C34E991FCFAEA5007054E5 /* WBEmoticonInputVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C34E981FCFAEA5007054E5 /* WBEmoticonInputVIew.xib */; };
 		E0C34E9A1FCFAEA5007054E5 /* WBEmoticonInputVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C34E981FCFAEA5007054E5 /* WBEmoticonInputVIew.xib */; };
 		E0C34E9B1FCFAEA5007054E5 /* WBEmoticonInputVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0C34E981FCFAEA5007054E5 /* WBEmoticonInputVIew.xib */; };
+		E0C34E9D1FCFB525007054E5 /* WBEmoticonToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C34E9C1FCFB525007054E5 /* WBEmoticonToolBar.swift */; };
+		E0C34E9E1FCFB525007054E5 /* WBEmoticonToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C34E9C1FCFB525007054E5 /* WBEmoticonToolBar.swift */; };
+		E0C34E9F1FCFB525007054E5 /* WBEmoticonToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C34E9C1FCFB525007054E5 /* WBEmoticonToolBar.swift */; };
 		E0E5A36A1FC7FF9600DF3EB1 /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E0E5A3691FC7FF9600DF3EB1 /* HMEmoticon.bundle */; };
 		E0E5A36B1FC7FF9600DF3EB1 /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E0E5A3691FC7FF9600DF3EB1 /* HMEmoticon.bundle */; };
 		E0E5A36C1FC7FF9600DF3EB1 /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E0E5A3691FC7FF9600DF3EB1 /* HMEmoticon.bundle */; };
@@ -331,6 +334,7 @@
 		E0A850C31FCE893500C60ADD /* WBComposeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBComposeTextView.swift; sourceTree = "<group>"; };
 		E0C34E941FCFADBB007054E5 /* WBEmoticonInputVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBEmoticonInputVIew.swift; sourceTree = "<group>"; };
 		E0C34E981FCFAEA5007054E5 /* WBEmoticonInputVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WBEmoticonInputVIew.xib; path = Weibo/Classes/Tools/Emoticon/WBEmoticonInputVIew.xib; sourceTree = SOURCE_ROOT; };
+		E0C34E9C1FCFB525007054E5 /* WBEmoticonToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBEmoticonToolBar.swift; sourceTree = "<group>"; };
 		E0E5A3691FC7FF9600DF3EB1 /* HMEmoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HMEmoticon.bundle; sourceTree = "<group>"; };
 		E0E5A36D1FC7FFCE00DF3EB1 /* ZBEmoticonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBEmoticonManager.swift; sourceTree = "<group>"; };
 		E0E5A3721FC8067000DF3EB1 /* ZBEmoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBEmoticon.swift; sourceTree = "<group>"; };
@@ -729,6 +733,7 @@
 			children = (
 				E0C34E941FCFADBB007054E5 /* WBEmoticonInputVIew.swift */,
 				E0C34E981FCFAEA5007054E5 /* WBEmoticonInputVIew.xib */,
+				E0C34E9C1FCFB525007054E5 /* WBEmoticonToolBar.swift */,
 				E0E5A3711FC8063500DF3EB1 /* Model */,
 				E0E5A3691FC7FF9600DF3EB1 /* HMEmoticon.bundle */,
 				E0E5A36D1FC7FFCE00DF3EB1 /* ZBEmoticonManager.swift */,
@@ -1179,6 +1184,7 @@
 				6DFF300C1F2DCBB300D51720 /* UIView+CZAddition.m in Sources */,
 				6D11EE8D1F2F216600296E5E /* DemoViewController.swift in Sources */,
 				E0F64CB71FAC14120062624B /* UIImage+Extensions.swift in Sources */,
+				E0C34E9D1FCFB525007054E5 /* WBEmoticonToolBar.swift in Sources */,
 				E07B7FB61FAC5CE200A36B8C /* WBStatusPictureView.swift in Sources */,
 				6DFF2FFA1F2DCBB300D51720 /* NSString+CZHash.m in Sources */,
 				6D5D163E1F2B366000F9C3B0 /* MainViewController.swift in Sources */,
@@ -1243,6 +1249,7 @@
 				6DFF300D1F2DCBB300D51720 /* UIView+CZAddition.m in Sources */,
 				6D11EE8E1F2F216600296E5E /* DemoViewController.swift in Sources */,
 				E0F64CB81FAC14120062624B /* UIImage+Extensions.swift in Sources */,
+				E0C34E9E1FCFB525007054E5 /* WBEmoticonToolBar.swift in Sources */,
 				E07B7FB71FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */,
 				6DFF2FFB1F2DCBB300D51720 /* NSString+CZHash.m in Sources */,
 				6D5D163F1F2B366000F9C3B0 /* MainViewController.swift in Sources */,
@@ -1307,6 +1314,7 @@
 				6DFF300E1F2DCBB300D51720 /* UIView+CZAddition.m in Sources */,
 				6D11EE8F1F2F216600296E5E /* DemoViewController.swift in Sources */,
 				E0F64CB91FAC14120062624B /* UIImage+Extensions.swift in Sources */,
+				E0C34E9F1FCFB525007054E5 /* WBEmoticonToolBar.swift in Sources */,
 				E07B7FB81FAC5CE300A36B8C /* WBStatusPictureView.swift in Sources */,
 				6DFF2FFC1F2DCBB300D51720 /* NSString+CZHash.m in Sources */,
 				6D5D16401F2B366000F9C3B0 /* MainViewController.swift in Sources */,
