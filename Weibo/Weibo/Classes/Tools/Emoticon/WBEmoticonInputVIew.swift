@@ -22,8 +22,9 @@ class WBEmoticonInputVIew: UIView {
     //注册可重用cell
     override func awakeFromNib() {
         collectionView.backgroundColor = UIColor.white
-        let nib  = UINib(nibName: "ZBEmoticonCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: cellId)
+//        let nib  = UINib(nibName: "ZBEmoticonCell", bundle: nil)
+//        collectionView.register(nib, forCellWithReuseIdentifier: cellId)
+        collectionView.register(ZBEmoticonCell.self, forCellWithReuseIdentifier: cellId)
     }
 
 }
@@ -34,15 +35,15 @@ extension WBEmoticonInputVIew: UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return ZBEmoticonManager.shared.packages.count
     }
-    //返回每个分组中 页 的数量
+    //返回每个分组中 页 的数量 每个分组表情包页数 emoticons / 20
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return ZBEmoticonManager.shared.packages[section].numberOfPages
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ZBEmoticonCell
-        cell.label.text = "\(indexPath.section) - \(indexPath.item)"
+//        cell.label.text = "\(indexPath.section) - \(indexPath.item)"
         return cell
     }
     

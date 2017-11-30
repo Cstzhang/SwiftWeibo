@@ -39,6 +39,9 @@ class ZBEmoticonPackage: NSObject {
     }
     //懒加载表情模型数组空数组 (懒加载避免后续解包)
     @objc  lazy var emoticons = [ZBEmoticon]()
+    var numberOfPages:Int{
+        return (emoticons.count - 1)  / 20 + 1
+    }
     
     override var description: String {
         return yy_modelDescription()
