@@ -7,7 +7,7 @@
 //  自定义表情键盘视图
 
 import UIKit
-
+private let cellId = "cellId"
 class WBEmoticonInputVIew: UIView {
     
     @IBOutlet weak var toolBar: UIView!
@@ -19,6 +19,35 @@ class WBEmoticonInputVIew: UIView {
         let v  = nib.instantiate(withOwner: nil, options: nil)[0] as! WBEmoticonInputVIew
         return v
     }
+    //注册可重用cell
+    override func awakeFromNib() {
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+    }
+
+}
 
 
+extension WBEmoticonInputVIew: UICollectionViewDataSource{
+    //分组数量
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return ZBEmoticonManager.shared.packages.count
+    }
+    //返回每个分组中 页 的数量
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        cell.backgroundColor = UIColor.red
+        return cell
+        
+        
+        
+    }
+    
+    
+    
+    
 }
