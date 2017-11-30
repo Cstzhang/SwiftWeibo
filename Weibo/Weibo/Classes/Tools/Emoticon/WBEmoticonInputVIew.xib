@@ -28,7 +28,6 @@
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIk-lW-gEy" userLabel="底部工具栏" customClass="WBEmoticonToolBar" customModule="Weibo" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="213" width="375" height="40"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="ogM-cm-Gal"/>
                     </constraints>

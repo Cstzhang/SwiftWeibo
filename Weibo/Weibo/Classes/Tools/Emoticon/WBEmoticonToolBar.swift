@@ -20,9 +20,6 @@ class WBEmoticonToolBar: UIView {
         for (i ,btn ) in subviews.enumerated() {
             btn.frame = rect.offsetBy(dx: CGFloat(i) * w, dy: 0)
         }
-        
-        
-        
     }
 
 }
@@ -41,7 +38,25 @@ private extension WBEmoticonToolBar{
             btn.setTitleColor(UIColor.white, for: [])
             btn.setTitleColor(UIColor.darkGray, for: .highlighted)
             btn.setTitleColor(UIColor.darkGray, for: .selected)
-            btn.backgroundColor = UIColor.blue
+            let imageName   = "compose_emotion_table_\(p.bgImageName ?? "")_normal"
+            let imageNameHL = "compose_emotion_table_\(p.bgImageName ?? "")_selected"
+            var  image = UIImage(named: imageName, in: manager.bundle, compatibleWith: nil)
+            let size  = image?.size ?? CGSize()
+            image = image?.resizableImage(withCapInsets: UIEdgeInsets(
+                top: size.height * 0.5 ,
+                left: size.width * 0.5,
+                bottom: size.height * 0.5,
+                right: size.width * 0.5))
+  
+            var imageHL = UIImage(named: imageNameHL, in: manager.bundle, compatibleWith: nil)
+            imageHL = imageHL?.resizableImage(withCapInsets: UIEdgeInsets(
+                top: size.height * 0.5 ,
+                left: size.width * 0.5,
+                bottom: size.height * 0.5,
+                right: size.width * 0.5))
+            btn.setBackgroundImage(image, for: [])
+            btn.setBackgroundImage(imageHL, for: .highlighted)
+            btn.setBackgroundImage(imageHL, for: .selected)
             // 3 添加按钮
             btn.sizeToFit()
             addSubview(btn)

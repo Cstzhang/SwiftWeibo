@@ -18,6 +18,11 @@ class ZBEmoticonManager {
     private init() {
         loadPackages()
     }
+    //表情素材的bundle
+    lazy var bundle:Bundle = {
+         let path  = Bundle.main.path(forResource: "HMEmoticon.bundle", ofType: nil)
+         return  Bundle(path: path!)!
+    }()
     
 }
 //MARK: -表情符号/字符串处理

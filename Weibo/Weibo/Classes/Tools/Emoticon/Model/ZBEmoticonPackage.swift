@@ -12,6 +12,8 @@ import YYModel
 class ZBEmoticonPackage: NSObject {
     //表情包分组名
      @objc var groupName:String?
+    // 背景图名称
+    @objc var  bgImageName:String?
     //表情包目录 从目录下加载可以创建表情模型数组
     @objc  var directory:String?{
         didSet{
