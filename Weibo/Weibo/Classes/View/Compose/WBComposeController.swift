@@ -46,7 +46,7 @@ class WBComposeController: UIViewController {
         textView.resignFirstResponder()
     }
     
-    // keyboardChangedFrame
+    // keyboardChangedFrame 键盘高度变化
     @objc private func keyboardChanged(n:Notification){
         //1 目标 rect
         guard let rect  = (n.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
@@ -92,8 +92,25 @@ class WBComposeController: UIViewController {
         
     }
     
+    /// 切换表情键盘
+    @objc private func emoticonKeyboard(){
+        print("切换表情键盘")
+        // textView.inputView就是文本框的输入视图 系统默认键盘的时候 视图为nil
+        // (1)视图的宽度就是屏幕的宽度 高度可自定义
+        let keyboardView  = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 253))
+        keyboardView.backgroundColor = UIColor.blue
+        //切换键盘
+        textView.inputView = (textView.inputView == nil) ? keyboardView : nil
+//        //(2)输入的助理视图
+//        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 200, height: 44))
+//        // 键盘消失，主题视图随之消失
+//        textView.inputAccessoryView = toolBar
+        //(3)刷新视图
+        textView.reloadInputViews()
+    }
     
-    //发布按钮
+    
+//发布按钮
 //    lazy var sendButton:UIButton = {
 //        let btn = UIButton()
 //        btn.setTitle("发布", for: [])
@@ -138,6 +155,7 @@ private extension WBComposeController{
                             ["imageName": "compose_emoticonbutton_background", "actionName": "emoticonKeyboard"],
                             ["imageName": "compose_add_background"]]
         var items = [UIBarButtonItem]()
+        //遍历数组
         for s in itemSettings {
             guard let imageName = s["imageName"] else{
                 continue
@@ -148,7 +166,11 @@ private extension WBComposeController{
             let btn = UIButton()
             btn.setImage(image, for: [])
             btn.setImage(iamgeHL, for: .highlighted)
+            if  let actionName  = s["actionName"]{
+                btn.addTarget(self, action: Selector(actionName), for: .touchUpInside)
+            }
             
+            //追加按钮
             items.append(UIBarButtonItem(customView: btn))
             //弹簧
             items.append(UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil))
