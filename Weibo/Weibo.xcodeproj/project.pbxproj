@@ -206,6 +206,9 @@
 		E0C34EAB1FD00770007054E5 /* ZBEmoticonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C34EAA1FD00770007054E5 /* ZBEmoticonCell.swift */; };
 		E0C34EAC1FD00770007054E5 /* ZBEmoticonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C34EAA1FD00770007054E5 /* ZBEmoticonCell.swift */; };
 		E0C34EAD1FD00770007054E5 /* ZBEmoticonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C34EAA1FD00770007054E5 /* ZBEmoticonCell.swift */; };
+		E0C34EAF1FD00BC6007054E5 /* ZBEmoticonLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C34EAE1FD00BC6007054E5 /* ZBEmoticonLayout.swift */; };
+		E0C34EB01FD00BC6007054E5 /* ZBEmoticonLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C34EAE1FD00BC6007054E5 /* ZBEmoticonLayout.swift */; };
+		E0C34EB11FD00BC6007054E5 /* ZBEmoticonLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C34EAE1FD00BC6007054E5 /* ZBEmoticonLayout.swift */; };
 		E0E5A36A1FC7FF9600DF3EB1 /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E0E5A3691FC7FF9600DF3EB1 /* HMEmoticon.bundle */; };
 		E0E5A36B1FC7FF9600DF3EB1 /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E0E5A3691FC7FF9600DF3EB1 /* HMEmoticon.bundle */; };
 		E0E5A36C1FC7FF9600DF3EB1 /* HMEmoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E0E5A3691FC7FF9600DF3EB1 /* HMEmoticon.bundle */; };
@@ -343,6 +346,7 @@
 		E0C34E9C1FCFB525007054E5 /* WBEmoticonToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBEmoticonToolBar.swift; sourceTree = "<group>"; };
 		E0C34EA61FD0073B007054E5 /* ZBEmoticonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZBEmoticonCell.xib; sourceTree = "<group>"; };
 		E0C34EAA1FD00770007054E5 /* ZBEmoticonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBEmoticonCell.swift; sourceTree = "<group>"; };
+		E0C34EAE1FD00BC6007054E5 /* ZBEmoticonLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBEmoticonLayout.swift; sourceTree = "<group>"; };
 		E0E5A3691FC7FF9600DF3EB1 /* HMEmoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HMEmoticon.bundle; sourceTree = "<group>"; };
 		E0E5A36D1FC7FFCE00DF3EB1 /* ZBEmoticonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBEmoticonManager.swift; sourceTree = "<group>"; };
 		E0E5A3721FC8067000DF3EB1 /* ZBEmoticon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBEmoticon.swift; sourceTree = "<group>"; };
@@ -741,6 +745,7 @@
 			children = (
 				E0C34E941FCFADBB007054E5 /* WBEmoticonInputVIew.swift */,
 				E0C34E9C1FCFB525007054E5 /* WBEmoticonToolBar.swift */,
+				E0C34EAE1FD00BC6007054E5 /* ZBEmoticonLayout.swift */,
 				E0C34EAA1FD00770007054E5 /* ZBEmoticonCell.swift */,
 				E0C34EA61FD0073B007054E5 /* ZBEmoticonCell.xib */,
 				E0C34E981FCFAEA5007054E5 /* WBEmoticonInputVIew.xib */,
@@ -1176,6 +1181,7 @@
 				E04B86641FBBE54700BDDEF0 /* WBComposeView.swift in Sources */,
 				6DFF30001F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
 				6D4B87EF1FA815810005788B /* UserAccount.swift in Sources */,
+				E0C34EAF1FD00BC6007054E5 /* ZBEmoticonLayout.swift in Sources */,
 				6DFF30091F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
 				6D1B06971FA6F46600BCD698 /* WBOAuthController.swift in Sources */,
 				6D5D16061F2B31C300F9C3B0 /* AppDelegate.swift in Sources */,
@@ -1242,6 +1248,7 @@
 				E04B86651FBBE54700BDDEF0 /* WBComposeView.swift in Sources */,
 				6DFF30011F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
 				6D4B87F01FA815810005788B /* UserAccount.swift in Sources */,
+				E0C34EB01FD00BC6007054E5 /* ZBEmoticonLayout.swift in Sources */,
 				6DFF300A1F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
 				6D1B06981FA6F46600BCD698 /* WBOAuthController.swift in Sources */,
 				6D5D161B1F2B31C300F9C3B0 /* WeiboTests.swift in Sources */,
@@ -1308,6 +1315,7 @@
 				E04B86661FBBE54700BDDEF0 /* WBComposeView.swift in Sources */,
 				6DFF30021F2DCBB300D51720 /* UIButton+CZAddition.m in Sources */,
 				6D4B87F11FA815810005788B /* UserAccount.swift in Sources */,
+				E0C34EB11FD00BC6007054E5 /* ZBEmoticonLayout.swift in Sources */,
 				6DFF300B1F2DCBB300D51720 /* UIScreen+CZAddition.m in Sources */,
 				6D1B06991FA6F46600BCD698 /* WBOAuthController.swift in Sources */,
 				6D5D16261F2B31C300F9C3B0 /* WeiboUITests.swift in Sources */,

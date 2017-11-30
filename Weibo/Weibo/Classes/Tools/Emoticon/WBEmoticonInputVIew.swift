@@ -21,7 +21,9 @@ class WBEmoticonInputVIew: UIView {
     }
     //注册可重用cell
     override func awakeFromNib() {
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.backgroundColor = UIColor.white
+        let nib  = UINib(nibName: "ZBEmoticonCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: cellId)
     }
 
 }
@@ -34,17 +36,14 @@ extension WBEmoticonInputVIew: UICollectionViewDataSource{
     }
     //返回每个分组中 页 的数量
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 8
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = UIColor.red
+        let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ZBEmoticonCell
+        cell.label.text = "\(indexPath.section) - \(indexPath.item)"
         return cell
-        
-        
-        
     }
     
     
