@@ -19,6 +19,8 @@ class WBComposeController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet weak var toolBarBottomCons: NSLayoutConstraint!
+    //表情输入视图
+    lazy var emoticonInputView:WBEmoticonInputVIew = WBEmoticonInputVIew.inputView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,10 +99,9 @@ class WBComposeController: UIViewController {
         print("切换表情键盘")
         // textView.inputView就是文本框的输入视图 系统默认键盘的时候 视图为nil
         // (1)视图的宽度就是屏幕的宽度 高度可自定义
-        let keyboardView  = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 253))
-        keyboardView.backgroundColor = UIColor.blue
+//        emoticonInputView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 253))
         //切换键盘
-        textView.inputView = (textView.inputView == nil) ? keyboardView : nil
+        textView.inputView = (textView.inputView == nil) ? emoticonInputView : nil
 //        //(2)输入的助理视图
 //        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 200, height: 44))
 //        // 键盘消失，主题视图随之消失
@@ -109,20 +110,6 @@ class WBComposeController: UIViewController {
         textView.reloadInputViews()
     }
     
-    
-//发布按钮
-//    lazy var sendButton:UIButton = {
-//        let btn = UIButton()
-//        btn.setTitle("发布", for: [])
-//        btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-//        btn.setTitleColor(UIColor.white, for: [])
-//        btn.setTitleColor(UIColor.gray, for: .disabled)
-//        btn.setBackgroundImage(UIImage(named:"common_button_orange_highlighted"), for: .highlighted)
-//        btn.setBackgroundImage(UIImage(named:"common_button_orange"), for: [])
-//        btn.setBackgroundImage(UIImage(named:"common_button_white_disable"), for: .disabled)
-//        btn.frame = CGRect(x: 0 , y: 0 , width: 45 , height: 35)
-//        return btn
-//    }()
 }
 
 //MARK: -UITextViewDelegate
