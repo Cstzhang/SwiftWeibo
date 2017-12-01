@@ -7,10 +7,21 @@
 //
 
 import UIKit
+//表情cell的协议
+@objc protocol ZBEmoticonCellDelegate:NSObjectProtocol{
+    
+    /// 表情cell选中表情模型
+    ///
+    /// - Parameter em: 选中的表情模型 nil 表示删除
+    func emoticonCellDidSelectedEmoticon(cell:ZBEmoticonCell ,em:ZBEmoticon?)
+
+}
 // 表情的页面cell 每个页面显示20个表情
 // 每个cell 和collectionView 一样大小
 // 每个cell 用九宫格自行添加20个表情，最后一个位置显示删除按钮
 class ZBEmoticonCell: UICollectionViewCell {
+    //代理
+    weak var delegate:ZBEmoticonCellDelegate?
     //当前页表情模型数组，最多20个
     var emoticons:[ZBEmoticon]?{
         didSet{
@@ -20,7 +31,6 @@ class ZBEmoticonCell: UICollectionViewCell {
             }
             //显示删除按钮
             contentView.subviews.last?.isHidden = false
-            
             //2遍历表情模型数组，设置按钮图形
             for (i,em)  in (emoticons ?? []).enumerated() {
                 if let btn = contentView.subviews[i] as? UIButton{
@@ -49,6 +59,21 @@ class ZBEmoticonCell: UICollectionViewCell {
 //    setupUI()
 //    }
     
+    /// 选中表情按钮
+    ///
+    /// - Parameter button: 按钮
+    @objc private func selectedEmoticonButton(button:UIButton){
+        print(button)
+        // 1 取出tag  0~20  20对应的是删除按钮
+        let tag  = button.tag
+        // 2 根据tag 判断点的表情按钮 是否是删除按钮
+        var em:ZBEmoticon?
+        if tag < (emoticons?.count)! {
+            em = emoticons?[tag]
+        }
+        delegate?.emoticonCellDidSelectedEmoticon(cell: self, em: em)
+    }
+    
 }
 
 
@@ -76,8 +101,10 @@ private extension ZBEmoticonCell{
             let y  = CGFloat(row) * h
             btn.frame = CGRect(x: x, y: y , width: w, height: h)
             contentView.addSubview(btn)
+            btn.tag = i
             //设置按钮字体大小
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 32)
+            btn.addTarget(self, action: #selector(selectedEmoticonButton), for: .touchUpInside)
         }
         
         //取出末尾删除按钮
