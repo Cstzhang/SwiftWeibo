@@ -230,6 +230,9 @@
 		E0F64CBB1FAC4EF90062624B /* WBStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CBA1FAC4EF90062624B /* WBStatusToolBar.swift */; };
 		E0F64CBC1FAC4EF90062624B /* WBStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CBA1FAC4EF90062624B /* WBStatusToolBar.swift */; };
 		E0F64CBD1FAC4EF90062624B /* WBStatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F64CBA1FAC4EF90062624B /* WBStatusToolBar.swift */; };
+		E0FEB7FD1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB7FC1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift */; };
+		E0FEB7FE1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB7FC1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift */; };
+		E0FEB7FF1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FEB7FC1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift */; };
 		E152946A68C2A1ABD554972D /* Pods_WeiboUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F42EC5F23F74CE80B87D41D /* Pods_WeiboUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -354,6 +357,7 @@
 		E0F64CB21FAC0F920062624B /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
 		E0F64CB61FAC14120062624B /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		E0F64CBA1FAC4EF90062624B /* WBStatusToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBStatusToolBar.swift; sourceTree = "<group>"; };
+		E0FEB7FC1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZBEmoticonAttachment.swift; sourceTree = "<group>"; };
 		E553BD8CAFE680429D2D3DF4 /* Pods-WeiboUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiboUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiboUITests/Pods-WeiboUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F3AB711F2FA1EC42AE7C9E36 /* Pods_Weibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA995D54FCF7D2AE1E6BE03A /* Pods-Weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weibo/Pods-Weibo.release.xcconfig"; sourceTree = "<group>"; };
@@ -760,6 +764,7 @@
 			isa = PBXGroup;
 			children = (
 				E0E5A3721FC8067000DF3EB1 /* ZBEmoticon.swift */,
+				E0FEB7FC1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift */,
 				E0E5A3761FC807B700DF3EB1 /* ZBEmoticonPackage.swift */,
 			);
 			path = Model;
@@ -1170,6 +1175,7 @@
 				6DFF30151F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DD669BB1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
 				6DFF2FF71F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
+				E0FEB7FD1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift in Sources */,
 				E0F64CB31FAC0F920062624B /* UIImageView+WebImage.swift in Sources */,
 				E0382A261FB05406004F21CB /* WBNavigationBar.swift in Sources */,
 				6DCD09361F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
@@ -1237,6 +1243,7 @@
 				6DFF30161F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DD669BC1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
 				6DFF2FF81F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
+				E0FEB7FE1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift in Sources */,
 				E0F64CB41FAC0F920062624B /* UIImageView+WebImage.swift in Sources */,
 				E0382A271FB05406004F21CB /* WBNavigationBar.swift in Sources */,
 				6DCD09371F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,
@@ -1304,6 +1311,7 @@
 				6DFF30171F2DD86200D51720 /* Bundle+Extensions.swift in Sources */,
 				6DD669BD1FA6D4B600BB3BA5 /* WBCommon.swift in Sources */,
 				6DFF2FF91F2DCBB300D51720 /* NSString+CZBase64.m in Sources */,
+				E0FEB7FF1FD13D4E007C2F9E /* ZBEmoticonAttachment.swift in Sources */,
 				E0F64CB51FAC0F920062624B /* UIImageView+WebImage.swift in Sources */,
 				E0382A281FB05406004F21CB /* WBNavigationBar.swift in Sources */,
 				6DCD09381F975F5E008589D1 /* WBNetWorkManager+Extension.swift in Sources */,

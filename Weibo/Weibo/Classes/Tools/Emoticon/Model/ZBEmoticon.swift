@@ -57,7 +57,9 @@ class ZBEmoticon: NSObject {
         guard let  image = image else{
             return NSAttributedString(string: "")
         }
-        let attachment  = NSTextAttachment()
+        let attachment  = ZBEmoticonAttachment()
+        //记录图像属性文本
+        attachment.chs = chs
         attachment.image = image
         let  height = font.lineHeight
         attachment.bounds = CGRect(x: 0, y: -4, width: height, height: height)

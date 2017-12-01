@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 class WBComposeController: UIViewController {
     //文本编辑视图
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textView: WBComposeTextView!
     //底部工具栏
     @IBOutlet weak var toolBar: UIToolbar!
     //发布按钮
@@ -19,39 +19,13 @@ class WBComposeController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet weak var toolBarBottomCons: NSLayoutConstraint!
+    
     //表情输入视图
     lazy var emoticonInputView:WBEmoticonInputVIew = WBEmoticonInputVIew.inputView { [weak self] (emoticon) in
-        self?.insertEmoticon(em: emoticon)
+        //处理输入的表情
+        self?.textView.insertEmoticon(em: emoticon)//表情字符插入文本框[图文混排]
     }
-    //表情字符插入文本框[图文混排]
-    private func insertEmoticon(em:ZBEmoticon?) -> () {
-        //删除按钮
-        if em == nil  {//em为空，是删除按钮
-            textView.deleteBackward()
-            return
-        }
-        //表情emoji
-        if let emoji = em?.emoji, let textRange = textView.selectedTextRange{
-            textView.replace(textRange, withText: emoji)
-             return
-        }
-        //图片处理
-        // 0 图片 （所有的排版系统中，插入一个字符的显示，跟随前面一个字符的属性，本身没有属性）
-        let imageText = em?.imageText(font: textView.font!)
-      
-        //设置图像文字的属性
-        // 1 获取当前textView属性文本 =>可变
-        let attrM = NSMutableAttributedString(attributedString: textView.attributedText)
-        // 2 图像的属性文本出入到当前的光标位置
-        attrM.replaceCharacters(in: textView.selectedRange, with: imageText!)
-        //  记录光标位置
-        let range  = textView.selectedRange
-        // 3 重新设置属性文本
-        textView.attributedText = attrM
-        // 恢复光标位置 length 是选中字符的长度，插入文本后应该为哦
-        textView.selectedRange = NSRange(location: range.location + 1, length: 0)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

@@ -27,7 +27,7 @@ class WBComposeTextView: UITextView {
         setupUI()
     }
     //监听输入
-    @objc private func textChanged(n:Notification){
+    @objc private func textChanged(){
         //有文本不显示标签
         placeholderlabel.isHidden = self.hasText
     }
@@ -36,18 +36,52 @@ class WBComposeTextView: UITextView {
         NotificationCenter.default.removeObserver(self)
     }
 }
-//extension WBComposeTextView:UITextViewDelegate{
-//    func textViewDidChange(_ textView: UITextView) {
-//        print("text")
-//    }
-//}
+
+
+// MARK: - 表情键盘方法
+extension WBComposeTextView{
+    //表情字符插入文本框[图文混排]
+     func insertEmoticon(em:ZBEmoticon?) -> () {
+        //删除按钮
+        if em == nil  {//em为空，是删除按钮
+            deleteBackward()
+            return
+        }
+        //表情emoji
+        if let emoji = em?.emoji, let textRange = self.selectedTextRange{
+            replace(textRange, withText: emoji)
+            return
+        }
+        //图片处理
+        // 0 图片 （所有的排版系统中，插入一个字符的显示，跟随前面一个字符的属性，本身没有属性）
+        let imageText = em?.imageText(font: font!)
+        
+        //设置图像文字的属性
+        // 1 获取当前textView属性文本 =>可变
+        let attrM = NSMutableAttributedString(attributedString: attributedText)
+        // 2 图像的属性文本出入到当前的光标位置
+        attrM.replaceCharacters(in: selectedRange, with: imageText!)
+        //  记录光标位置
+        let range  = selectedRange
+        // 3 重新设置属性文本
+        attributedText = attrM
+        // 恢复光标位置 length 是选中字符的长度，插入文本后应该为哦
+        selectedRange = NSRange(location: range.location + 1, length: 0)
+        // 4 让代理执行文本变化方法 - 在需要的时候通知代理执行协议方法
+        delegate?.textViewDidChange?(self)
+        // 文本变化
+        textChanged()
+    }
+    
+    
+}
 
 private extension WBComposeTextView{
     func setupUI(){
         //注册通知
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(textChanged(n:)),
+            selector: #selector(textChanged),
             name: NSNotification.Name.UITextViewTextDidChange,
             object: self)
         //1 设置占位标签
@@ -59,6 +93,7 @@ private extension WBComposeTextView{
         addSubview(placeholderlabel)
 //        self.delegate = self
     }
+    
     
     
 }
