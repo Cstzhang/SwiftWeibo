@@ -18,12 +18,17 @@ class ZBEmoticonCell: UICollectionViewCell {
             for v  in contentView.subviews {
                 v.isHidden = true
             }
-           //2遍历表情模型数组，设置按钮图形
+            //显示删除按钮
+            contentView.subviews.last?.isHidden = false
+            
+            //2遍历表情模型数组，设置按钮图形
             for (i,em)  in (emoticons ?? []).enumerated() {
                 if let btn = contentView.subviews[i] as? UIButton{
-                 btn.setImage(em.image, for: [])//表情图
-                 btn.setTitle(em.emoji, for: [])//emoji
-                 btn.isHidden = false
+                //复用cell的问题 如果图像为nil 为清空图片，避免复用
+                btn.setImage(em.image, for: [])//表情图
+                //如果emoji为nil 会清空tittle
+                btn.setTitle(em.emoji, for: [])//emoji
+                btn.isHidden = false
                 }
             }
         }
@@ -74,6 +79,12 @@ private extension ZBEmoticonCell{
             //设置按钮字体大小
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 32)
         }
+        
+        //取出末尾删除按钮
+        let removeButtn  = contentView.subviews.last as! UIButton
+        let image  = UIImage(named: "compose_emotion_delete_highlighted", in: ZBEmoticonManager.shared.bundle, compatibleWith: nil)
+        removeButtn.setImage(image, for: [])
+        
     }
     
 }
