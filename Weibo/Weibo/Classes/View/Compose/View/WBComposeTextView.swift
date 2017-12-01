@@ -40,6 +40,37 @@ class WBComposeTextView: UITextView {
 
 // MARK: - 表情键盘方法
 extension WBComposeTextView{
+    //返回对应的表情文字混合文本（图片表情换成文字）
+    var  emoticonText:String?{
+        // 1 获取textView的属性文本
+        guard let attrStr = attributedText else {
+            return ""
+        }
+        
+        //2 获取需要转换的图片 [Attachment]
+        //准备用于返回的文本
+        var result = String()
+        // 1遍历范围
+        // 2选项
+        // 3闭包
+        attrStr.enumerateAttributes(in: NSRange(location: 0, length: attrStr.length), options: [])
+            { (dict, range, _) in
+            //如果文本属性中含有 NSAttributedStringKey.attachment说明有图片，替换成文本，反之则是文字
+            if let attachment  = dict[NSAttributedStringKey.attachment] as? ZBEmoticonAttachment{
+                //整合
+                result += attachment.chs ?? ""
+            }else{
+                //截取出来对应的文本
+                let subStr  = (attrStr.string as NSString).substring(with: range)
+                //整合
+                result += subStr
+                }
+        }
+        return result
+    }
+    
+    
+    
     //表情字符插入文本框[图文混排]
      func insertEmoticon(em:ZBEmoticon?) -> () {
         //删除按钮
