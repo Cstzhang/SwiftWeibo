@@ -13,17 +13,20 @@ class WBEmoticonInputVIew: UIView {
     @IBOutlet weak var toolBar: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     /// 加载nib 返回输入视图
+    //  选中表情回调闭包
+    private var seletedEmoticonCallBack:((_ emoticon:ZBEmoticon?)->())?
+    
     /// - Returns: 返回视图
-    class func inputView()->WBEmoticonInputVIew{
+    class func inputView(seletcedEmoticon:@escaping (_ emoticon:ZBEmoticon?)->())->WBEmoticonInputVIew{
         let nib = UINib(nibName: "WBEmoticonInputVIew", bundle: nil)
         let v  = nib.instantiate(withOwner: nil, options: nil)[0] as! WBEmoticonInputVIew
+        //记录闭包
+         v.seletedEmoticonCallBack = seletcedEmoticon
         return v
     }
     //注册可重用cell
     override func awakeFromNib() {
         collectionView.backgroundColor = UIColor.white
-//        let nib  = UINib(nibName: "ZBEmoticonCell", bundle: nil)
-//        collectionView.register(nib, forCellWithReuseIdentifier: cellId)
         collectionView.register(ZBEmoticonCell.self, forCellWithReuseIdentifier: cellId)
     }
 
@@ -43,8 +46,9 @@ extension WBEmoticonInputVIew: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ZBEmoticonCell
-//        cell.label.text = "\(indexPath.section) - \(indexPath.item)"
         cell.emoticons = ZBEmoticonManager.shared.packages[indexPath.section].emotico(page: indexPath.item)
+        //设置代理 -不适合用闭包
+        cell.delegate = self
         return cell
     }
     
@@ -52,3 +56,15 @@ extension WBEmoticonInputVIew: UICollectionViewDataSource{
     
     
 }
+//代理协议方法 实现点击
+extension WBEmoticonInputVIew:ZBEmoticonCellDelegate{
+    func emoticonCellDidSelectedEmoticon(cell: ZBEmoticonCell, em: ZBEmoticon?) {
+      //执行闭包回调
+        seletedEmoticonCallBack?(em)
+    }
+}
+
+
+
+
+

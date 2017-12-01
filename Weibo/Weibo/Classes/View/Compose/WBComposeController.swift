@@ -20,7 +20,9 @@ class WBComposeController: UIViewController {
     
     @IBOutlet weak var toolBarBottomCons: NSLayoutConstraint!
     //表情输入视图
-    lazy var emoticonInputView:WBEmoticonInputVIew = WBEmoticonInputVIew.inputView()
+    lazy var emoticonInputView:WBEmoticonInputVIew = WBEmoticonInputVIew.inputView { (emoticon) in
+        print(emoticon)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
