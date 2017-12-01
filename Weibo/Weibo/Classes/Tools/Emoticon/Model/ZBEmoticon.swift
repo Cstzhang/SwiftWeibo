@@ -17,7 +17,23 @@ class ZBEmoticon: NSObject {
     //表情图片名称
      @objc var png:String?
     //emoji的16进制编码
-     @objc var code:String?
+    @objc var code:String?{
+        didSet{
+            guard let code = code else {
+                return
+            }
+            //实例化字符扫描
+            let scanner = Scanner(string: code)
+            //从code中扫描出16进制的数值
+            var result:UInt32 = 0
+            scanner.scanHexInt32(&result)
+            //使用UInt32 数值，生成一个UTF8字符
+            let c  = Character(UnicodeScalar(result)!)
+            emoji  = String(c)
+        }
+    }
+    //emoji的表情字符串
+    @objc var emoji:String?
     //表情模型所在目录
      @objc var directory:String?
     //·图片·表情对应的图像

@@ -21,9 +21,10 @@ class ZBEmoticonCell: UICollectionViewCell {
            //2遍历表情模型数组，设置按钮图形
             for (i,em)  in (emoticons ?? []).enumerated() {
                 if let btn = contentView.subviews[i] as? UIButton{
-                 btn.setImage(em.image, for: [])
+                 btn.setImage(em.image, for: [])//表情图
+                 btn.setTitle(em.emoji, for: [])//emoji
                  btn.isHidden = false
-                }   
+                }
             }
         }
         
@@ -70,6 +71,8 @@ private extension ZBEmoticonCell{
             let y  = CGFloat(row) * h
             btn.frame = CGRect(x: x, y: y , width: w, height: h)
             contentView.addSubview(btn)
+            //设置按钮字体大小
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 32)
         }
     }
     
