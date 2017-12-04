@@ -48,7 +48,7 @@ class ZBEmoticon: NSObject {
               let bundle = Bundle(path: path) else{
               return nil
         }
-        print(UIImage(named: "\(directory)/\(png)", in: bundle, compatibleWith: nil))
+     //   print(UIImage(named: "\(directory)/\(png)", in: bundle, compatibleWith: nil))
         return   UIImage(named: "\(directory)/\(png)", in: bundle, compatibleWith: nil)
     }
     

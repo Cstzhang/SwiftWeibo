@@ -63,7 +63,7 @@ class ZBEmoticonCell: UICollectionViewCell {
     ///
     /// - Parameter button: 按钮
     @objc private func selectedEmoticonButton(button:UIButton){
-        print(button)
+       // print(button)
         // 1 取出tag  0~20  20对应的是删除按钮
         let tag  = button.tag
         // 2 根据tag 判断点的表情按钮 是否是删除按钮

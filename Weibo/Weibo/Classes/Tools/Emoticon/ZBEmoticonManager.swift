@@ -32,7 +32,7 @@ extension ZBEmoticonManager{
     /// - Parameter string: 字符串
     /// - Returns: 属性文本
     func emoticonString(string:String,font:UIFont) -> NSAttributedString {
-        print(string)
+      //  print(string)
         let attrString  = NSMutableAttributedString(string: string)
         //简历正则表达式，过滤所有的·表情·文字 [] ()都是正则的关键字，要参与匹配要转译
         let pattern = "\\[.*?\\]"
@@ -106,7 +106,7 @@ private extension ZBEmoticonManager{
         //设置表情包数据 +=不会覆盖之前的懒加载的空间，直接追加数据
         packages += models
        
-        print(packages)
+        //print(packages)
         
     }
 
