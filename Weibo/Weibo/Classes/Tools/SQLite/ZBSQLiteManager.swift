@@ -40,8 +40,9 @@ static let shared = ZBSQLiteManager()
         NotificationCenter.default.removeObserver(self)
     }
     /// 清理数据缓存
+    // SQLite的数据不断增加数据，数据库文件大小会不断加大，删除了数据，数据库文件不会变小
+    // 如果要变小 （1，备份数据库本间副本，2新建一个空的数据库文件，3自己编写sql从备份中讲数据读出导入新的数据库）
     @objc private func clearDBCache(){
-  
         //DELETE  FROM T_status WHERE creatTime < '2017-12-05 11:08:43';
         let dateString  = Date.zb_dateString(delta:maxDBCacheTime)
         print("清理数据缓存 \(dateString) 之前的数据")
