@@ -39,8 +39,13 @@ class WBEmoticonInputVIew: UIView {
 //工具栏点击代理方法
 extension WBEmoticonInputVIew:WBEmoticonToolBarDelegate{
     func emoticonToolBarDidSelectedItemIndex(toolBar: WBEmoticonToolBar, index: Int) {
-        
+      //让collectionView滚动到对应分组
+        let indexPath  = IndexPath(item: 0, section: index)
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+     // 设置分组按钮的选中状态
+        toolBar.selectedIndex = index
     }
+    
 }
 
 extension WBEmoticonInputVIew: UICollectionViewDataSource{

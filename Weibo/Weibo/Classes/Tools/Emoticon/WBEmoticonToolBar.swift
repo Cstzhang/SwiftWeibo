@@ -18,6 +18,17 @@ import UIKit
 }
 
 class WBEmoticonToolBar: UIView {
+    //选中的分组索引
+    var selectedIndex:Int = 0 {
+        didSet{
+            //1 取消所有选中状态
+            for btn in subviews as! [UIButton]{
+                btn.isSelected = false
+            }
+            //2 选中点击的
+            (subviews[selectedIndex] as! UIButton).isSelected = true
+        }
+    }
     
     /// 代理
     weak var delegate:WBEmoticonToolBarDelegate?
