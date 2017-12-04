@@ -10,6 +10,8 @@ SQLite管理器
 */
 import Foundation
 import FMDB
+//最大数据库缓存时间 5 天 s为单位
+private let maxDBCacheTime:TimeInterval =  -5 * 24 * 60 * 60 //-60
 
 class ZBSQLiteManager {
 //全局数据库单例
@@ -22,11 +24,35 @@ static let shared = ZBSQLiteManager()
         let dbName  = "zbDatabase.db"
         var path  = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         path = (path as NSString).appendingPathComponent(dbName)
-      //  print("db path : \(path)")
+        print("db path : \(path)")
         //创建数据库队列 同事创建或者打开数据库
         queue = FMDatabaseQueue(path: path)
         //打开数据库
         creatTable()
+        //注册通知
+        NotificationCenter.default.addObserver(self,
+                        selector: #selector(clearDBCache),
+                        name:Notification.Name.UIApplicationDidEnterBackground,
+                        object: nil)
+    }
+    deinit {
+        //注销通知
+        NotificationCenter.default.removeObserver(self)
+    }
+    /// 清理数据缓存
+    @objc private func clearDBCache(){
+  
+        //DELETE  FROM T_status WHERE creatTime < '2017-12-05 11:08:43';
+        let dateString  = Date.zb_dateString(delta:maxDBCacheTime)
+        print("清理数据缓存 \(dateString) 之前的数据")
+        //准备sql
+        let sql  = "DELETE  FROM T_status WHERE creatTime < ?;"
+        queue.inDatabase { (db) in
+            if  db.executeUpdate(sql, withArgumentsIn: [dateString]) == true{
+              print("删除了\(db.changes)跳数据")
+            }
+        }
+        
     }
 
 }
