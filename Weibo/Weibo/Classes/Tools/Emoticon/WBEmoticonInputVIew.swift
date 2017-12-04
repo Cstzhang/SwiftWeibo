@@ -10,7 +10,7 @@ import UIKit
 private let cellId = "cellId"
 class WBEmoticonInputVIew: UIView {
     
-    @IBOutlet weak var toolBar: UIView!
+    @IBOutlet weak var toolBar: WBEmoticonToolBar!
     @IBOutlet weak var collectionView: UICollectionView!
     /// 加载nib 返回输入视图
     //  选中表情回调闭包
@@ -27,11 +27,21 @@ class WBEmoticonInputVIew: UIView {
     //注册可重用cell
     override func awakeFromNib() {
         collectionView.backgroundColor = UIColor.white
+        //注册可重用cell
         collectionView.register(ZBEmoticonCell.self, forCellWithReuseIdentifier: cellId)
+        //设置代理
+        toolBar.delegate = self
+        
     }
 
 }
 
+//工具栏点击代理方法
+extension WBEmoticonInputVIew:WBEmoticonToolBarDelegate{
+    func emoticonToolBarDidSelectedItemIndex(toolBar: WBEmoticonToolBar, index: Int) {
+        
+    }
+}
 
 extension WBEmoticonInputVIew: UICollectionViewDataSource{
     //分组数量

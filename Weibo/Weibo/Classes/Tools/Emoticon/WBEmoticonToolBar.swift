@@ -7,8 +7,20 @@
 //  表情键盘底部工具栏
 
 import UIKit
+@objc protocol WBEmoticonToolBarDelegate:NSObjectProtocol{
+    
+    /// 表情分组索引
+    ///
+    /// - Parameters:
+    ///   - toolBar: 工具栏
+    ///   - index: 索引
+    func emoticonToolBarDidSelectedItemIndex(toolBar:WBEmoticonToolBar,index:Int)
+}
 
 class WBEmoticonToolBar: UIView {
+    
+    /// 代理
+    weak var delegate:WBEmoticonToolBarDelegate?
     override func awakeFromNib() {
         setupUI()
     }
@@ -21,6 +33,11 @@ class WBEmoticonToolBar: UIView {
             btn.frame = rect.offsetBy(dx: CGFloat(i) * w, dy: 0)
         }
     }
+    
+    //MARK: -监听方法
+    @objc private func clickItem(button:UIButton){
+        delegate?.emoticonToolBarDidSelectedItemIndex(toolBar: self, index: button.tag)
+    }
 
 }
 
@@ -31,7 +48,7 @@ private extension WBEmoticonToolBar{
       //0 获取表情管理器单例
         let manager  = ZBEmoticonManager.shared
       //1 获取分组名称 设置按钮
-        for p  in manager.packages {
+        for (i,p)  in manager.packages.enumerated() {
             let btn  = UIButton()
             btn.setTitle(p.groupName, for: [])
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
@@ -60,15 +77,13 @@ private extension WBEmoticonToolBar{
             // 3 添加按钮
             btn.sizeToFit()
             addSubview(btn)
+            // 4 设置按钮
+            btn.tag = i
+            // 5 添加监听方法
+            btn.addTarget(self, action: #selector(clickItem(button:)), for: .touchUpInside)
         }
-        
-        
-        
-        
-        
-        
-        
-        
+        //默认选中第0个按钮
+        (subviews[0] as! UIButton).isSelected = true
         
     }
     
