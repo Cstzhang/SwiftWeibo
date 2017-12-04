@@ -91,6 +91,7 @@ class ZBEmoticonCell: UICollectionViewCell {
        // 获取点击位置
         let location  = gesture.location(in: self)
         guard let button  = buttonWithLocation(location: location) else{
+            tipView.isHidden = true
             return
         }
         //处理手势
@@ -104,6 +105,12 @@ class ZBEmoticonCell: UICollectionViewCell {
             if button.tag < (emoticons?.count)!{
                 tipView.emoticon = emoticons?[button.tag]
             }
+        case .ended:
+            tipView.isHidden = true
+            //执行选中按钮的函数
+            selectedEmoticonButton(button: button)
+        case .cancelled:
+            tipView.isHidden = true
         default:
             break
         }
