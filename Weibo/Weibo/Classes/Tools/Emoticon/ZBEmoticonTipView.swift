@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import pop
 //表情选择提示视图 emoticon_keyboard_magnifier@2x
 class ZBEmoticonTipView: UIImageView {
     private var preEmoticon:ZBEmoticon?
-    
     var emoticon:ZBEmoticon?{
         didSet{
             if emoticon == preEmoticon {
@@ -20,6 +20,13 @@ class ZBEmoticonTipView: UIImageView {
             preEmoticon = emoticon
             tipButton.setTitle(emoticon?.emoji, for: [])
             tipButton.setImage(emoticon?.image, for: [])
+            //动画 - 弹力动画的结束时间不能指定duration
+            let animation:POPSpringAnimation   = POPSpringAnimation(propertyNamed: kPOPLayerPositionY)
+            animation.fromValue = 30
+            animation.toValue = 8
+            animation.springBounciness = 20
+            animation.springSpeed = 20
+            tipButton.layer.pop_add(animation, forKey: nil)
             
         }
     }
