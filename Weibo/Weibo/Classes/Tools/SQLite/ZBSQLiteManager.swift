@@ -22,7 +22,7 @@ static let shared = ZBSQLiteManager()
         let dbName  = "zbDatabase.db"
         var path  = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         path = (path as NSString).appendingPathComponent(dbName)
-        print("db path : \(path)")
+      //  print("db path : \(path)")
         //创建数据库队列 同事创建或者打开数据库
         queue = FMDatabaseQueue(path: path)
         //打开数据库
@@ -77,7 +77,7 @@ private extension ZBSQLiteManager{
             //只有创建表的时候使用执行多条语句，可以一次创建多个数据表
             //执行增删改查的时候不能使用Statements，否则可能被注入
             if db.executeStatements(sql) == true {
-                print("创建表成功")
+             //   print("创建表成功")
             }else{
                 print("创表失败")
             }
@@ -109,7 +109,7 @@ extension ZBSQLiteManager{
         }
         sql += "ORDER BY statusId DESC LIMIT 20;"
         
-        print(sql)
+       // print(sql)
         let array  = execRecordSet(sql: sql)
         //将数组反序列化
         var result = [[String:AnyObject]]()

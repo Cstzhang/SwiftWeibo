@@ -57,7 +57,7 @@ class BaseViewController: UIViewController {
     }
     
     @objc fileprivate func loginSuccess(n:Notification){
-        print("登录成功 \(n)")
+        //print("登录成功 \(n)")
         //去掉原来的按钮，重新加载
         navItem.leftBarButtonItem = nil
         navItem.rightBarButtonItem = nil
@@ -78,12 +78,12 @@ class BaseViewController: UIViewController {
 extension BaseViewController{
     
     @objc fileprivate func login(){
-        print("login")
+      //  print("login")
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
     }
     
     @objc fileprivate func register(){
-        print("register")
+     //   print("register")
 
     }
     
@@ -139,7 +139,7 @@ extension BaseViewController{
     
     //未登录视图
     private func  setupVisitorView(){
-      print("访客视图")
+     // print("访客视图")
       let visitorView = VisitorView(frame: view.bounds)
       view.insertSubview(visitorView, belowSubview: navigationBar)
       //访客视图数据
@@ -197,7 +197,7 @@ extension BaseViewController:UITableViewDataSource,UITableViewDelegate{
         let count  = tableView.numberOfRows(inSection: section)
         //是最后一行，且没有在进行刷新
         if row == (count - 1) && !isPullup{
-            print("上拉刷新")
+            //print("上拉刷新")
             isPullup = true
             //开始刷新
             loadData()

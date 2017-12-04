@@ -65,14 +65,14 @@ class MainViewController: UITabBarController {
     
     //撰写微博
     @objc fileprivate func composeStatus() -> () {
-        print("撰写微博")
+        //print("撰写微博")
         // 0 判断是否登录//FIXME: -
         // 1 实例化视图
         let v = WBComposeView.WBComposeView()
         
         // 2 显示视图
         v.show { [weak v] (clsName) in
-            print("前往目标 \(clsName ?? "")")
+           // print("前往目标 \(clsName ?? "")")
             guard let clsName = clsName,
                   let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type else{
                 v?.removeFromSuperview()
@@ -166,7 +166,7 @@ extension MainViewController:UITabBarControllerDelegate{
         let idx = viewControllers?.index(of: viewController)
         //2 当前页是首页，又点击首页，重复点击
         if selectedIndex == 0 && idx == selectedIndex {
-            print("点击首页")
+          //  print("点击首页")
             //表格滚到顶部
             //获取控制器
             let nav  =  childViewControllers[0] as! UINavigationController

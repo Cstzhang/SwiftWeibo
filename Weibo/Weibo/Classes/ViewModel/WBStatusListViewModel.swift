@@ -38,8 +38,8 @@ class WBStatusListViewModel {
         let since_id = pullop ? 0 : (statusList.first?.status.id ?? 0)
         //max_id 上拉 数组中最后条微博id
         let max_id = !pullop ? 0 :(statusList.last?.status.id ?? 0)
-          //网络请求 加载数据
-          NetWorkManager.shared.statusList(since_id: since_id,max_id: max_id) { (list, isSuccess) in
+          //数据访问层加载数据
+          WBStatusListDAL.loadStatus(since_id: since_id,max_id: max_id) { (list, isSuccess) in
            //0 判断网络请求是否成功
             if !isSuccess{
                 completion(false, false)
@@ -60,7 +60,7 @@ class WBStatusListViewModel {
             }
             
          //2,拼接数据
-            print("获取\(array.count)条数据 \(array)")
+           // print("获取\(array.count)条数据 \(array)")
             
             //下拉刷新，应该将数组拼接在前面
             if pullop {//上拉刷新
@@ -106,7 +106,7 @@ class WBStatusListViewModel {
                 
                 continue
             }
-            print("要缓存的url : \(url)")
+          //  print("要缓存的url : \(url)")
             
             //下载图片 下载完成后图片会自动保存到沙河中 路径是 url 的 MD5
             // 如果沙河中已经有图片，通过SD加载图片，会加载沙河中的图片 不发起网络请求，回调方法同样会调用
@@ -122,7 +122,7 @@ class WBStatusListViewModel {
                     //图片缓存成功，更新视图大小
                     vm.updateSingleImageSize(image: image)
                 }
-                print("缓存的图片 \(String(describing: image)) 长度\(length)")
+              //  print("缓存的图片 \(String(describing: image)) 长度\(length)")
                 
                 //出调度组
                 group.leave()
@@ -132,7 +132,7 @@ class WBStatusListViewModel {
         //调度组完成
         group.notify(queue: DispatchQueue.main) {
            //图像缓存完成
-            print("缓存文件大小: \(length / 1024)k")
+           // print("缓存文件大小: \(length / 1024)k")
             //3,完成回调,刷新表格
             finished(true, true)
         }

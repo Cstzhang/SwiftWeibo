@@ -82,7 +82,7 @@ extension WBOAuthController:UIWebViewDelegate{
         }
         
         if request.url?.query?.hasPrefix("code=") == false {
-           print("取消授权")
+          // print("取消授权")
             //取消授权
             loginClose()
             return false

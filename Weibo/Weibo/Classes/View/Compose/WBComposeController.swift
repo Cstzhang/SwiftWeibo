@@ -77,7 +77,7 @@ class WBComposeController: UIViewController {
     }
     //MARK: -发布微博
     @IBAction func postStatus(_ sender: Any) {
-     print("点击发布")
+     //print("点击发布")
         //1 获取微博表情微博文字字符串/
         guard  let text = textView.emoticonText else{
             return
@@ -85,7 +85,7 @@ class WBComposeController: UIViewController {
         //2 发布(目前API已经不支持了)
         let image  = UIImage(named: "icon_small_kangaroo_loading_1")
         NetWorkManager.shared.postStatus(textStatus: text,image: image) { (json, isSuccess) in
-            print(json ?? "")
+          //  print(json ?? "")
             SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
             let message = isSuccess ? "发布成功" : "发布失败"
             SVProgressHUD.showInfo(withStatus: message)
@@ -100,7 +100,7 @@ class WBComposeController: UIViewController {
     
     /// 切换表情键盘
     @objc private func emoticonKeyboard(){
-        print("切换表情键盘")
+        //print("切换表情键盘")
         // textView.inputView就是文本框的输入视图 系统默认键盘的时候 视图为nil
         // (1)视图的宽度就是屏幕的宽度 高度可自定义
 //        emoticonInputView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 253))

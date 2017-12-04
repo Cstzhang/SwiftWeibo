@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
     fileprivate lazy var listViewModel = WBStatusListViewModel()
     //加载数据源 假数据
     override func loadData() {
-        print("准备刷新")
+      //  print("准备刷新")
         refreshControl?.beginRefreshing()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2 ) {
             self.listViewModel.loadStatus(pullop: self.isPullup) { (isSuccess,hasMorePullup) in
@@ -36,7 +36,7 @@ class HomeViewController: BaseViewController {
     
     //显示好友的方法
     @objc fileprivate  func showFriends()  {
-        print("查看好友")
+      //  print("查看好友")
         let vc = DemoViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -82,7 +82,7 @@ extension HomeViewController{
 
 extension  HomeViewController:WBStatusCellDelegate{
     func statusCellDidSelectURLString(cell: WBStatusCell, urlString: String) {
-        print(urlString)
+       // print(urlString)
         let vc = WBWebViewController()
         vc.urlString = urlString
         navigationController?.pushViewController(vc, animated: true)

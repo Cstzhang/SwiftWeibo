@@ -65,7 +65,7 @@ class WBComposeView: UIView {
         
     }
     @objc private func clickMore(){
-        print("点击更多")
+        //print("点击更多")
         //便宜view
         let offset = CGPoint(x: scrollView.bounds.width, y: 0)
         scrollView.setContentOffset(offset, animated: true)
@@ -84,7 +84,7 @@ class WBComposeView: UIView {
     //MARK: -监听方法
     //点击类型按钮
     @objc private func clickButtn(selecterBtn:WBComposeTypeButton){
-     print("点了\(selecterBtn.clsName ?? "")")
+    // print("点了\(selecterBtn.clsName ?? "")")
      //1判断当前显示的视图
         let page = Int(scrollView.contentOffset.x / scrollView.bounds.width)
         let v  = scrollView.subviews[page]
@@ -104,7 +104,7 @@ class WBComposeView: UIView {
             button.pop_add(alpAnim, forKey: nil)
             if i == 0 {
                 alpAnim.completionBlock = {(_,_)->() in
-                    print("完成动画，展现控制器")
+                 //   print("完成动画，展现控制器")
                     self.completeBlock?(selecterBtn.clsName)
                 }
             }
@@ -120,7 +120,7 @@ class WBComposeView: UIView {
     }
 
     @IBAction func close() {
-        print("关闭选择视图")
+        //print("关闭选择视图")
         hideButtons()
     }
     
@@ -129,7 +129,7 @@ class WBComposeView: UIView {
         scrollView.setContentOffset(CGPoint(x:0,y:0), animated: true)
         closeButtonCenterX.constant = 0
         returnButtonCenterX.constant = 0
-        print("点击返回")
+       // print("点击返回")
         UIView.animate(withDuration: 0.25, animations: {
             self.layoutIfNeeded()
             self.returnButton.alpha = 0
