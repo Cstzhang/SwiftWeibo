@@ -34,11 +34,12 @@ class ZBEmoticonManager {
         }
      
         //3, 排序，使用次数搞的排序在前
-      
-        packages[0].emoticons.sort { (em1, em2) -> Bool in
-            return em1.useTimes > em2.useTimes
-        }
-        
+//
+//        packages[0].emoticons.sort { (em1, em2) -> Bool in
+//            return em1.useTimes > em2.useTimes
+//        }
+        packages[0].emoticons.sort { $0.useTimes > $1.useTimes }
+
         //4, 表情数组是否超出20，如果超出，删除末尾的表情
         
         if packages[0].emoticons.count > 20 {
