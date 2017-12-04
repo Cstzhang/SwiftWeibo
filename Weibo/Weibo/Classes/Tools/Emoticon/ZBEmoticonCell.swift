@@ -44,6 +44,8 @@ class ZBEmoticonCell: UICollectionViewCell {
         }
         
     }
+    //选择图片视图
+    private lazy var  tipView = ZBEmoticonTipView()
     
     @IBOutlet weak var label: UILabel!
     override init(frame: CGRect) {
@@ -54,7 +56,17 @@ class ZBEmoticonCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    //视图显示， 视图移开
+    override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
+        guard let w = newWindow else {
+            return
+        }
+        //将视图添加到窗口
+        w.addSubview(tipView)
+        //默认隐藏
+        tipView.isHidden = true
+    }
 //    override func awakeFromNib() {
 //    setupUI()
 //    }
@@ -72,6 +84,42 @@ class ZBEmoticonCell: UICollectionViewCell {
             em = emoticons?[tag]
         }
         delegate?.emoticonCellDidSelectedEmoticon(cell: self, em: em)
+    }
+    
+    //长按手势识别
+    @objc private func longGesture(gesture:UILongPressGestureRecognizer){
+       // 获取点击位置
+        let location  = gesture.location(in: self)
+        guard let button  = buttonWithLocation(location: location) else{
+            return
+        }
+        //处理手势
+        switch gesture.state {
+        case .began,.changed:
+            tipView.isHidden = false
+            //坐标系转换 按钮参照cell的坐标转移到 window 的坐标
+            let center  = self.convert(button.center, to: window)
+            tipView.center = center
+            //设置提示视图的表情模型
+            if button.tag < (emoticons?.count)!{
+                tipView.emoticon = emoticons?[button.tag]
+            }
+        default:
+            break
+        }
+        
+        
+    }
+    
+    //获取长按的图标
+    private func buttonWithLocation(location:CGPoint) -> UIButton?{
+        //遍历contentview 所有子视图，如果课件，同事location 确认是按钮
+        for btn in contentView.subviews as! [UIButton] {
+            if btn.frame.contains(location)  && !btn.isHidden && btn != contentView.subviews.last {
+                return btn
+            }
+        }
+        return nil
     }
     
 }
@@ -92,7 +140,7 @@ private extension ZBEmoticonCell{
         let w  = (bounds.width - 2*leftMargin) / CGFloat(colCount)
         let h = (bounds.height - bottomMargin) / CGFloat(rowCount)
         
-        
+        //循环创建按钮
         for i  in 0..<21 {
             let row  =  i / colCount
             let col = i % colCount
@@ -111,6 +159,10 @@ private extension ZBEmoticonCell{
         let removeButtn  = contentView.subviews.last as! UIButton
         let image  = UIImage(named: "compose_emotion_delete_highlighted", in: ZBEmoticonManager.shared.bundle, compatibleWith: nil)
         removeButtn.setImage(image, for: [])
+        //添加长按手势
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longGesture))
+        longPress.minimumPressDuration = 0.1
+        addGestureRecognizer(longPress)
         
     }
     
