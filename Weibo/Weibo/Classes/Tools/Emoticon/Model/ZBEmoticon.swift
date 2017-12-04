@@ -32,6 +32,8 @@ class ZBEmoticon: NSObject {
             emoji  = String(c)
         }
     }
+    //表情使用次数
+    @objc var useTimes:Int = 0
     //emoji的表情字符串
     @objc var emoji:String?
     //表情模型所在目录

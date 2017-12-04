@@ -58,9 +58,22 @@ extension WBEmoticonInputVIew: UICollectionViewDataSource{
 }
 //代理协议方法 实现点击
 extension WBEmoticonInputVIew:ZBEmoticonCellDelegate{
+    
+    /// 选中的表情回调
+    ///
+    /// - Parameters:
+    ///   - cell: 分页cell
+    ///   - em: 选中的表情，删除为nil
     func emoticonCellDidSelectedEmoticon(cell: ZBEmoticonCell, em: ZBEmoticon?) {
       //执行闭包回调
         seletedEmoticonCallBack?(em)
+        //添加最近使用的表情
+        guard let em = em  else {
+            return
+        }
+        //记录使用的表情
+        ZBEmoticonManager.shared.recentEmoticon(em: em)
+        
     }
 }
 

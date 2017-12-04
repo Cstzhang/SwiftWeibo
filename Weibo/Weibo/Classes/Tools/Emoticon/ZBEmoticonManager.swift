@@ -24,6 +24,29 @@ class ZBEmoticonManager {
          return  Bundle(path: path!)!
     }()
     
+    //添加最近使用的表情
+    func recentEmoticon(em:ZBEmoticon) -> () {
+        //1，添加表情使用次数
+        em.useTimes += 1
+        //2, 判断该表情是否已经记录，没有添加记录
+        if !packages[0].emoticons.contains(em){
+            packages[0].emoticons.append(em)
+        }
+     
+        //3, 排序，使用次数搞的排序在前
+      
+        packages[0].emoticons.sort { (em1, em2) -> Bool in
+            return em1.useTimes > em2.useTimes
+        }
+        
+        //4, 表情数组是否超出20，如果超出，删除末尾的表情
+        
+        if packages[0].emoticons.count > 20 {
+            packages[0].emoticons.removeSubrange(20..<packages[0].emoticons.count)
+        }
+        
+    }
+    
 }
 //MARK: -表情符号/字符串处理
 extension ZBEmoticonManager{
