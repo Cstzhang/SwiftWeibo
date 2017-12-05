@@ -145,7 +145,7 @@ class WBStatusViewModel:CustomStringConvertible {
     func updateSingleImageSize(image:UIImage)  {
         var size = image.size
         //过宽图像处理
-        let maxWidth:CGFloat = 300
+        let maxWidth:CGFloat = 200
         if size.width > maxWidth{
             //设置最大宽度
             size.width = maxWidth
@@ -160,6 +160,12 @@ class WBStatusViewModel:CustomStringConvertible {
             //等比例调整  特殊处理高度，高度太大处理用户体验/4
             size.height  =  size.width * image.size.height / image.size.width / 4
         }
+        
+        //过高图片处理 scaletoFill 高度减小会自动剪切
+        if size.height > 200  {
+            size.height = 200
+        }
+        
         
         //顶部+12便于布局
         size.height += WBStatusPictureOutterMargin

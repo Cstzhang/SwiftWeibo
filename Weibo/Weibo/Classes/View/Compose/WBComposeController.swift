@@ -28,6 +28,8 @@ class WBComposeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //布局UI
         setupUI()
         
         //监听键盘通知 UIWindow

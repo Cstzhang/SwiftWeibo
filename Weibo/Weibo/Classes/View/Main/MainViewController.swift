@@ -81,9 +81,12 @@ class MainViewController: UITabBarController {
             //FIXME: -闪退问题
             let vc = cls.init()
             let nav  = UINavigationController(rootViewController: vc)
-            v?.removeFromSuperview()
+            //让导航控制器强行更新约束, 直接更新所有子视图的约束
+            // 开发中发现不希望的布局约束和动画混在一起，向前寻找，强制更新约束
+            nav.view.layoutIfNeeded()
+          
             self.present(nav, animated: true){
-//                v?.removeFromSuperview()
+                 v?.removeFromSuperview()
             }
 
         }
