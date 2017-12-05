@@ -143,12 +143,35 @@ extension WBStatusPictureView{
             iv.addGestureRecognizer(tap)
             //设置imageview tag
             iv.tag = i
+            //添加动图标签
+            addGifView(iv: iv)
             
         }
+    }
+    
+    /// 图像中加一个GIF提示图像
+    private func addGifView(iv:UIImageView){
+        //添加一个GIF 标识图
+        let gifImageView  = UIImageView(image: UIImage(named: "timeline_image_gif"))
+        iv.addSubview(gifImageView)
+        //自动布局
         
+        gifImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        
-        
+        iv.addConstraint(NSLayoutConstraint(item: gifImageView,
+                                            attribute: .right,
+                                            relatedBy: .equal,
+                                            toItem: iv,
+                                            attribute: .right,
+                                            multiplier: 1.0,
+                                            constant: 0))
+        iv.addConstraint(NSLayoutConstraint(item: gifImageView,
+                                            attribute: .bottom,
+                                            relatedBy: .equal,
+                                            toItem: iv,
+                                            attribute: .bottom,
+                                            multiplier: 1.0,
+                                            constant: 0))
     }
     
     
