@@ -15,6 +15,37 @@ private let retweetedcellId = "retweetedcellId"
 class HomeViewController: BaseViewController {
 //    fileprivate lazy var statusList = [String]()
     fileprivate lazy var listViewModel = WBStatusListViewModel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //注册通知
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(browserPhoto(n:)), name:NSNotification.Name(rawValue: WBStatusCellBrowserPhotoNotification), object: nil)
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    //监听通知方法
+    @objc private func browserPhoto(n:Notification){
+        // 1 从通知的userInfo 提取参数
+        guard  let selectedIndex = n.userInfo?[WBStatusCellBrowserPhotoSelectedIndexKey] as? Int,
+               let urls = n.userInfo?[WBStatusCellBrowserPhotoURLKey] as? [String],
+               let parentImageViews = n.userInfo?[WBStatusCellBrowserPhotoImageViewsKey] as? [UIImageView]
+            else{
+            
+            return
+        }
+        // 2展现照片浏览控制器
+        let vc = HMPhotoBrowserController.photoBrowser(withSelectedIndex: selectedIndex,
+                                                       urls: urls,
+                                                       parentImageViews: parentImageViews)
+        
+        present(vc, animated: true, completion: nil)
+    
+        
+    }
+    
+    
     //加载数据源 假数据
     override func loadData() {
       //  print("准备刷新")

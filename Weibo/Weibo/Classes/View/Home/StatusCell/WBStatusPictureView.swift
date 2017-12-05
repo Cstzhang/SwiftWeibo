@@ -68,6 +68,39 @@ class WBStatusPictureView: UIView {
         setupUI()
     }
     
+    //图片点击手势监听
+    /// @param selectedIndex    选中照片索引
+    /// @param urls             浏览照片 URL 字符串数组
+    /// @param parentImageViews 父视图的图像视图数组，用户展现和解除转场动画参照
+    @objc private func tapImageView(tap:UITapGestureRecognizer){
+        guard let iv  = tap.view,
+              let picURLs = viewModel?.picURLs
+        else{
+            return
+        }
+        var selectedIndex = iv.tag
+        //4 张图处理(特殊情况)
+        if picURLs.count == 4 && selectedIndex>1{
+           selectedIndex -= 1
+        }
+        let urls = (picURLs as NSArray).value(forKey: "thumbnail_pic") as! [String]
+          //处理可见的图像视图数组
+        var imageViewList = [UIImageView]()
+        for iv in subviews as! [UIImageView] {
+            if !iv.isHidden{
+                imageViewList.append(iv)
+            }
+        }
+        //print(imageViewList)
+        //发送通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBStatusCellBrowserPhotoNotification),
+                                        object: self,
+                                        userInfo: [WBStatusCellBrowserPhotoURLKey:urls,
+                                        WBStatusCellBrowserPhotoImageViewsKey:imageViewList,
+                                        WBStatusCellBrowserPhotoSelectedIndexKey:selectedIndex
+                                                   ])
+    }
+    
     
 
 }
@@ -103,7 +136,13 @@ extension WBStatusPictureView{
             iv.frame = rect.offsetBy(dx: col * (WBStatusPictureViewItemWidth + WBStatusPictureInnerMargin), dy: row *   (WBStatusPictureViewItemWidth + WBStatusPictureInnerMargin))
             
             addSubview(iv)
-            
+            //让图片可以交互
+            iv.isUserInteractionEnabled = true
+            //添加手势识别
+            let tap  = UITapGestureRecognizer(target: self, action: #selector(tapImageView))
+            iv.addGestureRecognizer(tap)
+            //设置imageview tag
+            iv.tag = i
             
         }
         

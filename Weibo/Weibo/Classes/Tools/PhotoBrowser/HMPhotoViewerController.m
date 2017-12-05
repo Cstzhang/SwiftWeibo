@@ -55,17 +55,31 @@
 
 #pragma mark - 照片相关
 - (void)loadImage {
-    
-    [_imageView sd_setImageWithURL:_url placeholderImage:_placeholder options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//
+//    [_imageView sd_setImageWithURL:_url placeholderImage:_placeholder options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            _progressView.progress = (float)receivedSize / expectedSize;
+//        });
+//    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        if (image == nil) {
+//            return;
+//        }
+//        [self setImagePosition:image];
+//    }];
+    [_imageView sd_setImageWithURL:_url placeholderImage:_placeholder options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         dispatch_async(dispatch_get_main_queue(), ^{
             _progressView.progress = (float)receivedSize / expectedSize;
         });
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image == nil) {
             return;
         }
         [self setImagePosition:image];
     }];
+    
+    
+    
 }
 
 - (void)setImagePosition:(UIImage *)image {

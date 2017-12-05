@@ -11,6 +11,15 @@ import Foundation
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
 
 let WBUserLoginSuccessNotification = "WBUserLoginSuccessNotification"
+//MARK: -照片浏览通知
+//照片浏览通知
+let WBStatusCellBrowserPhotoNotification = "WBStatusCellBrowserPhotoNotification"
+//索引key
+let WBStatusCellBrowserPhotoSelectedIndexKey = "WBStatusCellBrowserPhotoSelectedIndexKey"
+//预览图片URL key
+let WBStatusCellBrowserPhotoURLKey = "WBStatusCellBrowserPhotoURLKey"
+// 父视图数组key
+let WBStatusCellBrowserPhotoImageViewsKey = "WBStatusCellBrowserPhotoImageViewsKey"
 //程序ID "3600261914"
 let WBAppKey = "1593394241"
 //加密信息 "136f1a5e9daddf4324b6fda287e4f29b"
