@@ -30,8 +30,8 @@
                         <outlet property="delegate" destination="hNC-ec-bJk" id="PVk-SY-gJe"/>
                     </connections>
                 </collectionView>
-                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="DUh-q3-ci9">
-                    <rect key="frame" x="160" y="176" width="55" height="37"/>
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="DUh-q3-ci9">
+                    <rect key="frame" x="187.5" y="213" width="0.0" height="0.0"/>
                     <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
                     <color key="currentPageIndicatorTintColor" red="0.96078431610000004" green="0.70588237050000002" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </pageControl>
