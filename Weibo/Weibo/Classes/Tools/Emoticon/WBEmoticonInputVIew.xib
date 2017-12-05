@@ -27,8 +27,14 @@
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="hNC-ec-bJk" id="H5K-qt-fwu"/>
+                        <outlet property="delegate" destination="hNC-ec-bJk" id="PVk-SY-gJe"/>
                     </connections>
                 </collectionView>
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="DUh-q3-ci9">
+                    <rect key="frame" x="160" y="176" width="55" height="37"/>
+                    <color key="pageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="currentPageIndicatorTintColor" red="0.96078431610000004" green="0.70588237050000002" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </pageControl>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIk-lW-gEy" userLabel="底部工具栏" customClass="WBEmoticonToolBar" customModule="Weibo" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="213" width="375" height="40"/>
                     <constraints>
@@ -36,13 +42,14 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.96078431610000004" green="0.70588237050000002" blue="0.20000000300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="IIk-lW-gEy" firstAttribute="top" secondItem="DUh-q3-ci9" secondAttribute="bottom" id="4jJ-QX-Ehz"/>
                 <constraint firstItem="IIk-lW-gEy" firstAttribute="bottom" secondItem="NmS-2K-lIL" secondAttribute="bottom" id="GjG-cL-ITm"/>
                 <constraint firstItem="yxO-Qb-HW7" firstAttribute="leading" secondItem="NmS-2K-lIL" secondAttribute="leading" id="KRx-NS-SNK"/>
                 <constraint firstItem="IIk-lW-gEy" firstAttribute="top" secondItem="yxO-Qb-HW7" secondAttribute="bottom" id="MGg-SX-8Gx"/>
                 <constraint firstItem="yxO-Qb-HW7" firstAttribute="top" secondItem="NmS-2K-lIL" secondAttribute="top" id="WLg-kv-KlS"/>
                 <constraint firstItem="IIk-lW-gEy" firstAttribute="trailing" secondItem="NmS-2K-lIL" secondAttribute="trailing" id="ZiF-ta-pKf"/>
+                <constraint firstItem="DUh-q3-ci9" firstAttribute="centerX" secondItem="hNC-ec-bJk" secondAttribute="centerX" id="rWg-k3-H8W"/>
                 <constraint firstItem="IIk-lW-gEy" firstAttribute="leading" secondItem="NmS-2K-lIL" secondAttribute="leading" id="wFI-3o-viH"/>
                 <constraint firstItem="yxO-Qb-HW7" firstAttribute="trailing" secondItem="NmS-2K-lIL" secondAttribute="trailing" id="xSU-aJ-6Be"/>
             </constraints>
@@ -51,6 +58,7 @@
             <viewLayoutGuide key="safeArea" id="NmS-2K-lIL"/>
             <connections>
                 <outlet property="collectionView" destination="yxO-Qb-HW7" id="cvZ-6K-qa4"/>
+                <outlet property="pageControl" destination="DUh-q3-ci9" id="kKQ-rY-fqw"/>
                 <outlet property="toolBar" destination="IIk-lW-gEy" id="OVU-ZS-n8z"/>
             </connections>
             <point key="canvasLocation" x="-658" y="-207"/>

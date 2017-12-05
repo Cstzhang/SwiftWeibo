@@ -9,13 +9,15 @@
 import UIKit
 private let cellId = "cellId"
 class WBEmoticonInputVIew: UIView {
-    
+    //分页控件
+    @IBOutlet weak var pageControl: UIPageControl!
+    //工具栏
     @IBOutlet weak var toolBar: WBEmoticonToolBar!
+    //表情view
     @IBOutlet weak var collectionView: UICollectionView!
     /// 加载nib 返回输入视图
     //  选中表情回调闭包
     private var seletedEmoticonCallBack:((_ emoticon:ZBEmoticon?)->())?
-    
     /// - Returns: 返回视图
     class func inputView(seletcedEmoticon:@escaping (_ emoticon:ZBEmoticon?)->())->WBEmoticonInputVIew{
         let nib = UINib(nibName: "WBEmoticonInputVIew", bundle: nil)
@@ -45,6 +47,37 @@ extension WBEmoticonInputVIew:WBEmoticonToolBarDelegate{
      // 设置分组按钮的选中状态
         toolBar.selectedIndex = index
     }
+    
+}
+//滚动修改分页显示
+extension WBEmoticonInputVIew:UICollectionViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //1. 获取中心点
+        var center  = scrollView.center
+        center.x += scrollView.contentOffset.x
+        //2 当前显示的cell 的indexPath
+        let paths = collectionView.indexPathsForVisibleItems
+        //3 判断中心点在哪一个页面上
+        var targetIndexPath:IndexPath?
+        for indexPath in paths {
+            // 1> 根据indexPath 获得cell
+            let cell = collectionView.cellForItem(at: indexPath)
+            // 2> cell是否包含中心点
+            if cell?.frame.contains(center) == true{
+                targetIndexPath = indexPath
+                break
+            }
+        }
+        //判断是否找到目标indexPath
+        guard let target = targetIndexPath else {
+            return
+        }
+        //显示对应的分组
+        toolBar.selectedIndex = target.section
+    }
+    
+    
+    
     
 }
 
