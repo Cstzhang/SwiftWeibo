@@ -51,9 +51,13 @@ class WBStatusPictureView: UIView {
                 if index == 1 && urls?.count == 4{
                     index += 1
                 }
+                //设置图像
                 iv.zb_setImage(urlString: url.thumbnail_pic, placeholderImage: nil)
+                //判断是不是gif
+                iv.subviews[0].isHidden = (((url.thumbnail_pic ?? "") as NSString).pathExtension.lowercased() != "gif")
                 //显示图
-                 iv.isHidden = false
+                iv.isHidden = false
+                
                 index += 1
             }
             
@@ -144,7 +148,10 @@ extension WBStatusPictureView{
             //设置imageview tag
             iv.tag = i
             //添加动图标签
+            
             addGifView(iv: iv)
+            
+            
             
         }
     }
