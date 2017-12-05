@@ -27,8 +27,15 @@ class WBStatus: NSObject {
             source = "来自于 " + (source?.zb_href()?.text ?? "微博")
         }
     }
+    
+    //微博创建日期
+    @objc var  creatDate:Date?
   //创建时间
-  @objc  var created_at:String?
+    @objc  var created_at:String?{
+        didSet{
+            creatDate = Date.zb_sinaDate(string: created_at ?? "")
+        }
+    }
   //创建
   @objc  var pic_urls:[WBStatusPicture]?
     

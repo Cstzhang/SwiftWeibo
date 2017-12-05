@@ -39,7 +39,7 @@ class WBStatusCell: UITableViewCell {
             //设置来源
             sourceLabel.text = viewModel?.status.source
             //创建时间
-            timeLabel.text = viewModel?.status.created_at
+            timeLabel.text = viewModel?.status.creatDate?.zb_dateDescription
 
         }
     }
