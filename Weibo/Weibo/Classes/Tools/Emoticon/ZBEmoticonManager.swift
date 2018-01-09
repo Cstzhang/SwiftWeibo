@@ -58,25 +58,26 @@ extension ZBEmoticonManager{
     func emoticonString(string:String,font:UIFont) -> NSAttributedString {
       //  print(string)
         let attrString  = NSMutableAttributedString(string: string)
-        //简历正则表达式，过滤所有的·表情·文字 [] ()都是正则的关键字，要参与匹配要转译
+        //1 简历正则表达式，过滤所有的·表情·文字 [] ()都是正则的关键字，要参与匹配要转译
         let pattern = "\\[.*?\\]"
         guard let regx  = try? NSRegularExpression(pattern: pattern, options: []) else{
             return attrString
         }
-        //匹配所有项
+        //2 匹配所有项
         let matches = regx.matches(in: string, options: [], range: NSRange(location: 0, length: attrString.length))
-        //遍历
+        //3 遍历
         for m in matches.reversed() {
             let r = m.range(at: 0)
             let subStr = ( attrString.string as NSString).substring(with: r)
-            //对应的表情符号
+            //1 对应的表情符号
             if let em  = ZBEmoticonManager.shared.findEmoticon(string: subStr){
-                //FIXME: -需要字体 使用表情文本属性进行替换
+                //2 需要字体 使用表情文本属性进行替换
                 attrString.replaceCharacters(in: r, with: em.imageText(font:font))
             }
         }
-        //统一设置一遍字符串的属性
+        //4 统一设置一遍字符串的属性 FIXME - 颜色
         attrString.addAttributes([NSAttributedStringKey.font : font], range: NSRange(location: 0, length: attrString.length))
+        
         return attrString
     }
     
